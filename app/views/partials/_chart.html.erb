@@ -1,13 +1,25 @@
 <div class="chart"><img  src="<%= sleep_chart_url(Date.today-7.days, Date.today, @user.id)%>" /></div>
 <div class="profile">
-<h2>Sleep Debt Today:</h2>
-<%= "%5.2f" % sleep_debt_for_date(Date.today, @user.id) %> hours.<br />
-<h2>Target Sleep</h2>
+<% @sleepdebt = sleep_debt_for_date(Date.today, @user.id).to_f %>
+<% if @sleepdebt > 0 %>
+	<h3>Sleep Debt Today:</h3>
+	<%= "%5.2f" % @sleepdebt %> hours.<br />
+<% else %>
+	<h3>Sleep Surplus Today:</h3>
+	<%= "%5.2f" % -@sleepdebt %> hours.<br />
+<% end %>
+<h3>Target Sleep</h3>
 <%= @user.target_hours %> per day.
-<h2>Average Sleep</h2>
+<h3>Average Sleep</h3>
 <%= "%5.2f " % average_sleep_for_range(Date.today - 7.days, Date.today, @user.id) %> hours per day for the last week.<br />
-<h2>Average Sleep Debt:</h2>
-<%= "%5.2f " % average_sleep_debt_for_range(Date.today - 7.days, Date.today, @user.id) %> hours per day for the last week.<br />
+<% @sleepdebtr = average_sleep_debt_for_range(Date.today - 7.days, Date.today, @user.id).to_f %>
+<% if @sleepdebtr > 0 %>
+	<h3>Average Sleep Debt:</h3>
+	<%= "%5.2f" % @sleepdebtr %> hours.<br />
+<% else %>
+	<h3>Average Sleep Surplus:</h3>
+	<%= "%5.2f" % -@sleepdebtr %> hours.<br />
+<% end %>
 </div>
 <div class="clearer">
 </div>
