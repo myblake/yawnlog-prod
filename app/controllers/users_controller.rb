@@ -15,12 +15,15 @@ class UsersController < ApplicationController
 	
 	def signup_backend
 	  sha_passwd = Digest::SHA1.hexdigest(params[:user][:password])
+	  if params[:user][:twitter]=~/.*@.*/
+	    params[:user][:twitter].sub('@','')
+    end
 		@user = User.new(:username => params[:user][:username],
 		                :email => params[:user][:email],
 		                :password => sha_passwd,
 		                :realname => params[:user][:realname],
 		                :zip => params[:user][:zip],
-		                :twitter => params[:user][:twitter],
+		                :twitter => params[:user][:twitter].sub(/\@*/,''),
                     :zip => params[:user][:zip],
 		                :target_hours => params[:user][:target_hours],
 		                :public_profile => params[:user][:public_profile])
@@ -79,7 +82,7 @@ class UsersController < ApplicationController
       @user.realname = params[:user][:realname]
       @user.public_profile = params[:user][:public_profile]
       @user.target_hours = params[:user][:target_hours]
-      @user.twitter = params[:user][:twitter]
+      @user.twitter = params[:user][:twitter].sub(/\@*/,'')
       @user.zip = params[:user][:zip]
       if params[:user][:password] != ""
       
