@@ -43706,3 +43706,75 @@ Rendering template within layouts/application
 Rendering users/public_profiles
   [4;36;1mUser Load (5.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 11) [0m
 Completed in 75ms (View: 32, DB: 23) | 200 OK [http://beta.yawnlog.com/users/public_profiles]
+
+
+Processing UsersController#user (for 98.216.65.79 at 2009-02-23 13:04:34) [GET]
+  Parameters: {"id"=>"74"}
+  [4;36;1mUser Load (8.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (4.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 74) [0m
+Rendering template within layouts/application
+Rendering users/user
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 74) [0m
+  [4;35;1mSleep Load (6.5ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=74 AND start<'2009-02-17 00:00:00' AND stop>'2009-02-16 00:00:00') [0m
+  [4;36;1mSleep Load (5.9ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=74 AND start<'2009-02-18 00:00:00' AND stop>'2009-02-17 00:00:00') [0m
+  [4;35;1mSleep Load (6.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=74 AND start<'2009-02-19 00:00:00' AND stop>'2009-02-18 00:00:00') [0m
+  [4;36;1mSleep Load (5.9ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=74 AND start<'2009-02-20 00:00:00' AND stop>'2009-02-19 00:00:00') [0m
+  [4;35;1mSleep Load (5.8ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=74 AND start<'2009-02-21 00:00:00' AND stop>'2009-02-20 00:00:00') [0m
+  [4;36;1mSleep Load (5.7ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=74 AND start<'2009-02-22 00:00:00' AND stop>'2009-02-21 00:00:00') [0m
+  [4;35;1mSleep Load (7.6ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=74 AND start<'2009-02-23 00:00:00' AND stop>'2009-02-22 00:00:00') [0m
+  [4;36;1mSleep Load (10.6ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=74 AND start<'2009-02-24 00:00:00' AND stop>'2009-02-23 00:00:00') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 74) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=74 AND start<'2009-02-24 00:00:00' AND stop>'2009-02-23 00:00:00') [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 74) [0m
+  [4;36;1mSleep Load (7.8ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=74) ORDER BY start ASC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 74) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 74) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=74) ORDER BY start ASC LIMIT 1[0m
+Rendered partials/_chart (124.2ms)
+  [4;36;1mUser Load (5.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 177ms (View: 142, DB: 13) | 200 OK [http://beta.yawnlog.com/users/user/74]
+
+
+Processing UsersController#public_profiles (for 98.216.65.79 at 2009-02-23 13:04:47) [GET]
+  [4;35;1mUser Load (5.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mUser Load (17.5ms)[0m   [0;1mSELECT * FROM "users" WHERE (public_profile='t') [0m
+Rendering template within layouts/application
+Rendering users/public_profiles
+  [4;35;1mUser Load (5.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Completed in 51ms (View: 22, DB: 23) | 200 OK [http://beta.yawnlog.com/users/public_profiles]
+
+
+Processing HomeController#index (for 66.92.72.136 at 2009-02-23 13:05:07) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 14ms (View: 12, DB: 0) | 200 OK [http://beta.yawnlog.com/]
+
+
+Processing HomeController#about (for 66.92.72.136 at 2009-02-23 13:05:11) [GET]
+Rendering template within layouts/application
+Rendering home/about
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://beta.yawnlog.com/home/about]
+
+
+Processing HomeController#index (for 71.184.182.111 at 2009-02-23 13:09:13) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 11ms (View: 8, DB: 0) | 200 OK [http://beta.yawnlog.com/]
+
+
+Processing HomeController#about (for 71.184.182.111 at 2009-02-23 13:09:40) [GET]
+Rendering template within layouts/application
+Rendering home/about
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://beta.yawnlog.com/home/about]
+
+
+Processing HomeController#index (for 63.72.235.5 at 2009-02-23 13:13:19) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 86ms (View: 83, DB: 0) | 200 OK [http://beta.yawnlog.com/]
+
+
+Processing HomeController#about (for 63.72.235.5 at 2009-02-23 13:13:24) [GET]
+Rendering template within layouts/application
+Rendering home/about
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://beta.yawnlog.com/home/about]
