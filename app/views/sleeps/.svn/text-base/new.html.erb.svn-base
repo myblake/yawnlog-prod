@@ -1,0 +1,36 @@
+<h1>New <span class="teal">sleep</span></h1>
+<div class="blueback">
+<% form_for(@sleep) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :start %><br />
+    <%= f.datetime_select :start %>
+  </p>
+  <p>
+    <%= f.label :stop %><br />
+    <%= f.datetime_select :stop %>
+  </p>
+  <p>
+    <%= f.label :zip %><br />
+    <% if @user %>
+        <%= f.text_field :zip, :value => @user.zip %>
+    <% else %>
+        <%= f.text_field :zip %>
+    <% end %>
+  </p>
+  <p>
+    <%= f.label :quality %><br />
+    <%= select(:sleep, :quality, Sleep::QUALITY, {:selected=>@sleep.quality}) %>
+  </p>
+  <p>
+      <%= f.label :note %>
+      <%= f.text_field :note %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+
+<% end %>
+
+<div class="box"><%= link_to 'Back', sleeps_path %></div>
+</div>

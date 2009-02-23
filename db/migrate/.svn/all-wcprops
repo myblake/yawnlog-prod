@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/yawnlog/!svn/ver/33/yawnlog/db/migrate
+END
+20090222052202_add_public_to_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/yawnlog/!svn/ver/22/yawnlog/db/migrate/20090222052202_add_public_to_user.rb
+END
+20090221204415_create_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/yawnlog/!svn/ver/9/yawnlog/db/migrate/20090221204415_create_users.rb
+END
+20090221224523_modify_sleeps.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/yawnlog/!svn/ver/22/yawnlog/db/migrate/20090221224523_modify_sleeps.rb
+END
+20090221213819_create_sleeps.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/yawnlog/!svn/ver/14/yawnlog/db/migrate/20090221213819_create_sleeps.rb
+END
+20090222085610_add_morestuff_to_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/yawnlog/!svn/ver/33/yawnlog/db/migrate/20090222085610_add_morestuff_to_user.rb
+END

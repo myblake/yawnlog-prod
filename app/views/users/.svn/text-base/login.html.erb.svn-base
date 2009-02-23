@@ -1,0 +1,15 @@
+<h1>Log <span class="teal">In</span></h1>
+<div style="text-align:center;float:right;width:400px;padding:20px 100px 0 0px">
+<%= image_tag ("translogo2.png", :alt=>"logo" )%></div>
+<div class="blueback" style="height:340px">
+<% if flash[:wrong_password] %>
+	<p style="color: green;"><%= flash[:password] %></p>
+<% end %>
+
+<% form_for :user, @user, :url => {:controller => :users, :action => :login_backend} do |f| %>
+	username:<br /><%= f.text_field(:username)%> <br/ >
+	password:<br /><%= f.password_field(:password) %><br />
+<%= submit_tag "login" %>
+<% end %>
+don't have an account? <%= link_to "signup", :controller => "users", :action => "signup" %>
+</div>

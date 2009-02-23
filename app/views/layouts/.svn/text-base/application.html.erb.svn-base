@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>YawnLog.com</title>
+		<link rel="icon" type="image/png" href="/images/favicon.png"/>
+    	<%= stylesheet_link_tag 'style' %>
+    	
+    </head>
+    <body>
+        <div id="page">
+            <div id="header">
+                <div id="nav">
+	                <div id="logo"><%= link_to image_tag ("yawnlog_logo_beta_horz3.png", :alt=>"logo"), :controller => "home", :action => "index" %></div>
+                    <% if session[:user_id] %>
+						<ul>
+                        	<li><%= link_to ("Sleep", :controller => "sleeps")%></li>
+                        	<li><%= link_to ("Share", :controller => "users", :action => "share")%></li>
+                        	<li><%= link_to ("World", :controller => "users", :action => "public_profiles")%></li>
+                        	<li><%= link_to "Settings", :controller => "users", :action => "edit"%></li>
+                        	<li><%= link_to ("About", :controller => "home", :action => "about")%></li>
+						</ul>
+                    <% end %>
+                </div>
+				<div id="login_box">
+                    <% if session[:user_id] %>
+						Signed in as <%= session[:user_username] %>. <%= link_to "Sign Out", :controller => "users", :action => "logout" %>&nbsp;&nbsp;
+					<% end %>
+                </div>
+            </div>
+            <div id="main">
+                <% if flash[:notice] %><p class="flash notice"><%= flash[:notice] %></p><br><br><% end %>
+                <%= yield %>
+            </div>
+            <div id="footer"><br />
+                copyright &copy; 2009 <a href="http://www.hellosilo.com">hellosilo llc.</a>
+            </div>
+        </div>
+    </body>
+</html>

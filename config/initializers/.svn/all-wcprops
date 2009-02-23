@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/yawnlog/!svn/ver/2/yawnlog/config/initializers
+END
+inflections.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/yawnlog/!svn/ver/2/yawnlog/config/initializers/inflections.rb
+END
+new_rails_defaults.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/yawnlog/!svn/ver/2/yawnlog/config/initializers/new_rails_defaults.rb
+END
+mime_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/yawnlog/!svn/ver/2/yawnlog/config/initializers/mime_types.rb
+END

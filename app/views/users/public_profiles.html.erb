@@ -1,0 +1,34 @@
+<% @count = 0 %>
+<h1>Public <span class="teal">Profiles</span></h1>
+
+<div class="blueback">
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Twitter</th>
+    <th>Realname</th>
+    <th>Location</th>
+    <th><th>
+  </tr>
+
+<% for user in @users %>
+<% @count+=1 %>
+<% if @count%2 == 0 %>
+  <tr>
+<% else %>
+  <tr class="zebra">
+<% end %>
+    <td><%=h user.username %></td>
+    <td>
+	<% if user.twitter %>
+		<%=link_to "@" + user.twitter.to_s, "http://www.twitter.com/" + user.twitter.to_s %>
+	<% end %>
+	</td>
+    <td><%=h user.realname %></td>
+    <td><%=h user.zip %></td>
+    <td><%=link_to "See user's profile", :action => "user", :params => { :id => user.id }  %>    
+
+  </tr>
+<% end %>
+</table>
+</div>

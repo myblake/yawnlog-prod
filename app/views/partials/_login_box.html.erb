@@ -1,0 +1,10 @@
+<% unless session[:user_id] %>
+	<% form_for :user, @user, :url => {:controller => :users, :action => :login_backend} do |f| %>
+  		<%= link_to "signup", :controller => "users", :action => "signup" %> or sign in:<br>
+		username: <%= f.text_field(:username, :size => 15)%> <br/ >
+		password: <%= f.password_field(:password, :size => 11) %><br />
+	<%= submit_tag "login" %>
+<% end %>
+<% else %>
+Signed in as <%= session[:user_username] %>. <%= link_to "Sign Out", :controller => "users", :action => "logout" %>
+<% end %>

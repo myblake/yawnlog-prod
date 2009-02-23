@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/yawnlog/!svn/ver/49/yawnlog/app/views/users
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/yawnlog/!svn/ver/48/yawnlog/app/views/users/edit.html.erb
+END
+signup.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/yawnlog/!svn/ver/46/yawnlog/app/views/users/signup.html.erb
+END
+login.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/yawnlog/!svn/ver/45/yawnlog/app/views/users/login.html.erb
+END
+user.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/yawnlog/!svn/ver/42/yawnlog/app/views/users/user.html.erb
+END
+public_profiles.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/yawnlog/!svn/ver/42/yawnlog/app/views/users/public_profiles.html.erb
+END
+share.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/yawnlog/!svn/ver/49/yawnlog/app/views/users/share.html.erb
+END

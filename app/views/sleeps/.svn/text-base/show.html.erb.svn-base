@@ -1,0 +1,30 @@
+<h1>Update <span class="teal">Complete</span></h1>
+
+<div class="blueback">
+<p>
+  <b>Start:</b>
+  <%=h @sleep.start.strftime("%A, %B %d, %Y %I:%M%p") %>
+</p>
+
+<p>
+  <b>Stop:</b>
+  <%=h @sleep.stop.strftime("%A, %B %d, %Y %I:%M%p") %>
+</p>
+
+<p>
+  <b>Where:</b>
+  <%=h @sleep.zip %>
+</p>
+
+<p>
+  <b>Quality:</b>
+  <%=h Sleep::QUALITY_BACKWARDS[@sleep.quality] %>
+</p>
+<p>
+    <b>Note</b>
+    <%= @sleep.note %>
+</p>
+<%= link_to 'Edit', edit_sleep_path(@sleep) %> |
+<%= link_to 'Back', sleeps_path %> | 
+<%= link_to 'Add more', :action => :new %>
+</div>

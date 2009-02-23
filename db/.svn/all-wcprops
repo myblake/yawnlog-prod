@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/yawnlog/!svn/ver/45/yawnlog/db
+END
+schema.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/yawnlog/!svn/ver/36/yawnlog/db/schema.rb
+END
+test.sqlite3
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/yawnlog/!svn/ver/12/yawnlog/db/test.sqlite3
+END
+development.sqlite3
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/yawnlog/!svn/ver/45/yawnlog/db/development.sqlite3
+END

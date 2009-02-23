@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/yawnlog/!svn/ver/37/yawnlog/script
+END
+console
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/yawnlog/!svn/ver/2/yawnlog/script/console
+END
+server
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/yawnlog/!svn/ver/37/yawnlog/script/server
+END
+dbconsole
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/yawnlog/!svn/ver/2/yawnlog/script/dbconsole
+END
+destroy
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/yawnlog/!svn/ver/2/yawnlog/script/destroy
+END
+runner
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/yawnlog/!svn/ver/2/yawnlog/script/runner
+END
+about
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/yawnlog/!svn/ver/2/yawnlog/script/about
+END
+generate
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/yawnlog/!svn/ver/2/yawnlog/script/generate
+END
+plugin
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/yawnlog/!svn/ver/2/yawnlog/script/plugin
+END

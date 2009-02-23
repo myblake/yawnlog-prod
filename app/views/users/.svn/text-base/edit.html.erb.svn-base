@@ -1,0 +1,26 @@
+<h1>Editing your settings <span class="teal"><%= @user.username %></span></h1>
+
+<div class="blueback">
+<% form_for :user, @user do |f| %>
+    <%= f.error_messages %>
+	<%= f.label :email %><br />
+	<%= f.text_field :email %><br />
+    New Password<br />
+    <input id="user_password" name="user[password]" size="30" type="password" value="" /><br />
+    Confirm New Password<br />
+    <input id="user_password_confirm" name="user[password_confirm]" size="30" type="password" value="" /><br />
+	Real Name<br />
+	<%= f.text_field :realname %><br />
+	<%= f.label :zip %><br />
+	<%= f.text_field :zip %><br />
+	Twitter Name<br />
+	<%= f.text_field :twitter %><br />
+	Target Hours of Sleep per Night<br />
+	<%= f.text_field :target_hours %><br />
+	Make Profile Publicly Available?
+	<%= f.check_box :public_profile %><br />
+	<%= f.submit "Update" %>
+<% end %>
+
+<%= link_to 'Home', :controller => :home, :action => :index %>
+</div>

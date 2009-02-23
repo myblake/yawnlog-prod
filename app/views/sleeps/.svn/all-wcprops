@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/yawnlog/!svn/ver/46/yawnlog/app/views/sleeps
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/yawnlog/!svn/ver/40/yawnlog/app/views/sleeps/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/yawnlog/!svn/ver/45/yawnlog/app/views/sleeps/index.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/yawnlog/!svn/ver/46/yawnlog/app/views/sleeps/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/yawnlog/!svn/ver/40/yawnlog/app/views/sleeps/show.html.erb
+END

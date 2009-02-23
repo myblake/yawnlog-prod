@@ -1,0 +1,12 @@
+<h1>Welcome to <span class="teal">Yawn Log!</span></h1>
+
+<div class="blueback" style="text-align:center;">
+<h2><%=link_to "About Us", :action => :about %></h2>
+
+<% unless session[:user_id]%>
+	<h2><%=link_to "Login", :controller => :users, :action => :login %></h2>
+	<h2>Don't have one? Then <%=link_to "Sign up", :controller => :users, :action => :signup%>!</h2>
+<% end %>
+<div >
+<%= image_tag ("translogo2.png", :alt=>"logo" )%></div>
+</div>

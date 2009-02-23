@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/yawnlog/!svn/ver/12/yawnlog/test/unit
+END
+user_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/yawnlog/!svn/ver/9/yawnlog/test/unit/user_test.rb
+END
+sleep_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/yawnlog/!svn/ver/12/yawnlog/test/unit/sleep_test.rb
+END

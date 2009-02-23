@@ -1,0 +1,25 @@
+<h1>Editing your settings <span class="teal"><%= @user.username %></span></h1>
+
+<div class="blueback">
+<% form_for :user, @user do |f| %>
+    <%= f.error_messages %>
+	<%= f.label :email %><br />
+	<span class="zebra"><%= @user.email %></span><br />
+	Real Name<br />
+	<span class="zebra"><%= @user.realname %></span><br />
+	<%= f.label :zip %><br />
+	<span class="zebra"><%= @user.zip %></span><br />
+	Twitter Name<br />
+	<span class="zebra"><%= @user.twitter %></span><br />
+	Target Hours of Sleep per Night<br />
+	<span class="zebra"><%= @user.target_hours %></span><br />
+	Make User Admin
+	<%= f.check_box :admin %><br />
+	<%= f.submit "Update" %>
+<% end %>
+
+<div class="box"><%=link_to "Reset user's password", :action => "reset_password", :params => { :id => @user.id }  %>
+<%= link_to 'Back', :controller => :admin, :action => :index %></div>
+
+
+</div>

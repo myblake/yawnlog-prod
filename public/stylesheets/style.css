@@ -1,0 +1,101 @@
+body { background-color: #fff; }
+
+body, p, ol, ul, td {
+  font-family: arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #029cd2; text-decoration:none;  }
+a img {border:0;}
+
+a:hover { color: #f57f8f ; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+h1 {border-bottom:3px #c1e6f6 solid; padding-bottom:10px;}
+h2 {line-height:0px;margin-top:30px;}
+table {width:100%;border-spacing:0;}
+th {text-align:left;}
+td {padding:2px 2px 2px 10px;}
+
+/* Main Page Divs*/
+#page{color:#133960;width:101.5%;margin:-10px;}
+#header{text-align:center;}
+#main{width:860px;margin:auto;}
+#footer{height:60px;background-color:#133960; color: white; border-top:10px #029cd2 solid; text-align:center; margin-top:30px;}
+#login_box{text-align:right;}
+#logo {float:right;width:205px;margin-top:36px;}
+
+#nav{height:100px;background-color:#133960; color: white; border-bottom:10px #029cd2 solid; text-align:left; vertical-align: bottom;}
+#nav a{ font-size:18px; color: #029cd2;	height:50px;}
+#nav a:hover{color:#f57f8f;}
+#nav ul {margin-left: 30px; margin-bottom: 0px; margin-right: 0px; margin-top: 70px; position: absolute; float:left;list-style-type:none;padding:0px;background:#133960;} 
+
+#nav ul li {
+	margin-right: 10px;
+	float:left;
+	background:url(../images/nav_tab_left_g.gif) no-repeat;
+}
+
+#nav ul li a {
+	height:30px;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	float:left;
+	background:url(../images/nav_tab_right_g.gif) no-repeat;background-position: 100% 0%;
+}
+
+/* Classes */
+
+.blueback {background-color:#c1e6f6; padding:10px;}
+.teal {color:#029cd2;}
+.chart{padding:3px;border:3px #133960 solid; background:white;float:left;width:612px;margin-right:8px;}
+.clearer{clear:both;}
+.csssucks table{padding:0px;margin:0px;}
+.csssucks td{border:1px solid black;}
+.zebra{background-color:#d1f6fb;}
+
+.box a{padding:10px; background-color:#fff;margin:5px;line-height:4em;border:2px #fff solid;}
+.box a:hover{border:2px #029cd2 solid; background-image:url(../images/line.png);background-repeat:repeat-x;}

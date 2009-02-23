@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/yawnlog/!svn/ver/49/yawnlog/config
+END
+routes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/yawnlog/!svn/ver/36/yawnlog/config/routes.rb
+END
+database.yml
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/yawnlog/!svn/ver/49/yawnlog/config/database.yml
+END
+boot.rb
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/yawnlog/!svn/ver/2/yawnlog/config/boot.rb
+END
+environment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/yawnlog/!svn/ver/2/yawnlog/config/environment.rb
+END
