@@ -15,9 +15,6 @@ class UsersController < ApplicationController
 	
 	def signup_backend
 	  sha_passwd = Digest::SHA1.hexdigest(params[:user][:password])
-	  if params[:user][:twitter]=~/.*@.*/
-	    params[:user][:twitter].sub('@','')
-    end
 		@user = User.new(:username => params[:user][:username],
 		                :email => params[:user][:email],
 		                :password => sha_passwd,

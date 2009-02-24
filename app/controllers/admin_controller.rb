@@ -3,6 +3,7 @@ class AdminController < ApplicationController
   
   def index
     @users = User.find(:all)
+    @size = @users.length
   end
   
   def edit
