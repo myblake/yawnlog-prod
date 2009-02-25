@@ -18433,3 +18433,245 @@ Rendering users/public_profiles
 Rendered partials/_aggregate (269.6ms)
   [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 12) [0m
 Completed in 396ms (View: 375, DB: 9) | 200 OK [http://localhost/users/public_profiles]
+
+
+Processing UsersController#public_profiles (for 127.0.0.1 at 2009-02-25 17:33:48) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 12) LIMIT 1[0m
+  [4;35;1mUser Load (9.6ms)[0m   [0mSELECT * FROM "users" WHERE (public_profile='t') [0m
+Rendering template within layouts/application
+Rendering users/public_profiles
+  [4;36;1mUser Load (14.1ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mSleep Load (0.6ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=1 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.5ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=2 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=3 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=4 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=5 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=6 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=7 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=8 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=9 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=10 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=11 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=12 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=13 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=14 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=15 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=16 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=17 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=18 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=19 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=20 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=21 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=22 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=23 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=24 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=25 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=26 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=27 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=28 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=29 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=30 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=31 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=32 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=33 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=34 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=35 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=36 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=37 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=38 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=39 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=40 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=41 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=42 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=43 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=44 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=45 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=46 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=47 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=48 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=49 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=50 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=51 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=52 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=53 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=54 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=55 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=56 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=57 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=58 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=59 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=60 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=61 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=62 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=63 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=64 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=65 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=66 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=67 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=68 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=69 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=70 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=71 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=72 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=73 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.5ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=74 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.8ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=75 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=76 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=77 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=78 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=79 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=80 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=81 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=82 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=83 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=84 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=85 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (1.7ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=86 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=87 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=88 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=89 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=90 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=91 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=92 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=93 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=94 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=95 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=96 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=97 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=98 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=99 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=100 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=101 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=102 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=103 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=104 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=105 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=106 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=107 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=108 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=109 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=110 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.7ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=111 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=112 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=113 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=114 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=115 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.2ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=116 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=117 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=118 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=119 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=120 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=121 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=122 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.5ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=123 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=124 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=125 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=126 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.8ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=127 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=128 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=129 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (1.0ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=130 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=131 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=132 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=133 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=134 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=135 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=136 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.4ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=137 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.4ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=138 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=139 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=140 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.5ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=141 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=142 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=143 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=144 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.6ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=145 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=146 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.3ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=147 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;36;1mSleep Load (0.3ms)[0m   [0;1mSELECT * FROM "sleeps" WHERE (user_id=148 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+  [4;35;1mSleep Load (0.2ms)[0m   [0mSELECT * FROM "sleeps" WHERE (user_id=149 AND start<'2009-02-26 00:00:00' AND stop>'2009-02-25 00:00:00') [0m
+Rendered partials/_aggregate (279.9ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 12) [0m
+Completed in 325ms (View: 304, DB: 10) | 200 OK [http://localhost/users/public_profiles]
+
+
+Processing UsersController#user (for 127.0.0.1 at 2009-02-25 17:33:50) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 12) LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering users/user
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]) on line #1 of app/views/partials/_chart.html.erb:
+1: <div class="chart"><img  src="<%= sleep_chart_url(@chart["start"],@chart["stop"] , @user.id)%>" /></div>
+2: <div class="profile">
+3: <% @sleepdebt = sleep_debt_for_date(Date.today, @user.id).to_f %>
+4: <% if @sleepdebt > 0 %>
+
+    app/views/partials/_chart.html.erb:1
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:20:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:19:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable_partial.rb:45:in `render_partial'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/partials.rb:152:in `render_partial'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:258:in `render'
+    app/views/users/user.html.erb:4
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1248:in `default_render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:294:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285
+
+Rendered /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (20.7ms)
+Rendered /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.0ms)
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
