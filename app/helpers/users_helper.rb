@@ -61,4 +61,32 @@ module UsersHelper
     average = average_sleep_for_range(start_date, end_date, user_id)
     return target_hours - average
   end
+  
+  def user_chart_url
+    @users = User.find(:all, :order => "created_at DESC")
+    num_of_users = @users.length
+    user_bucket = {}
+    current_date = Date.new()
+    current_user = 0
+    while current_date <= end_date
+      while @users[current_user].created_at <= current_date
+        current_user += 1
+      end
+      user_bucket[current_date] = current_user
+      current_date += 1.days
+    end
+    
+    sleep_array = sleep_bucket.sort #orders bucket by date lowest to highest and returns as ARRAY of ARRAYs
+   
+    # Line Chart
+    GoogleChart::LineChart.new('600x300', "User Growth", false) do |lc|
+      lc.data "Users", hour_array, '0000ff'
+      lc.show_legend = false
+      lc.axis :y, :range => [0,num_of_users], :color => '000000', :font_size => 16, :alignment => :center
+      lc.axis :x, :labels => day_array, :color => '000000', :font_size => 16, :alignment => :center
+      lc.grid :x_step => 100.0/(hour_array.length - 1), :y_step => 100.0/(max_hour - min_hour), :length_segment => 1, :length_blank => 0
+      return lc.to_url
+    end
+  end
+  
 end

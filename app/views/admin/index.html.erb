@@ -12,7 +12,8 @@
     <th>Twitter</th>
     <th>Realname</th>
     <th>Location</th>
-    <th><th>
+    <th></th>
+    <th># of sleeps</th>
   </tr>
 
 <% for user in @users %>
@@ -31,7 +32,15 @@
     <td><%=h user.realname %></td>
     <td><%=h user.zip %></td>
     <td><%=link_to "See user's profile", :action => "edit", :params => { :id => user.id }  %></td>    
-
+	<td><% if user.sleeps.length < 1 
+		  color="red"
+		else
+		  color=""
+		end %>
+		<span class="<%=color%>"> 
+		<%= user.sleeps.length %>
+		</span>		
+	</td>
   </tr>
 <% end %>
 </table>

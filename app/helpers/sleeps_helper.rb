@@ -108,7 +108,7 @@ module SleepsHelper
 
   #aggregate stuff
   
-  def sleep_chart_url_aggregate(start_date,end_date,user_id)
+  def sleep_chart_url_aggregate(start_date,end_date)
     @users = User.find(:all)
     @users.each do |user|
       sleep_bucket = calculate_sleep_range(start_date,end_date,user_id)
