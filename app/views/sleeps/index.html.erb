@@ -10,14 +10,17 @@
         <th>Quality</th>
         <th>Note</th>
       </tr>
-
-    <% for sleep in @sleeps %>	
+	
+    <% for sleep in @sleeps %>
+		<% @classstring = "" %>
 		<% @count+=1 %>
-		<% if @count%2 == 0 %>
-		  <tr>
-		<% else %>
-		  <tr class="zebra">
-		<% end %>
+		<% if @count%2 == 1
+			@classstring = "zebra "
+		   end 
+		   if @count > 7 
+			@classstring += "hideme hidden" 
+		   end %>
+	  	<tr class="<%= @classstring %>">
         <td class="wide"><%=h sleep.start.strftime("%a, %m/%d/%y %I:%M%p") %></td>
         <td class="wide"><%=h sleep.stop.strftime("%a, %m/%d/%y %I:%M%p") %></td>
         <td><%=h sleep.zip %></td>
@@ -33,7 +36,7 @@
     <%= @user.realname %> is not tracking any sleep :-(<br />
 <% end %>
 
-<div class="box"><%= link_to 'Add More Sleep', new_sleep_path %></div>
+<div class="box"><%= link_to 'Add More Sleep', new_sleep_path %><a id="show_all" href="#" onclick="">Show All</a><a id="hide_all" href="#">Hide All</a></div>
 </div>
 
 <h1>Your Sleep <span class="teal">This Week</span></h1>
@@ -42,3 +45,13 @@
 	<%= render :partial => "partials/chart.html.erb" %>
 </div>
 <br />
+<script type="text/javascript">
+$(document).ready(function() {
+  $("a#show_all").click(function() {
+    $("tr.hideme").removeClass("hidden")
+  });
+  $("a#hide_all").click(function() {
+    $("tr.hideme").addClass("hidden")
+  });
+});
+</script>

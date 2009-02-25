@@ -99,3 +99,4 @@ td {padding:2px 2px 2px 10px;}
 .wide{width:150px;}
 .box a{padding:10px; background-color:#fff;margin:5px;line-height:4em;border:2px #fff solid;}
 .box a:hover{border:2px #029cd2 solid; background-image:url(../images/line.png);background-repeat:repeat-x;}
+.hidden{display:none;}

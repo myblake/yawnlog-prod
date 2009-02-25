@@ -4,6 +4,12 @@ class SleepsController < ApplicationController
   # GET /sleeps
   # GET /sleeps.xml
   def index
+    if (params[:chart])
+      @chart = { "start" => params[:chart][:start], "stop" => params[:chart][:stop]}
+    else
+      @chart = { "start" => Date.today-7.days, "stop" => Date.today}
+    end
+    
     @sleeps = Sleep.find(:all, :conditions => ["user_id=?", session[:user_id]], :order => "start DESC")
     @user = User.find(session[:user_id])
     respond_to do |format|

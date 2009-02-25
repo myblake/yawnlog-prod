@@ -1,4 +1,4 @@
-<div class="chart"><img  src="<%= sleep_chart_url(Date.today-7.days, Date.today, @user.id)%>" /></div>
+<div class="chart"><img  src="<%= sleep_chart_url(@chart["start"],@chart["stop"] , @user.id)%>" /></div>
 <div class="profile">
 <% @sleepdebt = sleep_debt_for_date(Date.today, @user.id).to_f %>
 <% if @sleepdebt > 0 %>
@@ -11,8 +11,8 @@
 <h3>Target Sleep</h3>
 <%= @user.target_hours %> per day.
 <h3>Average Sleep</h3>
-<%= "%5.2f " % average_sleep_for_range(Date.today - 7.days, Date.today, @user.id) %> hours per day for the last week.<br />
-<% @sleepdebtr = average_sleep_debt_for_range(Date.today - 7.days, Date.today, @user.id).to_f %>
+<%= "%5.2f " % average_sleep_for_range(@chart["start"], @chart["stop"], @user.id) %> hours per day for the last week.<br />
+<% @sleepdebtr = average_sleep_debt_for_range(@chart["start"], @chart["stop"], @user.id).to_f %>
 <% if @sleepdebtr > 0 %>
 	<h3>Average Sleep Debt:</h3>
 	<%= "%5.2f" % @sleepdebtr %> hours.<br />
@@ -20,6 +20,16 @@
 	<h3>Average Sleep Surplus:</h3>
 	<%= "%5.2f" % -@sleepdebtr %> hours.<br />
 <% end %>
+<div class="clearer"><br />
+</div>
+<% form_for :chart, @sleep do |f| %>
+    <%= f.label :start %>
+    <%= f.date_select :start %>
+    <%= f.label :stop %>
+    <%= f.date_select :stop %>
+	<%= f.submit "Graph" %>
+<% end %>
+
 </div>
 <div class="clearer">
 </div>
