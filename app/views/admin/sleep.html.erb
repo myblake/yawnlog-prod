@@ -1,0 +1,34 @@
+<% @count = 0 %>
+<h1>Number of <span class="teal">Sleeps</span></h1>
+<%= @sleep_size %>
+<h1>All <span class="teal">Sleeps</span></h1>
+<div class="blueback">
+<div class="box"><%= link_to "Users", :action => "index" %></div>
+
+<table>
+  <tr>
+    <th>Start</th>
+    <th>Stop</th>
+    <th>Zip</th>
+    <th>Quality</th>
+    <th>Note</th>
+  </tr>
+<% for sleep in @sleeps %>	
+	<% @count+=1 %>
+	<% if @count%2 == 0 %>
+		<tr>
+	<% else %>
+		<tr class="zebra">
+	<% end %>
+    <td><%=h sleep.start.strftime("%A, %B %d, %Y %I:%M%p") %></td>
+    <td><%=h sleep.stop.strftime("%A, %B %d, %Y %I:%M%p") %></td>
+    <td><%=h sleep.zip %></td>
+    <td><%=h Sleep::QUALITY_BACKWARDS[sleep.quality] %></td>
+    <td><%=h sleep.note %>    
+    <td><%= link_to 'View', sleep %></td>
+    <td><%= link_to 'Edit', edit_sleep_path(sleep) %></td>
+    <td><%= link_to 'Delete', sleep, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

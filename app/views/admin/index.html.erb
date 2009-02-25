@@ -1,9 +1,11 @@
 <% @count = 0 %>
 <h1>Number of <span class="teal">Users</span></h1>
 <%= @size %>
+	<%= render :partial => "partials/aggregate.html.erb" %>
 <h1>User <span class="teal">Profiles</span></h1>
-
 <div class="blueback">
+<div class="box"<%= link_to "Sleep", :action => "sleep" %></div>
+	
 <table>
   <tr>
     <th>Username</th>
@@ -22,7 +24,7 @@
 <% end %>
     <td><%=h user.username %></td>
     <td>
-	<% if user.twitter %>
+	<% if user.twitter.length > 0 %>
 		<%=link_to "@" + user.twitter.to_s, "http://www.twitter.com/" + user.twitter.to_s %>
 	<% end %>
 	</td>

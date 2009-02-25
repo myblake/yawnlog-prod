@@ -30,6 +30,12 @@ class AdminController < ApplicationController
     end
   end
   
+  def sleep
+    @sleeps = Sleep.find(:all, :order => "start DESC")
+    @sleep_size = @sleeps.length
+  end
+  
+  
   protected
   def authorize 
     unless User.find_by_id(session[:user_id]).admin = true 

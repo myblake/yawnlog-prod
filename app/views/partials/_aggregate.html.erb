@@ -1,0 +1,5 @@
+<h1>Sleep Last <span class="teal">Night</span></h1>
+<div id="blueback">
+<% @sleep_last_night = average_sleep_on_date(Date.today) %>
+<%= "%5.2f" % @sleep_last_night %> hours
+</div>

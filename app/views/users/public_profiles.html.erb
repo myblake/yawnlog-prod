@@ -1,3 +1,4 @@
+	<%= render :partial => "partials/aggregate.html.erb" %>
 <% @count = 0 %>
 <h1>Public <span class="teal">Profiles</span></h1>
 
@@ -20,7 +21,7 @@
 <% end %>
     <td><%=h user.username %></td>
     <td>
-	<% if user.twitter %>
+	<% if user.twitter.length > 0 %>
 		<%=link_to "@" + user.twitter.to_s, "http://www.twitter.com/" + user.twitter.to_s %>
 	<% end %>
 	</td>
