@@ -18,8 +18,8 @@
 		<% else %>
 		  <tr class="zebra">
 		<% end %>
-        <td><%=h sleep.start.strftime("%A, %B %d, %Y %I:%M%p") %></td>
-        <td><%=h sleep.stop.strftime("%A, %B %d, %Y %I:%M%p") %></td>
+        <td class="wide"><%=h sleep.start.strftime("%a, %m/%d/%y %I:%M%p") %></td>
+        <td class="wide"><%=h sleep.stop.strftime("%a, %m/%d/%y %I:%M%p") %></td>
         <td><%=h sleep.zip %></td>
         <td><%=h Sleep::QUALITY_BACKWARDS[sleep.quality] %></td>
         <td><%=h sleep.note %>    
