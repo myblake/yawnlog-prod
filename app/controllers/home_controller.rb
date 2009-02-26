@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   before_filter :authorize, :except => [:index, :about, :failwhale]
   
   def index
-    @news = News.find(:all, :conditions => ["created_at > ?", Date.today-7.days])
+    @news = News.find(:all, :conditions => ["created_at > ?", Date.today-7.days], :order => "id DESC")
   end
 
   def news
