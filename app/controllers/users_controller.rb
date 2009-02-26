@@ -20,6 +20,11 @@ class UsersController < ApplicationController
 			redirect_to :action => :signup
       return
 		end
+		if params[:user][:twitter].length > 15
+		  flash[:notice] = "Twitter name too long."
+      redirect_to :action => :signup
+      return
+    end
 		@user = User.new(:username => params[:user][:username],
 		                :email => params[:user][:email],
 		                :password => sha_passwd,
@@ -78,6 +83,11 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(session[:user_id])
     if params[:user]
+      if params[:user][:twitter].length > 15
+  		  flash[:notice] = "Twitter name too long."
+        redirect_to :action => :edit
+        return
+      end
       @user.email = params[:user][:email];
       @user.realname = params[:user][:realname]
       @user.public_profile = params[:user][:public_profile]
