@@ -101,3 +101,4 @@ td {padding:2px 2px 2px 10px;}
 .box a:hover{border:2px #029cd2 solid; background-image:url(../images/line.png);background-repeat:repeat-x;}
 .hidden{display:none;}
 .red{background-color:#fbb;}
+.small{font-size:11px;color:#029cd2;}

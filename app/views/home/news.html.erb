@@ -1,0 +1,19 @@
+<h1>New News <span class="teal">Story</span></h1>
+<div class="blueback">
+<% form_for :news, @news, :url => {:action => :news_backend} do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
+  </p>
+    <%= f.submit "Create" %>
+  </p>
+
+<% end %>
+
+<div class="box"><%= link_to 'Back', :action => :index %></div>
+</div>

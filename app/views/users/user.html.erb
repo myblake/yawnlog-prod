@@ -1,5 +1,13 @@
-<% @count = 0 %>
-<h1>Sleep of <span class="teal"><%= @user.username %></span></h1>
+<h1>Profile of <span class="teal"><%= @user.username %></span></h1>
+<% unless @friends %>
 <div class="blueback">
-	<%= render :partial => "partials/chart.html.erb" %>
+	<div class="box"><%= link_to "Add User to Friends", :controller => "friends", :action => "friend_request", :params => {:user_id => @user.id} %>
+	</div>
 </div>
+<% end %>
+<% if @show %>
+	<h1>Sleep of <span class="teal"><%= @user.realname %></span></h1>
+	<div class="blueback">
+	<%= render :partial => "partials/chart.html.erb" %>
+	</div>
+<% end %>

@@ -13,7 +13,7 @@
   </tr>
 
 <% for user in @users %>
-	<% if user.public_profile %>
+	<% if user.public_profile || %>
 		<% @count+=1 %>
 		<% if @count%2 == 0 %>
 		  <tr>
@@ -29,6 +29,18 @@
 	    <td><%=h user.realname %></td>
 	    <td><%=h user.zip %></td>
 	    <td><%=link_to "See user's profile", :action => "user", :params => { :username => user.username }  %>    
+	<% else %>
+		<% @count+=1 %>
+		<% if @count%2 == 0 %>
+		  <tr>
+		<% else %>
+		  <tr class="zebra">
+		<% end %>
+		<td><%=h user.username %></td>
+	    <td></td>
+	    <td></td>
+	    <td></td>
+	    <td><%= link_to "Add User to Friends", :controller => "friends", :action => "friend_request", :params => {:user_id => user.id, :redirect=> "index"} %></td>
 	<% end %>
   </tr>
 <% end %>

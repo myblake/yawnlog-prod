@@ -1,0 +1,7 @@
+<h1>All <span class="teal">Set</span></h1>
+<div class="blueback">
+A request has been sent to <%= @user.username %> to become friends
+<div class="box">
+	<%= link_to "Back to #{@user.username}'s Profile", :controller => :users, :action => "user", :params => {:username => @user.username} %>
+	</div>
+</div>

@@ -1,0 +1,9 @@
+1) MySQL db
+2) Adjustable dates for user graphs
+3) Better Sleep entering UI
+	a) Slide bar
+	b) Less granularity
+4) Big Sleep button
+5) friends
+6) geo stuff
+7) Reset Password link

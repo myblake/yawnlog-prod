@@ -15,6 +15,11 @@ class UsersController < ApplicationController
 	
 	def signup_backend
 	  sha_passwd = Digest::SHA1.hexdigest(params[:user][:password])
+	  if params[:user][:password] != params[:user][:password_confirm]
+	    flash[:notice] = "Passwords don't match."
+			redirect_to :action => :signup
+      return
+		end
 		@user = User.new(:username => params[:user][:username],
 		                :email => params[:user][:email],
 		                :password => sha_passwd,
@@ -24,12 +29,6 @@ class UsersController < ApplicationController
                     :zip => params[:user][:zip],
 		                :target_hours => params[:user][:target_hours],
 		                :public_profile => params[:user][:public_profile])
-	  if params[:user][:password] != params[:user][:password_confirm]
-	    flash[:notice] = "Passwords don't match."
-			redirect_to :action => :signup
-      return
-		end
-		
 		if @user.save
 			redirect_to :action => :login_backend, :user => {:username => params[:user][:username], :password => params[:user][:password]}
 		else
@@ -38,7 +37,7 @@ class UsersController < ApplicationController
 	end
 	
 	def public_profiles
-	  @users = User.find(:all, :conditions => ["public_profile=?", true])
+	  @users = User.find(:all)
   end
   
   def user    
@@ -47,12 +46,12 @@ class UsersController < ApplicationController
       redirect_to :controller => "home", :action => :index
       return
     end
-    unless @user.public_profile || User(session[:user_id]).admin
-      flash[:notice] = "User does not exist or does not have a public profile."
-			redirect_to :action => :public_profiles
-			return
+    @friends = Friend.find(:first, :conditions => ["(user_id_1=? and user_id_2=?) or (user_id_1=? and user_id_2=?)", session[:user_id], @user.id, @user.id, session[:user_id]])
+    unless @user.public_profile || User.find(session[:user_id]).admin || @friends
+      @show = false
+    else
+      @show = true
 		end
-		#@sleeps = Sleep.find(:all, :conditions["user_id=?", params[:id]])
 	end
 	
 	def login_backend

@@ -16,12 +16,13 @@
 					<ul>
                    		<% if session[:user_id] %>
                        		<li><%= link_to ("Sleep", :controller => "sleeps")%></li>
-                        	<li><%= link_to ("Share", :controller => "users", :action => "share")%></li>
+                        	<li><%= link_to ("Friends", :controller => "friends", :action => "index")%></li>
                         	<li><%= link_to ("World", :controller => "users", :action => "public_profiles")%></li>
                         	<li><%= link_to "Settings", :controller => "users", :action => "edit"%></li>
                         	<li><%= link_to ("About", :controller => "home", :action => "about")%></li>
 							<% if User.find(session[:user_id]).admin %>
 							<li><%= link_to ("Admin", :controller => "admin", :action => "index")%></li>
+							<li><%= link_to ("News", :controller => "home", :action => "news")%></li>							
 							<% end %>
 						<% else %>
 							<li><%= link_to ("Login", :controller => "users", :action => "login")%></li>

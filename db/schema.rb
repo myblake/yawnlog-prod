@@ -9,7 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090223060925) do
+ActiveRecord::Schema.define(:version => 20090226061214) do
+
+  create_table "friends", :force => true do |t|
+    t.integer  "user_id_1"
+    t.integer  "user_id_2"
+    t.boolean  "accepted"
+    t.boolean  "rejected"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news", :force => true do |t|
+    t.text     "text"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sleeps", :force => true do |t|
     t.datetime "start"
@@ -22,6 +38,12 @@ ActiveRecord::Schema.define(:version => 20090223060925) do
     t.string   "note"
   end
 
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "email"
@@ -31,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20090223060925) do
     t.datetime "updated_at"
     t.boolean  "public_profile"
     t.string   "zip"
-    t.integer  "target_hours",   :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "target_hours"
     t.string   "twitter"
     t.boolean  "admin"
   end

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base  
   has_many :sleeps
+  has_many :friends
   
   validates_uniqueness_of :username
   validates_uniqueness_of :email
@@ -12,6 +13,12 @@ class User < ActiveRecord::Base
   validate :target_hours_possible?
 
 	private
+	def valid_username
+	  if username=~/.*\..*/
+	    errors.add(:username, "Username cannot have '.' in it")
+    end
+  end
+	
 	def target_hours_possible?
 	  if target_hours.to_f < 0
 	    errors.add(:target_hours, "You cannot sleep less than zero hours per day.")

@@ -1,0 +1,69 @@
+<% @count = 0 %>
+<% unless @friend_requests.empty? %>
+	<h1>Friend <span class="teal">Requests</span></h1>
+	<div class="blueback">
+
+	<table>
+	  <tr>
+	    <th>Username</th>
+	    <th>Twitter</th>
+	    <th>Realname</th>
+	    <th>Location</th>
+	    <th><th>
+	  </tr>
+		<% for user in @friend_requests %>
+			<% @count+=1 %>
+			<% if @count%2 == 0 %>
+			  <tr>
+			<% else %>
+			  <tr class="zebra">
+			<% end %>
+		    <td><%=link_to user.username, :controller => "users", :action => "user", :params => { :username => user.username }  %></td>
+		    <td>
+			<% if user.twitter.length > 0 %>
+				<%=link_to "@" + user.twitter.to_s, "http://www.twitter.com/" + user.twitter.to_s %>
+			<% end %>
+			</td>
+		    <td><%=h user.realname %></td>
+		    <td><%=h user.zip %></td>
+			<td><%= link_to "Accept", :action => "accept_friend", :params => {:user_id => user.id }%></td>
+			<td><%= link_to "Reject", :action => "reject_friend", :params => {:user_id => user.id }%></td>
+		  </tr>
+		<% end %>
+	</table>
+	</div>	
+<% end %>
+<h1>Your <span class="teal">Friends</span></h1>
+<div class="blueback">
+<% if @friends.empty? %>
+	<div class="box"><%= link_to "Go and make some!", :controller => "users", :action => "public_profiles" %></div>
+<% else %>
+	<table>
+	  <tr>
+	    <th>Username</th>
+	    <th>Twitter</th>
+	    <th>Realname</th>
+	    <th>Location</th>
+	    <th><th>
+	  </tr>
+
+	<% for user in @friends %>
+		<% @count+=1 %>
+		<% if @count%2 == 0 %>
+		  <tr>
+		<% else %>
+		  <tr class="zebra">
+		<% end %>
+	    <td><%=link_to user.username, :controller => "users", :action => "user", :params => { :username => user.username }  %></td>
+	    <td>
+		<% if user.twitter.length > 0 %>
+			<%=link_to "@" + user.twitter.to_s, "http://www.twitter.com/" + user.twitter.to_s %>
+		<% end %>
+		</td>
+	    <td><%=h user.realname %></td>
+	    <td><%=h user.zip %></td>
+	  </tr>
+	<% end %>
+	</table>
+<% end %>
+</div>
