@@ -2,7 +2,7 @@ require 'digest/sha1'
 
 class UsersController < ApplicationController
 
-  before_filter :authorize, :except => [:login, :signup, :signup_backend, :login_backend]
+  before_filter :authorize, :except => [:login, :signup, :signup_backend, :login_backend, :user]
   
   def share
   end
