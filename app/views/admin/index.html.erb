@@ -44,7 +44,7 @@
 	</td>
     <td><%=h user.realname %></td>
     <td><%=h user.zip %></td>
-    <td><%=link_to "See user's profile", :action => "edit", :params => { :username => user.username }  %></td>    
+    <td><%=link_to "See user's profile", :action => "edit", :params => { :id => user.id }  %></td>    
 	<td><% if user.sleeps.length < 1 
 		  color="red"
 		else
