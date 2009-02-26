@@ -28,7 +28,8 @@
 		</td>
 	    <td><%=h user.realname %></td>
 	    <td><%=h user.zip %></td>
-	    <td><%=link_to "See user's profile", :action => "user", :params => { :username => user.username }  %>    
+	    <td><%=link_to "See user's profile", :action => "user", :params => { :username => user.username }  %> </td>
+		<td><%= link_to "Add User to Friends", :controller => "friends", :action => "friend_request", :params => {:user_id => user.id, :redirect=> "index"} %></td>   
 	<% else %>
 		<% @count+=1 %>
 		<% if @count%2 == 0 %>
@@ -37,6 +38,7 @@
 		  <tr class="zebra">
 		<% end %>
 		<td><%=h user.username %></td>
+	    <td></td>
 	    <td></td>
 	    <td></td>
 	    <td></td>
