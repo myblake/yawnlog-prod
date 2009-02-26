@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   end
   
   def user    
-    unless @user = User.find(:first, :conditions => ["username=?",params[:username]])
+    unless @user = User.find(:first, :conditions => ["username like ?",params[:username]])
       flash[:notice] = "User does not exist or does not have a public profile."
       redirect_to :controller => "home", :action => :index
       return
