@@ -11,8 +11,15 @@ class User < ActiveRecord::Base
   validates_presence_of :realname
   
   validate :target_hours_possible?
-
+  validate :safe?
+  
 	private
+	def safe?
+	  if twitter=~/.*;.*/
+	    errors.add(:twitter, "no xss asshole")
+    end
+  end
+  
 	def valid_username
 	  if username=~/.*\..*/
 	    errors.add(:username, "Username cannot have '.' in it")
