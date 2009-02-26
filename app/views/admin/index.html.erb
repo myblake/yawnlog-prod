@@ -1,6 +1,10 @@
 <% @count = 0 %>
-<h1>Number of <span class="teal">Users</span></h1>
+<h1>Users <span class="teal">Profile</span></h1>
+<div class="blueback"><div class="chart"><img  src="<%= users_chart_url %>" /></div>
+<h3>Number of Users:</h3>
 <%= @size %>
+<div class="clearer"><br /></div>
+</div>
 	<%= render :partial => "partials/aggregate.html.erb" %>
 <h1>User <span class="teal">Profiles</span></h1>
 <div class="blueback">
