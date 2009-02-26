@@ -1,4 +1,4 @@
-1) MySQL db
+1) MySQL db -- FUCKYEA!!
 2) Adjustable dates for user graphs
 3) Better Sleep entering UI
 	a) Slide bar
@@ -11,3 +11,4 @@
 9) make a little "pending friends request" thing under the signin stuff
 10) pull in latest yawnlog tweet
 11) can't friend yourself
+12) add data export
