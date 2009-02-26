@@ -1,15 +1,22 @@
 <% @count = 0 %>
 <h1>Sleep <span class="teal">Tracking</span></h1>
-<div class="blueback"><div class="chart"><img  src="<%= sleeps_chart_url %>" /></div>
-<h3>Number of Sleeps:</h3>
-<%= @sleep_size %>
+<div class="blueback">
+	<div class="box"><%= link_to "Users", :action => "index" %></div>
+	<h3>Number of Sleeps:</h3>
+	<%= @sleep_size %>
+<h3>Sleeps Overall:</h3>
+<div class="chart"><img  src="<%= sleeps_chart_url %>" /></div>
+<div class="clearer"><br /></div>
+<h3>Sleeps Today:</h3>
+<div class="chart"><img  src="<%= sleeps_hours_chart_url %>" /></div>
+
 <div class="clearer"><br /></div>
 </div>
 
 
 <h1>All <span class="teal">Sleeps</span></h1>
 <div class="blueback">
-<div class="box"><%= link_to "Users", :action => "index" %></div>
+
 
 <table>
   <tr>
