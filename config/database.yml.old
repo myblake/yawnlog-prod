@@ -3,11 +3,11 @@
 development:
   adapter: mysql
   encoding: utf8
-  database: yawnlog_dev
+  database: mattblake_1
   pool: 5
-  username: yawnlog_dev
-  password:sleepytime
-  host: mysql.isforinsects.com
+  username: mattblake_1
+  password: 
+  host: 76.74.248.9
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

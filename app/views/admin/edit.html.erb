@@ -19,7 +19,7 @@
 <% end %>
 
 <div class="box"><%=link_to "Reset user's password", :action => "reset_password", :params => { :id => @user.id }  %>
-<%=link_to "See user's profile", :controller => "users", :action => "user", :params => { :id => @user.id }  %>
+<%=link_to "See user's profile", :controller => "users", :action => "user", :params => { :username => @user.username }  %>
 <%= link_to 'Back', :controller => :admin, :action => :index %></div>
 
 

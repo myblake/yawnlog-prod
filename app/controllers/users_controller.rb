@@ -41,8 +41,8 @@ class UsersController < ApplicationController
 	  @users = User.find(:all, :conditions => ["public_profile=?", true])
   end
   
-  def user
-    @user = User.find(params[:id])
+  def user    
+    @user = User.find(:first, :conditions => ["username=?",params[:username]])
     unless @user.public_profile || User(session[:user_id]).admin
       flash[:notice] = "User does not exist or does not have a public profile."
 			redirect_to :action => :public_profiles

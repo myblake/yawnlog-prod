@@ -28,7 +28,7 @@
 		</td>
 	    <td><%=h user.realname %></td>
 	    <td><%=h user.zip %></td>
-	    <td><%=link_to "See user's profile", :action => "user", :params => { :id => user.id }  %>    
+	    <td><%=link_to "See user's profile", :action => "user", :params => { :username => user.username }  %>    
 	<% end %>
   </tr>
 <% end %>
