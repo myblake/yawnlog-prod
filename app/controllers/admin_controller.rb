@@ -48,7 +48,7 @@ class AdminController < ApplicationController
   
   protected
   def authorize 
-    unless User.find_by_id(session[:user_id]).admin = true 
+    unless User.find_by_id(session[:user_id]).admin
       redirect_to :controller => 'home'
     end 
   end
