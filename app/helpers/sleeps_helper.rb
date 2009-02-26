@@ -98,6 +98,7 @@ module SleepsHelper
     GoogleChart::LineChart.new('600x300', "Sleep-o-Meter", false) do |lc|
       lc.data "Hours Slept", hour_array, '0000ff'
       lc.show_legend = false
+      lc.data_encoding = :text # more granular data than default simple encoding
       lc.data "Target Hours", target_array, 'ff0000'
       lc.axis :y, :range => [min_hour,max_hour], :color => '000000', :font_size => 16, :alignment => :center
       lc.axis :x, :labels => day_array, :color => '000000', :font_size => 16, :alignment => :center

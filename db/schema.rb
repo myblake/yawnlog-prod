@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20090223060925) do
     t.datetime "updated_at"
     t.boolean  "public_profile"
     t.string   "zip"
-    t.integer  "target_hours",   :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "target_hours"
     t.string   "twitter"
     t.boolean  "admin"
   end
