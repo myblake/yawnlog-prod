@@ -1,5 +1,5 @@
 <h1>Profile of <span class="teal"><%= @user.username %></span></h1>
-<% unless @friends %>
+<% unless @friends || @user.id == session[:user_id]%>
 <div class="blueback">
 	<div class="box"><%= link_to "Add User to Friends", :controller => "friends", :action => "friend_request", :params => {:user_id => @user.id} %>
 	</div>
