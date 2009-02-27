@@ -21,8 +21,8 @@ class User < ActiveRecord::Base
   end
   
 	def valid_username
-	  if username=~/.*\..*/
-	    errors.add(:username, "Username cannot have '.' in it")
+	  if username=~/^[a-z,A-Z,0-9]/
+	    errors.add(:username, "Username must be all alphanumeric characters")
     end
   end
 	
