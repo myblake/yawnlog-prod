@@ -7,7 +7,6 @@
 5) friends -- done
 6) geo stuff
 7) Reset Password link
-8) make news stories have an author and parse newline properly
 9) make a little "pending friends request" thing under the signin stuff
 10) pull in latest yawnlog tweet
 11) can't friend yourself
