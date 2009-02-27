@@ -29,8 +29,9 @@ class SleepsController < ApplicationController
     start = params[:start]
     stop = params[:stop]
     date = params[:sleep][:date]
-    start = Time.parse(start + date)
-    stop = Time.parse(stop + date)
+    start = Time.parse(start + " " + date + " UT")
+    stop = Time.parse(stop + " "+ date + " UT")
+    
     if params[:start]=~/.*PM.*/
       start += 12.hours
     end
@@ -44,8 +45,12 @@ class SleepsController < ApplicationController
       stop -= 1.days
     end
     
+    start -= 8.hours
+    stop -= 8.hours
+    
     puts start
     puts stop
+    
     @sleep = Sleep.new(
       :zip => params[:sleep][:zip],
       :quality => params[:sleep][:quality],

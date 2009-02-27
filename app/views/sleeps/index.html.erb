@@ -53,8 +53,8 @@
     <%= select(:sleep, :quality, Sleep::QUALITY, {:selected=>@sleep.quality}) %>
   <%= f.label :note %>
   <%= f.text_field :note %>
-    <%= f.submit "Create" %>
   Date:   </span><input id="datepicker" type="text" name="sleep[date]" value="today">
+    <%= f.submit "Create" %>
     <label class="hidemeonload" for="start">From:</label>
     <select class="hidemeonload" name="start" id="start">
       <% now = Time.now - ((Time.now.min).to_f).minutes - ((Time.now.hour).to_f).hours - 8.hours %>
