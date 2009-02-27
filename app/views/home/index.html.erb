@@ -17,7 +17,7 @@
 	<div class="blueback">
 	<% for news in @news %>
 		<h2><%= news.title %></h2>
-		<span class="small"><%= news.created_at.strftime("Posted %a %b %m %y at %I:%M%p")%></span><br />
+		<span class="small"><%= news.created_at.strftime("Posted %a %b %d %y at %I:%M%p")%></span><br />
 		<%= news.text%>
 	<% end %>
 	</div>
