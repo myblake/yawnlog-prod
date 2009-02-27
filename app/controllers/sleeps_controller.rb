@@ -5,12 +5,12 @@ class SleepsController < ApplicationController
   # GET /sleeps.xml
   def index    
     @sleeps = Sleep.find(:all, :conditions => ["user_id=?", session[:user_id]], :order => "start DESC")
+   @sleep = Sleep.new
     @user = User.find(session[:user_id])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @sleeps }
     end
-    @quality_string 
   end
 
   # GET /sleeps/1
@@ -26,8 +26,6 @@ class SleepsController < ApplicationController
   # GET /sleeps/new
   # GET /sleeps/new.xml
   def new
-    @sleep = Sleep.new
-    @user = User.find(session[:user_id])
   end
 
   def create_sleep_backend
@@ -62,9 +60,11 @@ class SleepsController < ApplicationController
     @sleep.user_id = session[:user_id]  
     if @sleep.save
       flash[:notice] = 'Sleep was successfully created.'
+      flash[:error]
       redirect_to :action => :index
     else
       flash[:notice] = 'Something terrible has happened!'
+      flash[:error]
       redirect_to :action => :index
     end
 
