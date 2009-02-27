@@ -23,6 +23,10 @@ class SleepsController < ApplicationController
     end
   end
 
+  # GET /sleeps/new
+  # GET /sleeps/new.xml
+  def new
+  end
 
   def create_sleep_backend
     #start = Time.parse(params[:sleep][:start] + params[:sleep][:date])
