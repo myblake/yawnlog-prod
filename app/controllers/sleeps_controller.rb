@@ -31,14 +31,27 @@ class SleepsController < ApplicationController
   end
 
   def create_sleep_backend
-
     #start = Time.parse(params[:sleep][:start] + params[:sleep][:date])
     start = params[:start]
     stop = params[:stop]
     date = params[:sleep][:date]
     start = Time.parse(start + date)
     stop = Time.parse(stop + date)
-
+    if params[:start]=~/.*PM.*/
+      start += 12.hours
+    end
+    if start.hour > 16
+      start -= 1.days
+    end
+    if params[:stop]=~/.*PM.*/
+      stop += 12.hours
+    end    
+    if stop.hour > 16
+      stop -= 1.days
+    end
+    
+    puts start
+    puts stop
     @sleep = Sleep.new(
       :zip => params[:sleep][:zip],
       :quality => params[:sleep][:quality],
@@ -50,7 +63,11 @@ class SleepsController < ApplicationController
     if @sleep.save
       flash[:notice] = 'Sleep was successfully created.'
       redirect_to :action => :index
+    else
+      flash[:notice] = 'Something terrible has happened!'
+      redirect_to :action => :index
     end
+
   end
 
 
