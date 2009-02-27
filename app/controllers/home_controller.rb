@@ -1,14 +1,14 @@
-class HomeController < ApplicationController
-  before_filter :authorize, :except => [:index, :about, :failwhale]
-  
+class HomeController < ApplicationController  
   def index
     @news = News.find(:all, :conditions => ["created_at > ?", Date.today-7.days], :order => "id DESC")
   end
 
   def news
+    authorize
   end
   
   def news_backend
+    authorize
     @news = News.new(:text => params[:news][:text], :title => params[:news][:title])
     @news.save
     redirect_to :action => :index
@@ -18,6 +18,12 @@ class HomeController < ApplicationController
   end
   
   def failwhale
+  end
+  
+  def tos
+  end
+  
+  def privacy
   end
   
   protected
