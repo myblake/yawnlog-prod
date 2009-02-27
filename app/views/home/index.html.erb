@@ -1,7 +1,6 @@
 <h1>Welcome to <span class="teal">Yawn Log!</span></h1>
-
 <div class="blueback" style="text-align:center;">
-<h2><%=link_to "About Us", :action => :about %></h2>
+<h2 style="font-size:8em;padding-top:20px;"><span class="teal">6.02 hours</span></h2><h2 style="font-size:4em;">average sleep last night</h2>
 
 <% unless session[:user_id]%>
 	<h2><%=link_to "Login", :controller => :users, :action => :login %></h2>
@@ -10,6 +9,7 @@
 <div >	
 <%= image_tag ("chart.png", :alt=>"logo" )%></div>
 <h2>Yawnlog lets you and your friends track and share your sleep.</h2>
+<h2><%=link_to "About Us", :action => :about %></h2>
 </div>
 
 <% unless @news.empty? %>
