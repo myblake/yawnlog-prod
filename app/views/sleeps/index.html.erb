@@ -1,0 +1,155 @@
+<link type="text/css" rel="stylesheet" href="/stylesheets/ui.all.css" />
+<link rel="Stylesheet" href="/stylesheets/ui.slider.extras.css" type="text/css" />
+<link rel="Stylesheet" href="/stylesheets/ui.datepicker.css" type="text/css" />
+<script type="text/javascript" src="/javascripts/jquery-ui-personalized-1.6rc6.js"></script>
+<!-- Using jQuery SelectToUISlider by Filament group: http://bit.ly/18SLhE -->
+<script type="text/javascript" src="/javascripts/selectToUISlider.jQuery.js"></script>
+<script type="text/javascript">
+  $(function() {
+    var monthnames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    $("#datepicker").datepicker({ dateFormat: 'd M' });
+ 
+    $('select#start, select#stop').selectToUISlider({
+      labels: 12
+    });
+ 
+    $('.hidemeonload').addClass("hidden");
+    
+    $('#datepicker').change(function() {
+      var value = $(this).datepicker( "getDate" );
+      var myDate=new Date(value);
+      myDate.setDate(myDate.getDate()-1);
+ 
+      $('.date_1').html("<span>" + value.getDate() + " " + monthnames[value.getMonth()] + "</span>");
+      $('.date_0').html("<span>" + myDate.getDate() + " "+ monthnames[myDate.getMonth()] + "</span>");
+   });
+  
+  });
+  
+  
+</script>
+ 
+<style type="text/css">
+  #sleep-picker {font-size: 62.5%; font-family:"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif; }
+  fieldset#sleep-picker { border:0; margin: 1em; height: 12em;}  
+  .reg{font-size: 13px; }
+  #sleep-picker label {font-weight: normal; margin-right: .5em; font-size: 1.1em;}
+  #sleep-picker select {margin-right: 1em;}
+  #sleep-picker .ui-slider {clear: both; top: 5em;}
+  
+  #sleep-picker .ui-datepicker { z-index: 2; } //keeps datepicker on top of slider bar
+</style>
+ 
+<h1>New <span class="teal">sleep</span></h1>
+<div class="blueback">
+ 
+<% form_for @sleep, :sleep, :url => {:action => :create_sleep_backend} do |f| %>
+<fieldset id="sleep-picker">
+  <%= f.error_messages %>
+  <span class="reg">
+  Where
+    <%= f.text_field :zip, :value => @user.zip, :size => "10" %>
+    <%= f.label :quality %>
+    <%= select(:sleep, :quality, Sleep::QUALITY, {:selected=>@sleep.quality}) %>
+  <%= f.label :note %>
+  <%= f.text_field :note %>
+    <%= f.submit "Create" %>
+  Date:   </span><input id="datepicker" type="text" name="sleep[date]" value="today">
+    <label class="hidemeonload" for="start">From:</label>
+    <select class="hidemeonload" name="start" id="start">
+      <% now = Time.now - ((Time.now.min).to_f).minutes - ((Time.now.hour).to_f).hours - 8.hours %>
+      <optgroup label="<%= now.strftime("%d %b")%>">
+        <% while now < Time.now - ((Time.now.min).to_f).minutes - ((Time.now.hour).to_f).hours - 8.hours + 1.days
+          if now.hour == 0 and now.min == 0 %>
+            </optgroup>
+            <optgroup label="<%= now.strftime("%d %b")%>"><%
+          end %>
+          <option value="<%= now.strftime("%I:%M%p")%>" <%
+            if now.hour == 1 and now.min == 0
+              %>selected="selected" <%
+            end
+          %>><%= now.strftime("%I:%M%p")%></option><%
+          now += 30.minutes            
+        end %>
+      </optgroup>
+    </select>
+    <label class="hidemeonload" for="stop">To:</label>
+    <select class="hidemeonload" name="stop" id="stop">
+      <% now = Time.now - ((Time.now.min).to_f).minutes - ((Time.now.hour).to_f).hours - 8.hours %>
+      <optgroup label="<%= now.strftime("%d %b")%>">
+        <% while now < Time.now - ((Time.now.min).to_f).minutes - ((Time.now.hour).to_f).hours - 8.hours + 1.days
+          if now.hour == 0 and now.min == 0 %>
+            </optgroup>
+            <optgroup label="<%= now.strftime("%d %b")%>"><%
+          end %>
+          <option value="<%= now.strftime("%I:%M%p")%>"<%
+            if now.hour == 9 and now.min == 0
+              %>selected="selected" <%
+            end
+          %>><%= now.strftime("%I:%M%p")%></option><%
+          now += 30.minutes            
+        end %>
+      </optgroup>
+    </select>
+  </fieldset>
+ 
+<% end %>
+</div>
+ 
+<% @count = 0 %>
+<h1>Listing sleeps of <span class="teal"><%= @user.realname %></span></h1>
+<div class="blueback">
+<% if !@sleeps.empty? %>
+    <table>
+      <tr>
+        <th>Start</th>
+        <th>Stop</th>
+        <th>Zip</th>
+        <th>Quality</th>
+        <th>Note</th>
+      </tr>
+  
+    <% for sleep in @sleeps %>
+    <% @classstring = "" %>
+    <% @count+=1 %>
+    <% if @count%2 == 1
+      @classstring = "zebra "
+     end
+     if @count > 3
+      @classstring += "hideme hidden"
+     end %>
+     <tr class="<%= @classstring %>">
+        <td class="wide"><%=h sleep.start.strftime("%a, %m/%d/%y %I:%M%p") %></td>
+        <td class="wide"><%=h sleep.stop.strftime("%a, %m/%d/%y %I:%M%p") %></td>
+        <td><%=h sleep.zip %></td>
+        <td><%=h Sleep::QUALITY_BACKWARDS[sleep.quality] %></td>
+        <td><%=h sleep.note %>
+        <td><%= link_to 'View', sleep %></td>
+        <td><%= link_to 'Edit', edit_sleep_path(sleep) %></td>
+        <td><%= link_to 'Delete', sleep, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+<% else %>
+    <%= @user.realname %> is not tracking any sleep :-(<br />
+<% end %>
+ 
+<div class="box"><a id="show_all" href="#" onclick="">Show All</a><a id="hide_all" href="#">Hide All</a></div>
+</div>
+ 
+<h1>Your Sleep <span class="teal">This Week</span></h1>
+ 
+<div class="blueback">
+  <%= render :partial => "partials/chart.html.erb" %>
+</div>
+<br />
+<script type="text/javascript">
+$(document).ready(function() {
+  $("a#show_all").click(function() {
+    $("tr.hideme").removeClass("hidden")
+  });
+  $("a#hide_all").click(function() {
+    $("tr.hideme").addClass("hidden")
+  });
+});
+</script>
