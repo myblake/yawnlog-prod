@@ -17,7 +17,6 @@ class SleepsController < ApplicationController
   # GET /sleeps/1.xml
   def show
     @sleep = Sleep.find(params[:id])
-    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @sleep }
@@ -29,11 +28,31 @@ class SleepsController < ApplicationController
   def new
     @sleep = Sleep.new
     @user = User.find(session[:user_id])
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @sleep }
+  end
+
+  def create_sleep_backend
+
+    #start = Time.parse(params[:sleep][:start] + params[:sleep][:date])
+    start = params[:start]
+    stop = params[:stop]
+    date = params[:sleep][:date]
+    start = Time.parse(start + date)
+    stop = Time.parse(stop + date)
+
+    @sleep = Sleep.new(
+      :zip => params[:sleep][:zip],
+      :quality => params[:sleep][:quality],
+      :note => params[:sleep][:note],
+      :start => start,
+      :stop => stop
+      )
+    @sleep.user_id = session[:user_id]  
+    if @sleep.save
+      flash[:notice] = 'Sleep was successfully created.'
+      redirect_to :action => :index
     end
   end
+
 
   # GET /sleeps/1/edit
   def edit
