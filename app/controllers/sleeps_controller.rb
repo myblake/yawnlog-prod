@@ -32,15 +32,14 @@ class SleepsController < ApplicationController
     start = Time.parse(start + " " + date + " UT")
     stop = Time.parse(stop + " "+ date + " UT")
     
-    if params[:start]=~/.*PM.*/
-      start += 12.hours
-    end
+    test = start
+    test2 = stop
+    
+
     if start.hour > 16
       start -= 1.days
     end
-    if params[:stop]=~/.*PM.*/
-      stop += 12.hours
-    end    
+ 
     if stop.hour > 16
       stop -= 1.days
     end
@@ -64,7 +63,7 @@ class SleepsController < ApplicationController
       flash[:error]
       redirect_to :action => :index
     else
-      flash[:notice] = 'Something terrible has happened!'
+      flash[:notice] = "Something terrible has happened!" #{start} #{stop} #{test} #{test2} #{params[:start]} #{params[:stop]} #{params[:sleep][:date]}"
       flash[:error]
       redirect_to :action => :index
     end
