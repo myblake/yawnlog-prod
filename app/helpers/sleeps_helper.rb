@@ -129,7 +129,6 @@ module SleepsHelper
    end
    day_array = day_array.map {|x| x.strftime("%m/%d")}
    
-   min_hour = hour_array.min
    max_hour = [hour_array.max, target_array.max].max
    
     # Line Chart
@@ -137,7 +136,7 @@ module SleepsHelper
       lc.data "Hours Slept", hour_array, '0000ff'
       lc.show_legend = false
       lc.data "Target Hours", target_array, 'ff0000'
-      lc.axis :y, :range => [min_hour,max_hour], :color => '000000', :font_size => 16, :alignment => :center
+      lc.axis :y, :range => [0,max_hour], :color => '000000', :font_size => 16, :alignment => :center
       lc.axis :x, :labels => day_array, :color => '000000', :font_size => 16, :alignment => :center
       lc.grid :x_step => 100.0/(hour_array.length - 1), :y_step => 100.0/(max_hour - min_hour), :length_segment => 1, :length_blank => 0
       return lc.to_url
