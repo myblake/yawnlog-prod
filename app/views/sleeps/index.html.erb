@@ -43,7 +43,9 @@
 <h1>New <span class="teal">sleep</span></h1>
 <div class="blueback">
  
-<% form_for @sleep, :sleep, :url => {:action => :create_sleep_backend} do |f| %>
+<% 
+increment = 10
+form_for @sleep, :sleep, :url => {:action => :create_sleep_backend} do |f| %>
 <fieldset id="sleep-picker">
   <%= f.error_messages %>
   <span class="reg">
@@ -69,7 +71,7 @@
               %>selected="selected" <%
             end
           %>><%= now.strftime("%I:%M%p")%></option><%
-          now += 15.minutes            
+          now += increment.minutes            
         end %>
       </optgroup>
     </select>
@@ -87,7 +89,7 @@
               %>selected="selected" <%
             end
           %>><%= now.strftime("%I:%M%p")%></option><%
-          now += 15.minutes            
+          now += increment.minutes            
         end %>
       </optgroup>
     </select>
