@@ -3,7 +3,7 @@
 <h1>Users <span class="teal">Profile</span></h1>
 <div class="blueback">
 
-<div class="box"<%= link_to "Sleep", :action => "sleep" %></div>
+<div class="box"><%= link_to "Special", :action => "special_method" %><%= link_to "Sleep", :action => "sleep" %></div>
 	<h3>Number of Users:</h3>
 	<%= @size %>
 <h3>Growth Overall:</h3>	
@@ -26,8 +26,10 @@
     <th>Twitter</th>
     <th>Realname</th>
     <th>Location</th>
-    <th></th>
+
     <th># of sleeps</th>
+	<th>Last Login</th>
+	<th>Latest Sleep</th>
   </tr>
 
 <% for user in @users %>
@@ -37,7 +39,7 @@
 <% else %>
   <tr class="zebra">
 <% end %>
-    <td><%=h user.username %></td>
+    <td><%= link_to h(user.username), :action => "edit", :params => { :id => user.id }   %></td>
     <td>
 	<% if user.twitter.length > 0 %>
 		<%=link_to "@" + user.twitter.to_s, "http://www.twitter.com/" + user.twitter.to_s %>
@@ -45,16 +47,17 @@
 	</td>
     <td><%=h user.realname %></td>
     <td><%=h user.zip %></td>
-    <td><%=link_to "See user's profile", :action => "edit", :params => { :id => user.id }  %></td>    
-	<td><% if user.sleeps.length < 1 
+	<td><% if user.num_of_sleeps < 1 
 		  color="red"
 		else
 		  color=""
 		end %>
 		<span class="<%=color%>"> 
-		<%= user.sleeps.length %>
+		<%= user.num_of_sleeps %>
 		</span>		
 	</td>
+	<td><%= user.last_login_at ? user.last_login_at.strftime("%a, %m/%d/%y %I:%M%p") : "" %></td>
+	<td><%= user.last_sleep_at ? user.last_sleep_at.strftime("%a, %m/%d/%y %I:%M%p") : "" %></td>
   </tr>
 <% end %>
 </table>

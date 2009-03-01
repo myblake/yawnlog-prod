@@ -57,7 +57,14 @@ class SleepsController < ApplicationController
       :start => start,
       :stop => stop
       )
-    @sleep.user_id = session[:user_id]  
+    @sleep.user_id = session[:user_id] 
+    if @sleep.user.num_of_sleeps
+      @sleep.user.num_of_sleeps += 1
+    else
+      @sleep.user.num_of_sleeps = 0
+    end
+    @sleep.user.last_sleep_at = Time.now
+    @sleep.user.save 
     if @sleep.save
       flash[:notice] = 'Sleep was successfully created.'
       flash[:error]

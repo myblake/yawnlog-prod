@@ -4,15 +4,15 @@
 <div class="blueback" >
 <% form_for :user, @user, :url => {:action => :signup_backend} do |f| %>
     <%= f.error_messages %>
-	<%= f.label :username %><br />
+	<%= f.label :username %>*<br />
 	<%= f.text_field :username %><br />
-	<%= f.label :password %><br />
+	<%= f.label :password %>*<br />
 	<%= f.password_field :password %><br />
-	Confirm Password<br />
+	Confirm Password*<br />
 	<%= f.password_field :password_confirm %><br />
-	<%= f.label :email %><br />
+	<%= f.label :email %>*<br />
 	<%= f.text_field :email %><br />
-	Real Name<br />
+	Real Name*<br />
 	<%= f.text_field :realname %><br />
 	<%= f.label :zip %><br />
 	<%= f.text_field :zip %><br />
@@ -24,4 +24,5 @@
 	<%= f.check_box :public_profile, :checked => "checked" %><br />
 	<%= f.submit "Sign up" %>
 <% end %>
+* = required
 </div>

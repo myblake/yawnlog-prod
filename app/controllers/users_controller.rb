@@ -33,7 +33,9 @@ class UsersController < ApplicationController
 		                :twitter => params[:user][:twitter].sub(/\@*/,''),
                     :zip => params[:user][:zip],
 		                :target_hours => params[:user][:target_hours],
-		                :public_profile => params[:user][:public_profile])
+		                :public_profile => params[:user][:public_profile],
+		                :last_login_at => Time.now,
+		                :num_of_sleeps => 0)
 		if @user.save
 			redirect_to :action => :login_backend, :user => {:username => params[:user][:username], :password => params[:user][:password]}
 		else
@@ -66,6 +68,8 @@ class UsersController < ApplicationController
 		if user
 			session[:user_id] = user.id
       session[:user_username] = user.username
+      user.last_login_at = Time.now
+      user.save
 			redirect_to :controller => "sleeps", :action => :index
 		else
 			flash[:notice] = "Incorrect username or password."
