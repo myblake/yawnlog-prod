@@ -5,6 +5,12 @@
 		password: <%= f.password_field(:password, :size => 11) %><br />
 	<%= submit_tag "login" %>
 <% end %>
-<% else %>
+<% else 
+	@user = User.find(session[:user_id])
+	if Time.now - @user.last_login_at > 300
+		@user.last_login_at = Time.now
+		@user.save
+	end
+%>
 Signed in as <%= session[:user_username] %>. <%= link_to "Sign Out", :controller => "users", :action => "logout" %>
 <% end %>
