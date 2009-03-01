@@ -1,7 +1,7 @@
 class CreateAverageSleeps < ActiveRecord::Migration
   def self.up
     create_table :average_sleeps do |t|
-
+      t.float :value
       t.timestamps
     end
   end

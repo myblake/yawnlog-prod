@@ -25,7 +25,8 @@ module SleepsHelper
   
   def calculate_sleep_on_date(date,user_id)
     end_of_day = 24 # use 24 instead of 0
-    day_start = DateTime.new(y=date.year,m=date.month,d=date.day-1,h=end_of_day,min=0,s=0)
+    start_date = date-1.days
+    day_start = DateTime.new(y=start_date.year,m=start_date.month,d=start_date.day-1,h=end_of_day,min=0,s=0)
     day_stop = DateTime.new(y=date.year,m=date.month,d=date.day,h=end_of_day,min=0,s=0)
     
     # should filter sleep.stop isn't < day.start, sleep.start isn't > day.stop    
@@ -91,7 +92,7 @@ module SleepsHelper
    end
    day_array = day_array.map {|x| x.strftime("%m/%d")}
    
-   min_hour = 0
+   min_hour = hour_array.min
    max_hour = [hour_array.max, target_array.max].max
    
     # Line Chart
@@ -129,11 +130,11 @@ module SleepsHelper
    end
    day_array = day_array.map {|x| x.strftime("%m/%d")}
    
-   min_hour = 0
+   min_hour = hour_array.min
    max_hour = [hour_array.max, target_array.max].max
    
     # Line Chart
-    GoogleChart::LineChart.new('600x300', "Sleep-a-Meter", false) do |lc|
+    GoogleChart::LineChart.new('600x300', "Sleep-o-Meter", false) do |lc|
       lc.data "Hours Slept", hour_array, '0000ff'
       lc.show_legend = false
       lc.data "Target Hours", target_array, 'ff0000'

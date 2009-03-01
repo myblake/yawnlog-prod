@@ -1,5 +1,13 @@
 <h1>Average Sleep Last <span class="teal">Night</span></h1>
 <div id="blueback">
-<% @sleep_last_night = average_sleep_on_date(Date.today) %>
+<% @avg = AverageSleep.find(:first)
+	if @avg.nil? || Time.now - @avg.updated_at > 900
+		@sleep_last_night = average_sleep_on_date(Date.today) 
+		@avg = AverageSleep.new(:value => @sleep_last_night)
+		@avg.save
+	else
+		@sleep_last_night = @avg.value
+	end
+		%>
 <%= "%5.2f" % @sleep_last_night %> hours
 </div>
