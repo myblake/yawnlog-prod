@@ -1,3 +1,4 @@
+<% @title_text="Your Sleep"%>
 <link type="text/css" rel="stylesheet" href="/stylesheets/ui.all.css" />
 <link rel="Stylesheet" href="/stylesheets/ui.slider.extras.css" type="text/css" />
 <link rel="Stylesheet" href="/stylesheets/ui.datepicker.css" type="text/css" />
@@ -128,7 +129,6 @@ form_for @sleep, :sleep, :url => {:action => :create_sleep_backend} do |f| %>
         <td><%=h sleep.zip %></td>
         <td><%=h Sleep::QUALITY_BACKWARDS[sleep.quality] %></td>
         <td><%=h sleep.note %>
-        <td><%= link_to 'View', sleep %></td>
         <td><%= link_to 'Edit', edit_sleep_path(sleep) %></td>
         <td><%= link_to 'Delete', sleep, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>

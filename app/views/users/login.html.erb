@@ -1,3 +1,4 @@
+<% @title_text="Log In"%>
 <h1>Log <span class="teal">In</span></h1>
 <div style="text-align:center;float:right;width:400px;padding:20px 100px 0 0px">
 <%= image_tag ("translogo2.png", :alt=>"logo" )%></div>
@@ -11,5 +12,5 @@
 	password:<br /><%= f.password_field(:password) %><br />
 <%= submit_tag "login" %>
 <% end %>
-don't have an account? <%= link_to "signup", :controller => "users", :action => "signup" %>
+Don't have an account? <%= link_to "signup", :controller => "users", :action => "Sign Up!" %>
 </div>
