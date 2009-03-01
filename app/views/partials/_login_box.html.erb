@@ -7,7 +7,7 @@
 <% end %>
 <% else 
 	@user = User.find(session[:user_id])
-	if Time.now - @user.last_login_at > 300
+	if @user.last_login_at.nil? || Time.now - @user.last_login_at > 300
 		@user.last_login_at = Time.now
 		@user.save
 	end
