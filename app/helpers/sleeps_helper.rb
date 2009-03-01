@@ -93,7 +93,7 @@ module SleepsHelper
    end
    day_array = day_array.map {|x| x.strftime("%m/%d")}
    
-   min_hour = hour_array.min
+   min_hour = 0
    max_hour = [hour_array.max, target_array.max].max
    
     # Line Chart
@@ -131,7 +131,7 @@ module SleepsHelper
    end
    day_array = day_array.map {|x| x.strftime("%m/%d")}
    
-   min_hour = hour_array.min
+   min_hour = 0
    max_hour = [hour_array.max, target_array.max].max
    
     # Line Chart
