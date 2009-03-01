@@ -125,7 +125,7 @@ form_for @sleep, :sleep, :url => {:action => :create_sleep_backend} do |f| %>
      <tr class="<%= @classstring %>">
         <td class="wide"><%=h sleep.start.strftime("%a, %m/%d/%y %I:%M%p") %></td>
         <td class="wide"><%=h sleep.stop.strftime("%a, %m/%d/%y %I:%M%p") %></td>
-		<td><%= (sleep.stop - sleep.start)/3600 %> hours</td>
+		<td><%= ((sleep.stop - sleep.start)/3600).to_s[0..3] %> hours</td>
         <td><%=h sleep.zip %></td>
         <td><%=h Sleep::QUALITY_BACKWARDS[sleep.quality] %></td>
         <td><%=h sleep.note %>

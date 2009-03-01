@@ -15,7 +15,6 @@ module UsersHelper
     sleep = (calculate_sleep_on_date(date,@user.id) * 24).to_f
     delta = target_hours - sleep
     
-    puts date.to_s + " " + delta.to_s
     return delta
   end
   
@@ -45,13 +44,10 @@ module UsersHelper
     total_days = 0
     current_date = start_date
     while current_date <= end_date
-      puts current_date.to_s
       total_sleep_debt += calculate_sleep_on_date(current_date, user_id)
       total_days += 1
       current_date += 1.days
     end
-    puts (total_sleep_debt * 24).to_f
-    puts total_days
     return (total_sleep_debt * 24 / total_days).to_f
   end
 

@@ -26,9 +26,10 @@ module SleepsHelper
   def calculate_sleep_on_date(date,user_id)
     end_of_day = 24 # use 24 instead of 0
     start_date = date-1.days
-    day_start = DateTime.new(y=start_date.year,m=start_date.month,d=start_date.day-1,h=end_of_day,min=0,s=0)
+    day_start = DateTime.new(y=start_date.year,m=start_date.month,d=start_date.day,h=end_of_day,min=0,s=0)
     day_stop = DateTime.new(y=date.year,m=date.month,d=date.day,h=end_of_day,min=0,s=0)
     
+    puts "#{Date.today} #{start_date} #{day_start } #{day_stop}"
     # should filter sleep.stop isn't < day.start, sleep.start isn't > day.stop    
     @sleeps = Sleep.find(:all, :conditions => ["user_id=? AND start<? AND stop>?",user_id, day_stop, day_start])
     
