@@ -4,8 +4,10 @@
 <div class="blueback">
 
 <div class="box"><%= link_to "Sleep", :action => "sleep" %></div>
-	<h3>Number of Users:</h3>
-	<%= @size %>
+<h3>Number of Users:</h3>
+<%= @size %>
+<h3>Users Active Today</h3>
+<%= @active_users_today%>
 <h3>Growth Overall:</h3>	
 <div class="chart"><img  src="<%= users_chart_url %>" /></div>
 <div class="clearer"><br /></div>
