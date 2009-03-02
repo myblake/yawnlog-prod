@@ -6,7 +6,7 @@ class AdminController < ApplicationController
     @size = @users.length
     @active_users_today = 0 
     for user in @users
-      if user.last_login_at && Time.now - user.last_login_at < 86400
+      if (user.last_login_at && Time.now - user.last_login_at < 86400) || (user.last_sleep_at && Time.now - user.last_sleep_at < 86400)
         @active_users_today += 1
       end
     end
