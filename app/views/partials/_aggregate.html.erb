@@ -3,7 +3,7 @@
 <% @avg = AverageSleep.find(:first)
 	if @avg.nil? || Time.now - @avg.updated_at > 900
 		@sleep_last_night = average_sleep_on_date(Date.today) 
-		@avg = AverageSleep.new(:value => @sleep_last_night)
+		@avg.value = @sleep_last_night
 		@avg.save
 	else
 		@sleep_last_night = @avg.value
