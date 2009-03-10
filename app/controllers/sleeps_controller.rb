@@ -1,5 +1,5 @@
 class SleepsController < ApplicationController
-  before_filter :authorize, :except => {:cache_update}
+  before_filter :authorize, :except => [:cache_update]
   
   # GET /sleeps
   # GET /sleeps.xml
