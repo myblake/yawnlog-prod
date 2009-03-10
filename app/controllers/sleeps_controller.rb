@@ -1,5 +1,5 @@
 class SleepsController < ApplicationController
-  before_filter :authorize
+  before_filter :authorize, :except => {:cache_update}
   
   # GET /sleeps
   # GET /sleeps.xml
@@ -147,6 +147,13 @@ class SleepsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def cache_update
+    @avg = AverageSleep.find(:first)
+    @sleep_last_night = average_sleep_on_date(Date.today) 
+		@avg.value = @sleep_last_night
+		@avg.save
+	end
   
   protected 
   def authorize 
