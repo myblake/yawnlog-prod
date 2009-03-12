@@ -60,7 +60,7 @@ th {text-align:left;}
 td {padding:2px 2px 2px 10px;}
 
 /* Main Page Divs*/
-#page{color:#133960;width:101.5%;margin:-10px;}
+#page{color:#133960;width:100%;position:absolute;top:0;left:0;}
 #header{text-align:center;}
 #main{width:860px;margin:auto;}
 #footer{height:60px;background-color:#133960; color: white; border-top:10px #029cd2 solid; text-align:center; margin-top:30px;}
