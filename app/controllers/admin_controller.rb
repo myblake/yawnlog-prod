@@ -2,7 +2,7 @@ class AdminController < ApplicationController
   before_filter :authorize
   
   def index
-    @users = User.find(:all)
+    @users = User.find(:all, :order => "last_login_at DESC")
     @size = @users.length
     @active_users_today = 0 
     for user in @users
