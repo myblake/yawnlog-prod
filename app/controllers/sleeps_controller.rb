@@ -47,8 +47,13 @@ class SleepsController < ApplicationController
       stop -= 1.days
     end
     
-    start -= 8.hours
-    stop -= 8.hours
+    if Time.now.isdst
+      start -= 7.hours
+      stop -= 7.hours
+    else
+      start -= 8.hours
+      stop -= 8.hours
+    end
     
     puts start
     puts stop
