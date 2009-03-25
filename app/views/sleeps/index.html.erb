@@ -129,8 +129,8 @@ form_for @sleep, :sleep, :url => {:action => :create_sleep_backend} do |f| %>
         <td><%=h sleep.zip %></td>
         <td><%=h Sleep::QUALITY_BACKWARDS[sleep.quality] %></td>
         <td><%=h sleep.note %>
-        <td><%= link_to 'Edit', :action => :edit, :id => sleep.id %></td>
-        <td><%= link_to 'Delete', :action => :destroy, :id => sleep.id %></td>
+        <td><%= link_to 'Edit', edit_sleep_path(sleep) %></td>
+        <td><%= link_to 'Delete', sleep, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>
     </table>

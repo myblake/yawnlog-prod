@@ -1,16 +1,12 @@
-1) MySQL db -- FUCKYEA!!
 2) Adjustable dates for user graphs
-3) Better Sleep entering UI -- HELL YEA
-	a) Slide bar
-	b) Less granularity
 4) Big Sleep button - accomplished via tabs
-5) friends -- done
 6) geo stuff
 7) Reset Password link 
-9) make a little "pending friends request" thing under the signin stuff - done
 10) pull in latest yawnlog tweet
 11) can't friend yourself 
 12) add data export
-13) dynamic front page update
 14) dream tagging
 15) big numbers showing sleep interval
+
+Bugs:
+Sleep edit
