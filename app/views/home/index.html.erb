@@ -2,13 +2,7 @@
 <div class="blueback" style="text-align:center;">
 <h2 style="font-size:8em;padding-top:20px;"><span class="teal">	<% 
 	@avg = AverageSleep.find(:first)
-	if @avg.nil? || Time.now - @avg.updated_at > 900
-		@sleep_last_night = average_sleep_on_date(Date.today) 
-		@avg.value = @sleep_last_night
-		@avg.save
-	else
-		@sleep_last_night = @avg.value
-	end%>
+	@sleep_last_night = @avg.value %>
 	<%= "%5.2f" % @sleep_last_night %> hours</span></h2><h2 style="font-size:4em;">average sleep last night</h2>
 
 <% unless session[:user_id]%>

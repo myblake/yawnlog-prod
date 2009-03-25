@@ -1,11 +1,15 @@
 class SleepsController < ApplicationController
   before_filter :authorize, :except => [:cache_update]
   
+  def cache_update
+    #terrible hack here, due to putting business logic in helpers instead of controllers which should only be used for markup
+  end
+  
   # GET /sleeps
   # GET /sleeps.xml
   def index    
     @sleeps = Sleep.find(:all, :conditions => ["user_id=?", session[:user_id]], :order => "start DESC")
-   @sleep = Sleep.new
+    @sleep = Sleep.new
     @user = User.find(session[:user_id])
     respond_to do |format|
       format.html # index.html.erb
@@ -34,7 +38,6 @@ class SleepsController < ApplicationController
     
     test = start
     test2 = stop
-    
 
     if start.hour > 16
       start -= 1.days
@@ -147,13 +150,6 @@ class SleepsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
-  def cache_update
-    @avg = AverageSleep.find(:first)
-    @sleep_last_night = average_sleep_on_date(Date.today) 
-		@avg.value = @sleep_last_night
-		@avg.save
-	end
   
   protected 
   def authorize 
