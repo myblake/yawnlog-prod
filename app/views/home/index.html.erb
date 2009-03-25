@@ -4,6 +4,7 @@
 	@avg = AverageSleep.find(:first)
 	if @avg.nil? || Time.now - @avg.updated_at > 900
 		`wget -bqc http://beta.yawnlog.com/sleeps/cache_update`
+		`rm wget-log*`
 	end
 	@sleep_last_night = @avg.value %>
 	<%= "%5.2f" % @sleep_last_night %> hours</span></h2><h2 style="font-size:4em;">average sleep last night</h2>
