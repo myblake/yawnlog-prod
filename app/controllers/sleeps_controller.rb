@@ -85,7 +85,10 @@ class SleepsController < ApplicationController
 
   end
 
-
+  #
+  # Eventually we should fix all the RESTful stuff to all or (more likely unfortunately) nothing
+  #
+  
   # GET /sleeps/1/edit
   def edit
     @sleep = Sleep.find(params[:id])
@@ -151,7 +154,7 @@ class SleepsController < ApplicationController
     @sleep.destroy
 
     respond_to do |format|
-      format.html { redirect_to(sleeps_url) }
+      format.html { redirect_to(:action => :index) }
       format.xml  { head :ok }
     end
   end
