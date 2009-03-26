@@ -1,0 +1,34 @@
+@import "ui.all.css";
+
+#sleep-picker {
+    font: 62.5% "Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+fieldset#sleep-picker {
+    border:0;
+    margin: 1em;
+    height: 12em;
+}
+
+.reg {
+    font-size: 13px;
+}
+
+#sleep-picker label {
+    font-size: 1.1em;
+    font-weight: normal;
+    margin-right: .5em;
+}
+
+#sleep-picker select {
+    margin-right: 1em;
+}
+
+#sleep-picker .ui-slider {
+    clear: both;
+    top: 5em;
+}
+
+#sleep-picker .ui-datepicker { /* keeps datepicker on top of slider bar */
+    z-index: 2;
+} 
