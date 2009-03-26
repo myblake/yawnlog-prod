@@ -1,45 +1,7 @@
+<%# Using jQuery SelectToUISlider by Filament group: http://bit.ly/18SLhE #%>
+<% @stylesheets << ["sleeps.css", "ui.slider.extras.css"] %>
+<% @javascripts << ["jquery-ui-personalized-1.6rc6.js","selectToUISlider.jQuery.js"] %>
 <% @title_text="Your Sleep"%>
-<link type="text/css" rel="stylesheet" href="/stylesheets/ui.all.css" />
-<link rel="Stylesheet" href="/stylesheets/ui.slider.extras.css" type="text/css" />
-<link rel="Stylesheet" href="/stylesheets/ui.datepicker.css" type="text/css" />
-<script type="text/javascript" src="/javascripts/jquery-ui-personalized-1.6rc6.js"></script>
-<!-- Using jQuery SelectToUISlider by Filament group: http://bit.ly/18SLhE -->
-<script type="text/javascript" src="/javascripts/selectToUISlider.jQuery.js"></script>
-<script type="text/javascript">
-  $(function() {
-    var monthnames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    $("#datepicker").datepicker({ dateFormat: 'd M' });
- 
-    $('select#start, select#stop').selectToUISlider({
-      labels: 12
-    });
- 
-    $('.hidemeonload').addClass("hidden");
-    
-    $('#datepicker').change(function() {
-      var value = $(this).datepicker( "getDate" );
-      var myDate=new Date(value);
-      myDate.setDate(myDate.getDate()-1);
- 
-      $('.date_1').html("<span>" + value.getDate() + " " + monthnames[value.getMonth()] + "</span>");
-      $('.date_0').html("<span>" + myDate.getDate() + " "+ monthnames[myDate.getMonth()] + "</span>");
-   });
-  
-  });
-  
-  
-</script>
- 
-<style type="text/css">
-  #sleep-picker {font-size: 62.5%; font-family:"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif; }
-  fieldset#sleep-picker { border:0; margin: 1em; height: 12em;}  
-  .reg{font-size: 13px; }
-  #sleep-picker label {font-weight: normal; margin-right: .5em; font-size: 1.1em;}
-  #sleep-picker select {margin-right: 1em;}
-  #sleep-picker .ui-slider {clear: both; top: 5em;}
-  
-  #sleep-picker .ui-datepicker { z-index: 2; } //keeps datepicker on top of slider bar
-</style>
  
 <h1>New <span class="teal">sleep</span></h1>
 <div class="blueback">
@@ -56,7 +18,7 @@ form_for @sleep, :sleep, :url => {:action => :create_sleep_backend} do |f| %>
     <%= select(:sleep, :quality, Sleep::QUALITY, {:selected=>@sleep.quality}) %>
   <%= f.label :note %>
   <%= f.text_field :note %>
-  Date:   </span><input id="datepicker" type="text" name="sleep[date]" value="today">
+  Date:   </span><input id="datepicker" type="text" name="sleep[date]" value="today" />
     <%= f.submit "Create" %>
     <label class="hidemeonload" for="start">From:</label>
     <select class="hidemeonload" name="start" id="start">
@@ -128,7 +90,7 @@ form_for @sleep, :sleep, :url => {:action => :create_sleep_backend} do |f| %>
 		<td><%= ((sleep.stop - sleep.start)/3600).to_s[0..3] %> hours</td>
         <td><%=h sleep.zip %></td>
         <td><%=h Sleep::QUALITY_BACKWARDS[sleep.quality] %></td>
-        <td><%=h sleep.note %>
+        <td><%=h sleep.note %></td>
         <td><%= link_to 'Edit', edit_sleep_path(sleep) %></td>
         <td><%= link_to 'Delete', sleep, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
@@ -155,5 +117,24 @@ $(document).ready(function() {
   $("a#hide_all").click(function() {
     $("tr.hideme").addClass("hidden")
   });
+  
+  
+  var monthnames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  $("#datepicker").datepicker({ dateFormat: 'd M' });
+
+  $('select#start, select#stop').selectToUISlider({
+    labels: 12
+  });
+
+  $('.hidemeonload').addClass("hidden");
+  
+  $('#datepicker').change(function() {
+    var value = $(this).datepicker( "getDate" );
+    var myDate=new Date(value);
+    myDate.setDate(myDate.getDate()-1);
+
+    $('.date_1').html("<span>" + value.getDate() + " " + monthnames[value.getMonth()] + "</span>");
+    $('.date_0').html("<span>" + myDate.getDate() + " "+ monthnames[myDate.getMonth()] + "</span>");
+ });
 });
 </script>

@@ -7,6 +7,7 @@
 12) add data export
 14) dream tagging
 15) big numbers showing sleep interval
+16) sleep_chart_url() should return an escaped link (for HTML validation)
 
 Bugs:
 Sleep edit
