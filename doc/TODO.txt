@@ -1,6 +1,5 @@
 2) Adjustable dates for user graphs
-4) Big Sleep button - accomplished via tabs
-6) geo stuff
+6) geo location stuff
 7) Reset Password link 
 10) pull in latest yawnlog tweet
 11) can't friend yourself 
@@ -8,5 +7,8 @@
 14) dream tagging
 15) big numbers showing sleep interval
 
+16) time zone support
+17) user profile fields for gender, city, country and rename zip postal code (on the front end at least)
+18)
+
 Bugs:
-Sleep edit
