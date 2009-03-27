@@ -22,6 +22,7 @@
                         	<li><%= link_to "Settings", :controller => "users", :action => "edit"%></li> 
 							<% if User.find(session[:user_id]).admin %>
 							<li><%= link_to("Admin", :controller => "admin", :action => "index")%></li>
+							<li><%= link_to("Read Feedback", :controller => "admin", :action => "feedback")%></li>
 							<li><%= link_to("News", :controller => "home", :action => "news")%></li>							
 							<% end %>
 						<% else %>
