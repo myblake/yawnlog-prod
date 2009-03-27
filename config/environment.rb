@@ -73,3 +73,17 @@ Rails::Initializer.run do |config|
   # Please note that observers generated using script/generate observer need to have an _observer suffix
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 end
+
+ActionMailer::Base.delivery_method = :smtp
+
+ActionMailer::Base.smtp_settings = {
+   :tls => true,
+   :address => "smtp.gmail.com",
+   :port => "587",
+   :domain => "mail.yawnlog.com",
+   :authentication => :plain,
+   :user_name => "team@yawnlog.com",
+   :password => "sleepytime" 
+ }
+ 
+ActionMailer::Base.default_content_type = "text/html"

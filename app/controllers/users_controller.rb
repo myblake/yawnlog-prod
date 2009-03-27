@@ -2,7 +2,7 @@ require 'digest/sha1'
 
 class UsersController < ApplicationController
 
-  before_filter :authorize, :except => [:login, :signup, :signup_backend, :login_backend, :user]
+  before_filter :authorize, :except => [:login, :signup, :signup_backend, :login_backend, :user, :forgot_password, :create_forgot_password]
   
   def share
   end
@@ -70,12 +70,34 @@ class UsersController < ApplicationController
       session[:user_username] = user.username
       user.last_login_at = Time.now
       user.save
+      if user.pw_reset
+        redirect_to :action => :password_reset
+        return
+      end
 			redirect_to :controller => "sleeps", :action => :index
 		else
 			flash[:notice] = "Incorrect username or password."
 			redirect_to :controller => "users", :action => :login
 		end
 	end
+	
+	def password_reset
+    @user = User.find(session[:user_id])
+    if params[:user]
+      if params[:user][:password] != params[:user][:password_confirm]
+  	    flash[:notice] = "Passwords don't match"
+        return
+  		end
+  	  @user.password = Digest::SHA1.hexdigest(params[:user][:password])
+  	  @user.pw_reset = false
+  	  if @user.save
+        flash[:notice] = "Your settings are updated!"
+        redirect_to :controller => :home, :action => :index
+      else
+        flash[:notice] = "Error saving new settings."
+      end
+    end
+  end
 	
 	def logout
 		session[:user_id] = nil
@@ -114,6 +136,37 @@ class UsersController < ApplicationController
         redirect_to :action => :edit
       end               
     end
+  end
+  
+  def create_forgot_password
+    if session[:user_id]
+      redirect_to :action => :index
+      return
+    end
+
+    if params[:user][:username] and !params[:user][:username].empty?
+      user = User.find(:first, :conditions => ["username=?", params[:user][:username]])
+    elsif params[:user][:email]
+      user = User.find(:first, :conditions => ["email=?", params[:user][:email]])
+    end
+    if user
+      if user.pw_reset
+        flash[:notice] = "Password has been recently reset, please check you inbox"
+        redirect_to :action => :login
+        return
+      end
+      password = Digest::SHA1.hexdigest(Time.now.to_s).to_s[0..7]
+  	  sha_passwd = Digest::SHA1.hexdigest(password) 
+  	  user.password = sha_passwd
+  	  user.pw_reset = true
+  	  user.save
+      if UserMailer.deliver_forgot_password(user, password)
+        flash[:notice] = "Please check your email for a new password."
+      end
+    else
+      flash[:notice] = "Could not find user account for username #{params[:username]}"
+    end
+    redirect_to :controller => :home, :action => :index
   end
   
   protected 

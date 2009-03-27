@@ -12,5 +12,6 @@
 	password:<br /><%= f.password_field(:password) %><br />
 <%= submit_tag "login" %>
 <% end %>
-Don't have an account? <%= link_to "signup", :controller => "users", :action => "Sign Up!" %>
+Don't have an account? <%= link_to "Sign Up", :controller => :users, :action => :signup %><br />
+Forgot your password? <%= link_to "Click here", :controller => :users, :action => :forgot_password %>
 </div>

@@ -115,10 +115,13 @@ form_for @sleep, :sleep, :url => {:action => :create_sleep_backend} do |f| %>
 <div class="blueback"> 
   <%= render :partial => "partials/chart.html.erb", :locals => @chart = { "start" => @start, "stop" => @stop} %>
 	<% form_for :chart, :url => {:action => :index} do |f| %>
-		Chart dates:
-		Start: <input id="datepicker_from" type="text" name="chart[start]" value="<%= (Date.today - 7.days).strftime("%m/%d/%Y") %>" />
-		End: <input id="datepicker_to" type="text" name="chart[stop]" value="today" />
-		<%= f.submit "Update" %><br /><br />
+		
+		<table><tr>
+			<td><h3 style="margin:0;">Chart dates:</h3></td>
+			<td>Start: <input id="datepicker_from" type="text" name="chart[start]" value="<%= (Date.today - 7.days).strftime("%m/%d/%Y") %>" />
+			End: <input id="datepicker_to" type="text" name="chart[stop]" value="today" />
+			<%= f.submit "Update" %></td>
+		</tr></table>
 	<% end %>
 
 </div>
