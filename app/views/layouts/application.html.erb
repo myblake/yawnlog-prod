@@ -19,8 +19,7 @@
                        		<li><%= link_to("Sleep", :controller => "sleeps")%></li>
                         	<li><%= link_to("Friends", :controller => "friends", :action => "index")%></li>
                         	<li><%= link_to("World", :controller => "users", :action => "public_profiles")%></li>
-                        	<li><%= link_to "Settings", :controller => "users", :action => "edit"%></li>
-                        	<li><%= link_to "Feedback", :controller => "home", :action => "feedback"%></li>
+                        	<li><%= link_to "Settings", :controller => "users", :action => "edit"%></li> 
 							<% if User.find(session[:user_id]).admin %>
 							<li><%= link_to("Admin", :controller => "admin", :action => "index")%></li>
 							<li><%= link_to("News", :controller => "home", :action => "news")%></li>							
@@ -33,6 +32,9 @@
 						<li><a href="http://blog.yawnlog.com">Blog</a></li>
 					</ul>
                </div>
+				<div id="feedback">
+					<li><%= link_to image_tag("feedback.png", :alt => "Feedback"), :controller => "home", :action => "feedback"%></li>
+				</div>
 				<div id="login_box">
                     <% if session[:user_id] %>
 						Signed in as <%= session[:user_username] %>. <%= link_to "Sign Out", :controller => "users", :action => "logout" %>&nbsp;&nbsp;
@@ -52,6 +54,24 @@
 				<%= link_to "Privacy", :controller => "home", :action => "privacy_policy"%>
             </div>
         </div>
-		<script type="text/javascript"> var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E")); </script> <script type="text/javascript"> try { var pageTracker = _gat._getTracker("UA-7592525-4"); pageTracker._trackPageview(); } catch(err) {}</script>
+		
+		<script type="text/javascript"> 
+		//jquery for the hover event
+	 	$(function() {
+			$('#feedback').hover(
+				function () {
+					$('#feedback img').attr({ 
+						src: "/images/feedback_hover.png",
+					});
+				},
+				function () {
+					$('#feedback img').attr({ 
+						src: "/images/feedback.png",
+					});
+				}
+			);
+		});
+		// google analytics
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E")); </script> <script type="text/javascript"> try { var pageTracker = _gat._getTracker("UA-7592525-4"); pageTracker._trackPageview(); } catch(err) {}</script>
     </body>
 </html>
