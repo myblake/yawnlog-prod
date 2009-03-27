@@ -12,7 +12,7 @@ class SleepsController < ApplicationController
       if params[:start] == "today"
         @start = Date.today
       else
-        @start = Date.parse("00:00 " + params[:start] + " UT")
+        @start = Date.parse(params[:start])
       end
     else
       @start = Date.today-7.days
@@ -22,7 +22,7 @@ class SleepsController < ApplicationController
       if params[:stop] == "today"
         @stop = Date.today
       else
-        @stop = Date.parse("00:00 " + params[:stop] + " UT")
+        @stop = Date.parse(params[:stop])
       end
     else
       @stop = Date.today
@@ -107,10 +107,10 @@ class SleepsController < ApplicationController
   end
 
   #
-  # Eventually we should fix all the RESTful stuff to all or (more likely unfortunately) nothing
+  # Eventually we should fix all the RESTful stuff to all or (more likely unfortunately) not
   #
-  
   # GET /sleeps/1/edit
+  
   def edit
     @sleep = Sleep.find(params[:id])
     if @sleep.user_id != session[:user_id]
