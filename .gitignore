@@ -2,3 +2,4 @@
 db/schema.rb
 config/database.yml
 *.svn*
+.DS_Store
