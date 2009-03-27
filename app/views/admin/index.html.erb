@@ -9,10 +9,10 @@
 <h3>Users Active Today</h3>
 <%= @active_users_today%>
 <h3>Growth Overall:</h3>	
-<div class="chart"><img  src="<%= users_chart_url %>" /></div>
+<div class="chart"><% url = users_chart_url %><img src="<%= url[0] %>" /><img src="<%= url[1] %>" /></div>
 <div class="clearer"><br /></div>
 <h3>Growth Today:</h3>
-<div class="chart"><img  src="<%= users_hours_chart_url %>" /></div>
+<div class="chart"><% url = users_hours_chart_url %><img src="<%= url[0] %>" /><img src="<%= url[1] %>" /></div>
 
 
 <div class="clearer"><br /></div>

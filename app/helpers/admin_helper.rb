@@ -37,9 +37,13 @@ module AdminHelper
       new_users_array.push(user[1])
     end
 
+    max = 0 
     for i in 0..new_users_array.length-1
       if i > 0
         new_users_array[i] -= users_array[i-1]
+        if new_users_array[i] > max
+          max = new_users_array[i]
+        end
       end
 #      new_users_array.push(users)
     end
@@ -53,12 +57,21 @@ module AdminHelper
     # Line Chart
     GoogleChart::LineChart.new('600x300', "#{name} Growth", false) do |lc|
       lc.data "#{name}", users_array, '0000ff'
-      lc.data "New #{name}", new_users_array, 'ff0000'
       lc.show_legend = true
       lc.axis :y, :range => [0,num_of_users], :color => '000000', :font_size => 16, :alignment => :center
       lc.axis :x, :labels => day_array, :color => '000000', :font_size => 16, :alignment => :center
-      return lc.to_url
+      @chart1_url = lc.to_url
+      puts @chart1_url
     end
+    GoogleChart::LineChart.new('600x300', "New #{name} Growth", false) do |lc|
+      lc.data "New #{name}", new_users_array, 'ff0000'
+      lc.show_legend = true
+      lc.axis :y, :range => [0,max], :color => '000000', :font_size => 16, :alignment => :center
+      lc.axis :x, :labels => day_array, :color => '000000', :font_size => 16, :alignment => :center
+      @chart2_url = lc.to_url
+      puts @chart2_url
+    end
+    return [@chart1_url, @chart2_url]
   end
   
     def make_hours_chart(array,name)
@@ -83,13 +96,16 @@ module AdminHelper
         new_users_array.push(user[1])
       end
 
+      max = 0
       for i in 0..new_users_array.length-1
         if i > 0
           new_users_array[i] -= users_array[i-1]
         else
           new_users_array[i] = 0 
         end
-          
+        if new_users_array[i] > max
+          max = new_users_array[i]
+        end  
   #      new_users_array.push(users)
       end
 
@@ -106,12 +122,21 @@ module AdminHelper
       # Line Chart
       GoogleChart::LineChart.new('600x300', "#{name} Growth", false) do |lc|
         lc.data "#{name}", users_array, '0000ff'
-        lc.data "New #{name}", new_users_array, 'ff0000'
         lc.show_legend = true
         lc.axis :y, :range => [0,num_of_users], :color => '000000', :font_size => 16, :alignment => :center
         lc.axis :x, :labels => day_array, :color => '000000', :font_size => 16, :alignment => :center
-        return lc.to_url
+        @chart1_url = lc.to_url
+        puts @chart1_url
       end
+      GoogleChart::LineChart.new('600x300', "New #{name} Growth", false) do |lc|
+        lc.data "New #{name}", new_users_array, 'ff0000'
+        lc.show_legend = true
+        lc.axis :y, :range => [0,max], :color => '000000', :font_size => 16, :alignment => :center
+        lc.axis :x, :labels => day_array, :color => '000000', :font_size => 16, :alignment => :center
+        @chart2_url = lc.to_url
+        puts @chart2_url
+      end
+      return [@chart1_url, @chart2_url]
     end
   
 end
