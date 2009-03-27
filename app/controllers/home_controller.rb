@@ -27,6 +27,11 @@ class HomeController < ApplicationController
   end
   
   def feedback
+    unless session[:user_id]
+      flash[:notice] = "Please log in" 
+      redirect_to :controller => 'users', :action => 'login' 
+      return
+    end 
     if params[:feedback]
       @feedback = Feedback.new(:body => params[:feedback][:body], :user_id => session[:user_id])
       if @feedback.save
