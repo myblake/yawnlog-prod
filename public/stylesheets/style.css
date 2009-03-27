@@ -64,14 +64,17 @@ hr {color:#133960;}
 #page{color:#133960;width:100%;position:absolute;top:0;left:0;}
 #header{text-align:center;}
 #main{width:860px;margin:auto;}
-#footer{height:60px;background-color:#133960; color: white; border-top:10px #029cd2 solid; text-align:center; margin-top:30px;}
+#footer{height:27px;background-color:#133960; color: white; border-top:10px #029cd2 solid; text-align:center; padding-top:6px;}
 #login_box{text-align:right;}
-#logo {float:right;width:205px;margin-top:36px;}
+#logo {float:right;width:205px;margin-top:0px;}
 #feedback {position:fixed; top:35%; left:0px;border:2px #029cd2 solid;padding-bottom:0;}
-#nav{height:100px;background-color:#133960; color: white; border-bottom:10px #029cd2 solid; text-align:left; vertical-align: bottom;}
+.navwrap{position:fixed;width:100%;z-index:100;}
+#navbuff{height:80px;}
+#navbuff2{height:70px;}
+#nav{height:60px;background-color:#133960; color: white; border-bottom:10px #029cd2 solid; text-align:left; vertical-align: bottom;}
 #nav a{ font-size:18px; color: #029cd2;	height:50px;}
 #nav a:hover{color:#f57f8f;}
-#nav ul {margin-left: 30px; margin-bottom: 0px; margin-right: 0px; margin-top: 70px; position: absolute; float:left;list-style-type:none;padding:0px;background:#133960;} 
+#nav ul {margin-left: 30px; margin-bottom: 0px; margin-right: 0px; margin-top: 30px; position: absolute; float:left;list-style-type:none;padding:0px;background:#133960;} 
 
 #nav ul li {
 	margin-right: 10px;

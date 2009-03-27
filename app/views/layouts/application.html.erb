@@ -1,3 +1,4 @@
+<% @foo=true %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,49 +13,66 @@
     <body>
         <div id="page">
             <div id="header">
-                <div id="nav">
-					<div id="logo"><%= link_to image_tag ("yawnlog_logo_beta_horz3.png", :alt=>"logo"), :controller => "home", :action => "index" %></div>
-					<ul>
-                   		<% if session[:user_id] %>
-                       		<li><%= link_to("Sleep", :controller => "sleeps")%></li>
-                        	<li><%= link_to("Friends", :controller => "friends", :action => "index")%></li>
-                        	<li><%= link_to("World", :controller => "users", :action => "public_profiles")%></li>
-                        	<li><%= link_to "Settings", :controller => "users", :action => "edit"%></li> 
-							<% if User.find(session[:user_id]).admin %>
-							<li><%= link_to("Admin", :controller => "admin", :action => "index")%></li>
-							<li><%= link_to("Read Feedback", :controller => "admin", :action => "feedback")%></li>
-							<li><%= link_to("News", :controller => "home", :action => "news")%></li>							
-							<% end %>
-						<% else %>
-							<li><%= link_to("Login", :controller => "users", :action => "login")%></li>
-							<li><%= link_to("Sign Up", :controller => "users", :action => "signup")%></li>
-	                    <% end %>
-						<li><%= link_to("About", :controller => "home", :action => "about")%></li>
-						<li><a href="http://blog.yawnlog.com">Blog</a></li>
-					</ul>
-               </div>
-				<div id="feedback">
-					<%= link_to image_tag("feedback2.png", :alt => "Feedback"), :controller => "home", :action => "feedback"%>
-					<%= image_tag "feedback2.png", :alt => "Feedback", :style => "display:none;" %>
-				</div>
-				<div id="login_box">
-                    <% if session[:user_id] %>
-						Signed in as <%= session[:user_username] %>. <%= link_to "Sign Out", :controller => "users", :action => "logout" %>&nbsp;&nbsp;
-					<% end %><br />
-					<%= if pending 
-						link_to "Pending friend request", :controller => :friends, :action => :index
-					   end %>
-                </div>
+                <% if @foo %>
+					<div class="navwrap">
+				<% end %>
+	                <div id="nav">
+						<div id="logo"><%= link_to image_tag ("yawnlog_logo_beta_horz3.png", :alt=>"logo"), :controller => "home", :action => "index" %></div>
+						<ul>
+	                   		<% if session[:user_id] %>
+	                       		<li><%= link_to("Sleep", :controller => "sleeps")%></li>
+	                        	<li><%= link_to("Friends", :controller => "friends", :action => "index")%></li>
+	                        	<li><%= link_to("World", :controller => "users", :action => "public_profiles")%></li>
+	                        	<li><%= link_to "Settings", :controller => "users", :action => "edit"%></li> 
+								<% if User.find(session[:user_id]).admin %>
+								<li><%= link_to("Admin", :controller => "admin", :action => "index")%></li>
+								<li><%= link_to("Read Feedback", :controller => "admin", :action => "feedback")%></li>
+								<li><%= link_to("News", :controller => "home", :action => "news")%></li>							
+								<% end %>
+							<% else %>
+								<li><%= link_to("Login", :controller => "users", :action => "login")%></li>
+								<li><%= link_to("Sign Up", :controller => "users", :action => "signup")%></li>
+		                    <% end %>
+							<li><%= link_to("About", :controller => "home", :action => "about")%></li>
+							<li><a href="http://blog.yawnlog.com">Blog</a></li>
+						</ul>
+	            	</div>
+					<div id="login_box">
+						<% if session[:user_id] %>
+							Signed in as <%= session[:user_username] %>. <%= link_to "Sign Out", :controller => "users", :action => "logout" %>&nbsp;&nbsp;
+						<% end %><br />
+						<%= if pending 
+							link_to "Pending friend request", :controller => :friends, :action => :index
+						   end %>
+					</div>
+                <% if @foo %>
+	            	</div>
+	                <div id="navbuff">
+					</div>
+				<% end %>
+			<div id="feedback">
+				<%= link_to image_tag("feedback2.png", :alt => "Feedback"), :controller => "home", :action => "feedback"%>
+				<%= image_tag "feedback2.png", :alt => "Feedback", :style => "display:none;" %>
+			</div>
+			
+			</div>
+			<div id="main">
+				<% if flash[:notice] %><p class="flash notice"><%= flash[:notice] %></p><br><br><% end %>
+				<%= yield %>
+			</div>
+			<% if @foo %>
+            <div id="navbuff2">
+			</div>
+			<div class="navwrap" style="bottom:0px;">
+			<% end %>
+	            <div id="footer">
+	                copyright &copy; 2009 <a href="http://www.hellosilo.com">hellosilo llc.</a> | 
+					<%= link_to "Terms of Service", :controller => "home", :action => "tos"%> |
+					<%= link_to "Privacy", :controller => "home", :action => "privacy_policy"%>
+	            </div>
+			<% if @foo %>
             </div>
-            <div id="main">
-                <% if flash[:notice] %><p class="flash notice"><%= flash[:notice] %></p><br><br><% end %>
-                <%= yield %>
-            </div>
-            <div id="footer"><br />
-                copyright &copy; 2009 <a href="http://www.hellosilo.com">hellosilo llc.</a> | 
-				<%= link_to "Terms of Service", :controller => "home", :action => "tos"%> |
-				<%= link_to "Privacy", :controller => "home", :action => "privacy_policy"%>
-            </div>
+			<% end %>
         </div>
 		
 		<script type="text/javascript"> 
