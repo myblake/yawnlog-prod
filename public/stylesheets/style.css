@@ -68,7 +68,9 @@ hr {color:#133960;}
 #login_box{text-align:right;}
 #logo {float:right;width:205px;margin-top:0px;}
 #feedback {position:fixed; top:35%; left:0px;border:2px #029cd2 solid;padding-bottom:0;}
-.navwrap{position:fixed;width:100%;z-index:100;}
+.navwrap{position:fixed;left:0;width:100%;z-index:100;}
+.headwrap{top:0;}
+.footwrap{bottom:0;}
 #navbuff{height:80px;}
 #navbuff2{height:70px;}
 #nav{height:60px;background-color:#133960; color: white; border-bottom:10px #029cd2 solid; text-align:left; vertical-align: bottom;}
