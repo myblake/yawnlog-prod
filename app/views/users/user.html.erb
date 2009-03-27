@@ -1,5 +1,4 @@
-<% @stylesheets << ["sleeps.css", "ui.slider.extras.css"] %>
-<% @javascripts << ["jquery-ui-personalized-1.6rc6.js","selectToUISlider.jQuery.js"] %>
+<% @javascripts << ["jquery-ui-personalized-1.6rc6.js"] %>
 
 <h1>Profile of <span class="teal"><%= @user.username %></span></h1>
 <% @title_text=@user.username%>
@@ -26,10 +25,9 @@
 <% end %>
 <script type="text/javascript">
 $(document).ready(function() {
-	alert("hey dude");
 //initialize date picker
   $("#datepicker_from").datepicker({ dateFormat: 'mm/dd/yy' });
   $("#datepicker_to").datepicker({ dateFormat: 'mm/dd/yy' });
- });
+
 });
 </script>
