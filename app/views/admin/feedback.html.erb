@@ -9,7 +9,7 @@
 <% else %>
   <tr>
 <% end %>
-		<td><%= feedback.user.username %> at <%= feedback.created_at.strftime("%I:%M %p on %a %b %d %Y") %> said:<br /><div class="fbtext"><%= feedback.body %></div><% unless feedback == @feedbacks.last %><br /><hr ><br /><% end %></td></tr>
+		<td><a href="mailto:<%= feedback.user.email %>"><%= feedback.user.username %></a> at <%= feedback.created_at.strftime("%I:%M %p on %a %b %d %Y") %> said:<br /><div class="fbtext"><%= feedback.body %></div><% unless feedback == @feedbacks.last %><br /><hr ><br /><% end %></td></tr>
 <% end %>
 
 </table>
