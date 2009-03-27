@@ -1,4 +1,3 @@
-<% @chart = { "start" => Date.today-7.days, "stop" => Date.today}%>
 <div class="chart"><img  src="<%= sleep_chart_url(@chart["start"],@chart["stop"] , @user.id) %>" /></div>
 <div class="profile">
 <% @sleepdebt = sleep_debt_for_date(Date.today, @user.id).to_f %>

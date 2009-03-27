@@ -37,8 +37,6 @@ module AdminHelper
       new_users_array.push(user[1])
     end
 
-    puts new_users_array
-
     for i in 0..new_users_array.length-1
       if i > 0
         new_users_array[i] -= users_array[i-1]
@@ -46,13 +44,10 @@ module AdminHelper
 #      new_users_array.push(users)
     end
 
-    puts new_users_array
 
     if day_array.length > 9
       day_array = [day_array.first, day_array.last]
     end  
-    puts user_array
-    puts day_array
     day_array = day_array.map {|x| x.strftime("%m/%d")}
 
     # Line Chart
@@ -98,7 +93,7 @@ module AdminHelper
   #      new_users_array.push(users)
       end
 
-      puts day_array
+
       new_days = []
       day_array = day_array.map {|x| x.strftime("%I:%M%p")}
       for i in 0..new_users_array.length-1
@@ -107,7 +102,6 @@ module AdminHelper
         end
       end
       day_array = new_days
-      puts day_array
 
       # Line Chart
       GoogleChart::LineChart.new('600x300', "#{name} Growth", false) do |lc|

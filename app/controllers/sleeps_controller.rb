@@ -8,6 +8,26 @@ class SleepsController < ApplicationController
   # GET /sleeps
   # GET /sleeps.xml
   def index    
+    if params[:start]
+      if params[:start] == "today"
+        @start = Date.today
+      else
+        @start = Date.parse("00:00 " + params[:start] + " UT")
+      end
+    else
+      @start = Date.today-7.days
+    end
+    
+    if params[:stop]
+      if params[:stop] == "today"
+        @stop = Date.today
+      else
+        @stop = Date.parse("00:00 " + params[:stop] + " UT")
+      end
+    else
+      @stop = Date.today
+    end
+
     @sleeps = Sleep.find(:all, :conditions => ["user_id=?", session[:user_id]], :order => "start DESC")
     @sleep = Sleep.new
     @user = User.find(session[:user_id])
@@ -29,6 +49,7 @@ class SleepsController < ApplicationController
 
 
   def create_sleep_backend
+    #asdf
     #start = Time.parse(params[:sleep][:start] + params[:sleep][:date])
     start = params[:start]
     stop = params[:stop]
@@ -102,6 +123,11 @@ class SleepsController < ApplicationController
   # POST /sleeps
   # POST /sleeps.xml
   def create
+    #vicious hack. sorry to whoever is reading this even me again.
+    if params[:chart]
+      redirect_to :action => :index, :params => params[:chart]
+      return
+    end
     @sleep = Sleep.new(params[:sleep])
     @sleep.user_id = session[:user_id]
 

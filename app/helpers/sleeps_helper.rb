@@ -14,13 +14,13 @@ module SleepsHelper
       late_stop = stop1
     end
     if early_stop <= late_start
-      d = 0
+      overlap = 0
     elsif early_stop < late_stop
-      d = early_stop - late_start
+      overlap = early_stop - late_start
     else 
-      d = late_stop - late_start
+      overlap = late_stop - late_start
     end
-    return d
+    return overlap
   end
   
   def calculate_sleep_on_date(date,user_id)
@@ -29,7 +29,6 @@ module SleepsHelper
     day_start = DateTime.new(y=start_date.year,m=start_date.month,d=start_date.day,h=end_of_day,min=0,s=0)
     day_stop = DateTime.new(y=date.year,m=date.month,d=date.day,h=end_of_day,min=0,s=0)
     
-    puts "#{Date.today} #{start_date} #{day_start } #{day_stop}"
     # should filter sleep.stop isn't < day.start, sleep.start isn't > day.stop    
     @sleeps = Sleep.find(:all, :conditions => ["user_id=? AND start<? AND stop>?",user_id, day_stop, day_start])
     
