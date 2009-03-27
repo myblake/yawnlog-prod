@@ -5,75 +5,61 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>YawnLog.com<% if @title_text%> > <%=@title_text%><%end%></title>
-		<link rel="icon" type="image/png" href="/images/favicon.png"/>
-		<%= stylesheet_link_tag *(['style'] + @stylesheets) %>
-		<%= javascript_include_tag *(['jquery'] + @javascripts) %>
+        <link rel="icon" type="image/png" href="/images/favicon.png"/>
+        <%= stylesheet_link_tag *(['style'] + @stylesheets) %>
+        <%= javascript_include_tag *(['jquery'] + @javascripts) %>
     </head>
     <body>
         <div id="page">
             <div id="header">
                 <div id="nav">
-					<div id="logo"><%= link_to image_tag ("yawnlog_logo_beta_horz3.png", :alt=>"logo"), :controller => "home", :action => "index" %></div>
-					<ul>
-                   		<% if session[:user_id] %>
-                       		<li><%= link_to("Sleep", :controller => "sleeps")%></li>
-                        	<li><%= link_to("Friends", :controller => "friends", :action => "index")%></li>
-                        	<li><%= link_to("World", :controller => "users", :action => "public_profiles")%></li>
-                        	<li><%= link_to "Settings", :controller => "users", :action => "edit"%></li> 
-							<% if User.find(session[:user_id]).admin %>
-							<li><%= link_to("Admin", :controller => "admin", :action => "index")%></li>
-							<li><%= link_to("Read Feedback", :controller => "admin", :action => "feedback")%></li>
-							<li><%= link_to("News", :controller => "home", :action => "news")%></li>							
-							<% end %>
-						<% else %>
-							<li><%= link_to("Login", :controller => "users", :action => "login")%></li>
-							<li><%= link_to("Sign Up", :controller => "users", :action => "signup")%></li>
-	                    <% end %>
-						<li><%= link_to("About", :controller => "home", :action => "about")%></li>
-						<li><a href="http://blog.yawnlog.com">Blog</a></li>
-					</ul>
+                    <div id="logo"><%= link_to image_tag ("yawnlog_logo_beta_horz3.png", :alt=>"logo"), :controller => "home", :action => "index" %></div>
+                    <ul>
+                        <% if session[:user_id] %>
+                            <li><%= link_to("Sleep", :controller => "sleeps")%></li>
+                            <li><%= link_to("Friends", :controller => "friends", :action => "index")%></li>
+                            <li><%= link_to("World", :controller => "users", :action => "public_profiles")%></li>
+                            <li><%= link_to "Settings", :controller => "users", :action => "edit"%></li> 
+                            <% if User.find(session[:user_id]).admin %>
+                            <li><%= link_to("Admin", :controller => "admin", :action => "index")%></li>
+                            <li><%= link_to("Read Feedback", :controller => "admin", :action => "feedback")%></li>
+                            <li><%= link_to("News", :controller => "home", :action => "news")%></li>                            
+                            <% end %>
+                        <% else %>
+                            <li><%= link_to("Login", :controller => "users", :action => "login")%></li>
+                            <li><%= link_to("Sign Up", :controller => "users", :action => "signup")%></li>
+                        <% end %>
+                        <li><%= link_to("About", :controller => "home", :action => "about")%></li>
+                        <li><a href="http://blog.yawnlog.com">Blog</a></li>
+                    </ul>
                </div>
-				<div id="feedback">
-					<%= link_to image_tag("feedback2.png", :alt => "Feedback"), :controller => "home", :action => "feedback"%>
-					<%= image_tag "feedback2.png", :alt => "Feedback", :style => "display:none;" %>
-				</div>
-				<div id="login_box">
+                <div id="feedback">
+                    <%= link_to image_tag("blank.gif", :alt => "Feedback"), :controller => "home", :action => "feedback"%>
+                    <%# = image_tag "feedback2.png", :alt => "Feedback", :style => "display:none;" #%>
+                </div>
+                <div id="login_box">
                     <% if session[:user_id] %>
-						Signed in as <%= session[:user_username] %>. <%= link_to "Sign Out", :controller => "users", :action => "logout" %>&nbsp;&nbsp;
-					<% end %><br />
-					<%= if pending 
-						link_to "Pending friend request", :controller => :friends, :action => :index
-					   end %>
+                        Signed in as <%= session[:user_username] %>. <%= link_to "Sign Out", :controller => "users", :action => "logout" %>&nbsp;&nbsp;
+                    <% end %><br />
+                    <%= if pending 
+                        link_to "Pending friend request", :controller => :friends, :action => :index
+                       end %>
                 </div>
             </div>
             <div id="main">
-                <% if flash[:notice] %><p class="flash notice"><%= flash[:notice] %></p><br><br><% end %>
+                <% if flash[:notice] %><p class="flash notice"><%= flash[:notice] %></p><br /><br /><% end %>
                 <%= yield %>
             </div>
             <div id="footer"><br />
                 copyright &copy; 2009 <a href="http://www.hellosilo.com">hellosilo llc.</a> | 
-				<%= link_to "Terms of Service", :controller => "home", :action => "tos"%> |
-				<%= link_to "Privacy", :controller => "home", :action => "privacy_policy"%>
+                <%= link_to "Terms of Service", :controller => "home", :action => "tos"%> |
+                <%= link_to "Privacy", :controller => "home", :action => "privacy_policy"%>
             </div>
         </div>
-		
-		<script type="text/javascript"> 
-		//jquery for the hover event
-	 	$(function() {
-			$('#feedback').hover(
-				function () {
-					$('#feedback img').attr({ 
-						src: "/images/feedback_hover2.png",
-					});
-				},
-				function () {
-					$('#feedback img').attr({ 
-						src: "/images/feedback2.png",
-					});
-				}
-			);
-		});
-		// google analytics
-		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E")); </script> <script type="text/javascript"> try { var pageTracker = _gat._getTracker("UA-7592525-4"); pageTracker._trackPageview(); } catch(err) {}</script>
+        
+        <script type="text/javascript">
+        // google analytics
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E")); </script> <script type="text/javascript"> try { var pageTracker = _gat._getTracker("UA-7592525-4"); pageTracker._trackPageview(); } catch(err) {}
+        </script>
     </body>
 </html>
