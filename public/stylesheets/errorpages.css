@@ -1,0 +1,19 @@
+body {
+	background-color: #DBDCD6;
+	color: #666;
+	text-align: center;
+	font-family: arial, sans-serif;
+	background: #DBDCD6 url(../images/wahwah.jpg) no-repeat scroll top center;
+}
+
+div.dialog {
+	width: 50em;
+	padding: 0 4em;
+	margin: 1.5em auto 0 auto;
+}
+
+h1 { 
+	font-size: 100%;
+	color: #039AD1;
+	line-height: 1.5em;
+}
