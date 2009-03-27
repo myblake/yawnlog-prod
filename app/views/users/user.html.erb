@@ -1,4 +1,8 @@
+<% @stylesheets << ["sleeps.css", "ui.slider.extras.css"] %>
+<% @javascripts << ["jquery-ui-personalized-1.6rc6.js","selectToUISlider.jQuery.js"] %>
+
 <h1>Profile of <span class="teal"><%= @user.username %></span></h1>
+<% @title_text=@user.username%>
 <% unless @friends || @user.id == session[:user_id]%>
 <div class="blueback">
 	<div class="box"><%= link_to "Add User to Friends", :controller => "friends", :action => "friend_request", :params => {:user_id => @user.id} %>
@@ -8,6 +12,24 @@
 <% if @show %>
 	<h1>Sleep of <span class="teal"><%= @user.realname %></span></h1>
 	<div class="blueback">
-	<%= render :partial => "partials/chart.html.erb" %>
+ 	<%= render :partial => "partials/chart.html.erb", :locals => @chart = { "start" => @start, "stop" => @stop} %>
+	<% form_for :chart, :url => {:params => { :username => @user.username}} do |f| %>
+		
+		<table><tr>
+			<td><h3 style="margin:0;">Chart dates:</h3></td>
+			<td>Start: <input id="datepicker_from" type="text" name="start" value="<%= (Date.today - 7.days).strftime("%m/%d/%Y") %>" />
+			End: <input id="datepicker_to" type="text" name="stop" value="today" />
+			<%= f.submit "Update" %></td>
+		</tr></table>
+	<% end %>
 	</div>
 <% end %>
+<script type="text/javascript">
+$(document).ready(function() {
+	alert("hey dude");
+//initialize date picker
+  $("#datepicker_from").datepicker({ dateFormat: 'mm/dd/yy' });
+  $("#datepicker_to").datepicker({ dateFormat: 'mm/dd/yy' });
+ });
+});
+</script>

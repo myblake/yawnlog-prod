@@ -53,6 +53,27 @@ class UsersController < ApplicationController
       redirect_to :controller => "home", :action => :index
       return
     end
+    
+    if params[:start]
+      if params[:start] == "today"
+        @start = Date.today
+      else
+        @start = Date.parse(params[:start])
+      end
+    else
+      @start = Date.today-7.days
+    end
+
+    if params[:stop]
+      if params[:stop] == "today"
+        @stop = Date.today
+      else
+        @stop = Date.parse(params[:stop])
+      end
+    else
+      @stop = Date.today
+    end
+    
     @friends = Friend.find(:first, :conditions => ["(user_id_1=? and user_id_2=?) or (user_id_1=? and user_id_2=?)", session[:user_id], @user.id, @user.id, session[:user_id]])
     unless @user.public_profile || User.find(session[:user_id]).admin || @friends
       @show = false
