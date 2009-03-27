@@ -89,8 +89,6 @@ hr {color:#133960;}
     background-position: top right;
 }
 
-#nav{height:100px;background-color:#133960; color: white; border-bottom:10px #029cd2 solid; text-align:left; vertical-align: bottom;}
->>>>>>> 4ac64aabfd258040f005cd37ae12ab130086d36f:public/stylesheets/style.css
 #nav a{ font-size:18px; color: #029cd2;	height:50px;}
 #nav a:hover{color:#f57f8f;}
 #nav ul {margin-left: 30px; margin-bottom: 0px; margin-right: 0px; margin-top: 30px; position: absolute; float:left;list-style-type:none;padding:0px;background:#133960;} 
