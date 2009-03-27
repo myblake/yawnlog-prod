@@ -159,9 +159,9 @@ class UsersController < ApplicationController
   	  sha_passwd = Digest::SHA1.hexdigest(password) 
   	  user.password = sha_passwd
   	  user.pw_reset = true
-  	  user.save
       if UserMailer.deliver_forgot_password(user, password)
         flash[:notice] = "Please check your email for a new password."
+  	    user.save
       end
     else
       flash[:notice] = "Could not find user account for username #{params[:username]}"
