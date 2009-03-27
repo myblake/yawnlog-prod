@@ -6,6 +6,7 @@
 12) add data export
 14) dream tagging
 15) big numbers showing sleep interval
+16) sleep_chart_url() should return an escaped link (for HTML validation)
 
 16) time zone support
 17) user profile fields for gender, city, country and rename zip postal code (on the front end at least)
