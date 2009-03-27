@@ -116,7 +116,7 @@ form_for @sleep, :sleep, :url => {:action => :create_sleep_backend} do |f| %>
   <%= render :partial => "partials/chart.html.erb", :locals => @chart = { "start" => @start, "stop" => @stop} %>
 	<% form_for :chart, :url => {:action => :index} do |f| %>
 		Chart dates:
-		Start: <input id="datepicker_from" type="text" name="chart[start]" value="today" />
+		Start: <input id="datepicker_from" type="text" name="chart[start]" value="<%= (Date.today - 7.days).strftime("%m/%d/%Y") %>" />
 		End: <input id="datepicker_to" type="text" name="chart[stop]" value="today" />
 		<%= f.submit "Update" %><br /><br />
 	<% end %>
@@ -136,8 +136,9 @@ $(document).ready(function() {
   
   var monthnames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   $("#datepicker").datepicker({ dateFormat: 'd M' });
-  $("#datepicker_from").datepicker({ dateFormat: 'd M' });
-  $("#datepicker_to").datepicker({ dateFormat: 'd M' });
+
+  $("#datepicker_from").datepicker({ dateFormat: 'mm/dd/yy' });
+  $("#datepicker_to").datepicker({ dateFormat: 'mm/dd/yy' });
 
 
   $('select#start, select#stop').selectToUISlider({
