@@ -12,7 +12,7 @@ class SleepsController < ApplicationController
       if params[:start] == "today"
         @start = Date.today
       else
-        @start = Date.parse(params[:start])
+        @start = Date.parse(params[:start].sub(' ',','))
       end
     else
       @start = Date.today-7.days
@@ -22,7 +22,7 @@ class SleepsController < ApplicationController
       if params[:stop] == "today"
         @stop = Date.today
       else
-        @stop = Date.parse(params[:stop])
+        @stop = Date.parse(params[:stop].sub(' ',','))
       end
     else
       @stop = Date.today

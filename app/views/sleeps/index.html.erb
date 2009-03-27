@@ -15,7 +15,7 @@ form_for @sleep, :sleep, :url => {:action => :create_sleep_backend} do |f| %>
   Where
 	<%= f.text_field :zip, :value => @user.zip, :size => "10" %>
 	<%= f.label :quality %>
- 	<!--<% # used to have the real implementation, order problem was shitty though: = select(:sleep, :quality, Sleep::QUALITY, {:selected=>@sleep.quality}) %>-->
+ 	<% # used to have the real implementation, order problem was shitty though: = select(:sleep, :quality, Sleep::QUALITY, {:selected=>@sleep.quality}) %>
   	<select id="sleep_quality" name="sleep[quality]">
 		<option value=" "> </option>
 		<option value="1">Abysmal</option>
