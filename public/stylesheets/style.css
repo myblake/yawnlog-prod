@@ -78,14 +78,15 @@ hr {color:#133960;}
     border: none;
     width: 34px;
     height: 127px;
-    background-image: url(../images/feedback2.png);
+    background-image: url(../images/feedback3.png);
+    background-position: top left;
 }
 
 #feedback a:hover img,
 #feedback a:focus img,
 #feedback a:active img,
 #feedback a.active img {
-    background-image: url(../images/feedback_hover2.png);
+    background-position: top right;
 }
 
 #nav{height:100px;background-color:#133960; color: white; border-bottom:10px #029cd2 solid; text-align:left; vertical-align: bottom;}
