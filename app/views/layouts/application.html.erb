@@ -14,7 +14,7 @@
         <div id="page">
             <div id="header">
                 <% if @foo %>
-					<div class="navwrap">
+					<div class="navwrap headwrap">
 				<% end %>
 	                <div id="nav">
 						<div id="logo"><%= link_to image_tag ("yawnlog_logo_beta_horz3.png", :alt=>"logo"), :controller => "home", :action => "index" %></div>
@@ -52,6 +52,7 @@
 				<% end %>
 			<div id="feedback">
 				<%= link_to image_tag("blank.gif", :alt => "Feedback"), :controller => "home", :action => "feedback"%>
+                <%= image_tag "feedback2.png", :alt => "Feedback", :style => "display:none;" %>
 			</div>
 			
 			</div>
@@ -62,7 +63,7 @@
 			<% if @foo %>
             <div id="navbuff2">
 			</div>
-			<div class="navwrap" style="bottom:0px;">
+			<div class="navwrap footwrap">
 			<% end %>
 	            <div id="footer">
 	                copyright &copy; 2009 <a href="http://www.hellosilo.com">hellosilo llc.</a> | 
