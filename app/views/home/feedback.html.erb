@@ -1,0 +1,8 @@
+<h1>Submit <span class="teal">Feedback</span></h1>
+<div class="blueback">
+We appreciate your comments, questions, feature requests and bug reports. Enter feedback in this form and we'll do our best to make it happen.
+<% form_for :feedback do |f| %>
+	<%= f.text_area :body %><br />
+	<%= f.submit "Done"%>
+<% end %>
+</div>

@@ -50,6 +50,10 @@ class AdminController < ApplicationController
     flash[:notice] = "all set"
     redirect_to :controller => "admin", :action => :index
   end
+
+  def feedback
+    @feedbacks = Feedback.find(:all, :order => "created_at DESC")
+  end
   
   protected
   def authorize 

@@ -26,6 +26,19 @@ class HomeController < ApplicationController
   def privacy
   end
   
+  def feedback
+    if params[:feedback]
+      @feedback = Feedback.new(:body => params[:feedback][:body], :user_id => session[:user_id])
+      if @feedback.save
+        flash[:notice] = "Feedback has been sent, thanks!"
+      else
+        flash[:notice] = "Hmm an error has occcured with your feedback. Try again?"
+      end
+      redirect_to :action => :index
+    end
+        
+  end
+  
   protected
   def authorize 
     unless User.find_by_id(session[:user_id]).admin

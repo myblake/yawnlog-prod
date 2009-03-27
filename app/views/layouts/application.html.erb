@@ -20,6 +20,7 @@
                         	<li><%= link_to("Friends", :controller => "friends", :action => "index")%></li>
                         	<li><%= link_to("World", :controller => "users", :action => "public_profiles")%></li>
                         	<li><%= link_to "Settings", :controller => "users", :action => "edit"%></li>
+                        	<li><%= link_to "Feedback", :controller => "home", :action => "feedback"%></li>
 							<% if User.find(session[:user_id]).admin %>
 							<li><%= link_to("Admin", :controller => "admin", :action => "index")%></li>
 							<li><%= link_to("News", :controller => "home", :action => "news")%></li>							
