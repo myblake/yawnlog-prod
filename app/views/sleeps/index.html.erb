@@ -136,7 +136,7 @@ $(document).ready(function() {
     $("tr.hideme").addClass("hidden")
   });
   
-  
+  var daynames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
   var monthnames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   $("#datepicker").datepicker({ dateFormat: 'd M' });
 
@@ -149,14 +149,23 @@ $(document).ready(function() {
   });
 
   $('.hidemeonload').addClass("hidden");
+
   
+    var value = $('#datepicker').datepicker( "getDate" );
+    var myDate=new Date(value);
+    myDate.setDate(myDate.getDate()-1);
+
+    $('.date_1').html("<span>" + daynames[value.getDay()] + " " + value.getDate() + " " + monthnames[value.getMonth()] + "</span>");
+    $('.date_0').html("<span>" + daynames[myDate.getDay()] + " " + myDate.getDate() + " " + monthnames[myDate.getMonth()] + "</span>");
+ 
+
   $('#datepicker').change(function() {
     var value = $(this).datepicker( "getDate" );
     var myDate=new Date(value);
     myDate.setDate(myDate.getDate()-1);
 
-    $('.date_1').html("<span>" + value.getDate() + " " + monthnames[value.getMonth()] + "</span>");
-    $('.date_0').html("<span>" + myDate.getDate() + " "+ monthnames[myDate.getMonth()] + "</span>");
+    $('.date_1').html("<span>" + daynames[value.getDay()] + " " + value.getDate() + " " + monthnames[value.getMonth()] + "</span>");
+    $('.date_0').html("<span>" + daynames[myDate.getDay()] + " " + myDate.getDate() + " " + monthnames[myDate.getMonth()] + "</span>");
  });
 });
 </script>

@@ -34,7 +34,8 @@
 					</ul>
                </div>
 				<div id="feedback">
-					<li><%= link_to image_tag("feedback.png", :alt => "Feedback"), :controller => "home", :action => "feedback"%></li>
+					<%= link_to image_tag("feedback2.png", :alt => "Feedback"), :controller => "home", :action => "feedback"%>
+					<%= image_tag "feedback2.png", :alt => "Feedback", :style => "display:none;" %>
 				</div>
 				<div id="login_box">
                     <% if session[:user_id] %>
@@ -62,12 +63,12 @@
 			$('#feedback').hover(
 				function () {
 					$('#feedback img').attr({ 
-						src: "/images/feedback_hover.png",
+						src: "/images/feedback_hover2.png",
 					});
 				},
 				function () {
 					$('#feedback img').attr({ 
-						src: "/images/feedback.png",
+						src: "/images/feedback2.png",
 					});
 				}
 			);
