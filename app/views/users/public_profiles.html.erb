@@ -4,6 +4,7 @@
 <h1>Public <span class="teal">Profiles</span></h1>
 
 <div class="blueback">
+<div class="will_paginate"><%= will_paginate @users %></div><br />
 <table>
   <tr>
 	<th><%= link_to "Username", :params => { :order => "username", :asc => params[:order] == "username" ? (params[:asc] == 'asc' ? "desc" : "asc") : "asc" } %></th>

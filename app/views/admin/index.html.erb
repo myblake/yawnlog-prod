@@ -7,6 +7,7 @@
 <h3>Number of Users:</h3>
 <%= @size %>
 <h3>Users Active Today</h3>
+I broke this last night, I will fix it today.
 <%= @active_users_today%>
 <h3>Growth Overall:</h3>	
 <div class="chart"><% url = users_chart_url %><img src="<%= url[0] %>" /><img src="<%= url[1] %>" /></div>
@@ -21,7 +22,7 @@
 <h1>User <span class="teal">Profiles</span></h1>
 <div class="blueback">
 
-	
+<div class="will_paginate"><%= will_paginate @users %></div><br />
 <table>
   <tr>
     <th><%= link_to "Username", :params => { :order => "username", :asc => params[:order] == "username" ? (params[:asc] == 'asc' ? "desc" : "asc") : "asc" } %></th>

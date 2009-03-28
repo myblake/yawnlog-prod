@@ -2,6 +2,7 @@
 <h1>All <span class="teal">Sleeps</span></h1>
 <div class="blueback">
 	<div class="box"><%= link_to "Users", :action => :index %><%= link_to "Sleep Aggregate", :action => :sleep %></div>	
+<div class="will_paginate"><%= will_paginate @sleeps %></div><br />
 <table>
   <tr>
     <th><%= link_to "User", :params => { :order => "user_id", :asc => params[:order] == "user_id" ? (params[:asc] == 'asc' ? "desc" : "asc") : "asc" } %></th>
