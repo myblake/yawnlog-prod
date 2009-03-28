@@ -2,14 +2,9 @@ class AdminController < ApplicationController
   before_filter :authorize
   
   def index
-    @users = User.find(:all, :order => "last_login_at DESC")
-    @size = @users.length
-    @active_users_today = 0 
-    for user in @users
-      if (user.last_login_at && Time.now - user.last_login_at < 86400) || (user.last_sleep_at && Time.now - user.last_sleep_at < 86400)
-        @active_users_today += 1
-      end
-    end
+    @users = User.paginate(:page => params[:page], :per_page => 100)
+    @size = User.count
+    @active_users_today = User.count(:conditions => ["(last_login_at != NULL and last_login_at > ?) or (last_sleep_at != null and last_sleep_at > ?)", Time.now - 1.days, Time.now - 1.days])
   end
   
   def edit
