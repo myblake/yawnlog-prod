@@ -71,7 +71,8 @@ form_for @sleep, :sleep, :url => {:action => :create_sleep_backend} do |f| %>
 
 <h1>Share your <span class="teal">yawnlog</span></h1>
 <div class="blueback">
-It's easy to share your sleep as long as you're profile is set to be public (if not change it here: 	                        	<%= link_to "settings", :controller => "users", :action => "edit"%>).<br /> You can share you sleeps easily with the following link that anyone can visit: <a href="beta.yawnlog.com/<%= @user.username%>">beta.yawnlog.com/<%= @user.username%></div>
+It's easy to share your sleep as long as you're profile is set to be public (if not change it here: 	                        	<%= link_to "settings", :controller => "users", :action => "edit"%>).<br /> You can share you sleeps easily with the following link that anyone can visit: <a href="beta.yawnlog.com/<%= @user.username%>">beta.yawnlog.com/<%= @user.username%></a>
+</div>
  
 <% @count = 0 %>
 <h1>Listing sleeps of <span class="teal"><%= @user.realname %></span></h1>
@@ -158,8 +159,8 @@ $(document).ready(function() {
     var myDate=new Date(value);
     myDate.setDate(myDate.getDate()-1);
 
-    $('.date_1').html("&lt;span&gt;" + daynames[value.getDay()] + " " + value.getDate() + " " + monthnames[value.getMonth()] + "&lt;/span&gt;");
-    $('.date_0').html("&lt;span&gt;" + daynames[myDate.getDay()] + " " + myDate.getDate() + " " + monthnames[myDate.getMonth()] + "&lt;/span&gt;");
+    $('.date_1').html("<span>" + daynames[value.getDay()] + " " + value.getDate() + " " + monthnames[value.getMonth()] + "</span>");
+    $('.date_0').html("<span>" + daynames[myDate.getDay()] + " " + myDate.getDate() + " " + monthnames[myDate.getMonth()] + "</span>");
  
 
   $('#datepicker').change(function() {
@@ -167,8 +168,8 @@ $(document).ready(function() {
     var myDate=new Date(value);
     myDate.setDate(myDate.getDate()-1);
 
-    $('.date_1').html("&lt;span&gt;" + daynames[value.getDay()] + " " + value.getDate() + " " + monthnames[value.getMonth()] + "&lt;/span&gt;");
-    $('.date_0').html("&lt;span&gt;" + daynames[myDate.getDay()] + " " + myDate.getDate() + " " + monthnames[myDate.getMonth()] + "&lt;/span&gt;");
+    $('.date_1').html("<span>" + daynames[value.getDay()] + " " + value.getDate() + " " + monthnames[value.getMonth()] + "</span>");
+    $('.date_0').html("<span>" + daynames[myDate.getDay()] + " " + myDate.getDate() + " " + monthnames[myDate.getMonth()] + "</span>");
  });
 });
 </script>
