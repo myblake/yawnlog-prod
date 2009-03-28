@@ -44,7 +44,17 @@ class UsersController < ApplicationController
 	end
 	
 	def public_profiles
-    @users = User.paginate(:page => params[:page], :per_page => 100)
+	  if params[:order]
+      @order = params[:order]
+      if params[:asc] == "asc"
+        @order += " ASC"
+      else
+        @order += " DESC"
+      end
+    else
+      @order = "username ASC"
+    end
+    @users = User.paginate(:page => params[:page], :per_page => 100, :order => @order)
   end
   
   def user    

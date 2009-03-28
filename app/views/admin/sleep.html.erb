@@ -1,10 +1,24 @@
-<% @count = 0 %>
 <% @title_text="Admin - Sleep"%>
 <h1>Sleep <span class="teal">Tracking</span></h1>
 <div class="blueback">
-	<div class="box"><%= link_to "Users", :action => "index" %></div>
+	<div class="box"><%= link_to "Users", :action => :index %><%= link_to "Browse Sleeps", :action => :all_sleep %></div>
 	<h3>Number of Sleeps:</h3>
-	<%= @sleep_size %>
+	<table>
+		<tr>
+			<td style="width:15%"><strong>Total</strong></td>
+			<td style="width:15%" class="zebra">Unreported</td>
+		<% (1..5).each do |i|  %>
+			<td style="width:15%" <% if i%2 == 0 %>class="zebra"<% end %>><%= Sleep::QUALITY_BACKWARDS[i] %></td>
+		<% end %>
+		</tr>
+		<tr>
+			<td style="width:15%"><strong><%= @sleep_size %></strong></td>
+			<td style="width:15%" class="zebra"><%= @sleep_quality[0].to_s %></td>
+		<% (1..5).each do |i|  %>
+			<td style="width:15%" <% if i%2 == 0 %>class="zebra"<% end %>><%= @sleep_quality[i].to_s %></td>
+		<% end %>
+		</tr>
+	</table>
 <h3>Sleeps Overall:</h3>
 <div class="chart"><img  src="<%= sleeps_chart_url %>" /></div>
 <div class="clearer"><br /></div>
@@ -12,36 +26,4 @@
 <div class="chart"><img  src="<%= sleeps_hours_chart_url %>" /></div>
 
 <div class="clearer"><br /></div>
-</div>
-
-
-<h1>All <span class="teal">Sleeps</span></h1>
-<div class="blueback">
-
-
-<table>
-  <tr>
-	<th>User</th>
-    <th>Start</th>
-    <th>Stop</th>
-    <th>Zip</th>
-    <th>Quality</th>
-    <th>Note</th>
-  </tr>
-<% for sleep in @sleeps %>	
-	<% @count+=1 %>
-	<% if @count%2 == 0 %>
-		<tr>
-	<% else %>
-		<tr class="zebra">
-	<% end %>
-	<td><%= sleep.user.username%>
-    <td class="wide"><%=h sleep.start.strftime("%a, %m/%d/%y %I:%M%p") %></td>
-    <td class="wide"><%=h sleep.stop.strftime("%a, %m/%d/%y %I:%M%p") %></td>
-    <td><%=h sleep.zip %></td>
-    <td><%=h Sleep::QUALITY_BACKWARDS[sleep.quality] %></td>
-    <td><%=h sleep.note %>    
-  </tr>
-<% end %>
-</table>
 </div>

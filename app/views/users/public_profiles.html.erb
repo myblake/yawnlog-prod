@@ -6,10 +6,10 @@
 <div class="blueback">
 <table>
   <tr>
-    <th>Username</th>
-    <th>Twitter</th>
-    <th>Realname</th>
-    <th>Location</th>
+	<th><%= link_to "Username", :params => { :order => "username", :asc => params[:order] == "username" ? (params[:asc] == 'asc' ? "desc" : "asc") : "asc" } %></th>
+    <th><%= link_to "Twitter", :params => { :order => "twitter", :asc => params[:order] == "twitter" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
+    <th><%= link_to "Realname", :params => { :order => "realname", :asc => params[:order] == "realname" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
+    <th><%= link_to "Location", :params => { :order => "zip", :asc => params[:order] == "zip" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
     <th><th>
   </tr>
 

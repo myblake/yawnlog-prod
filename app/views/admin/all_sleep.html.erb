@@ -1,0 +1,32 @@
+<% @count = 0 %>
+<h1>All <span class="teal">Sleeps</span></h1>
+<div class="blueback">
+	<div class="box"><%= link_to "Users", :action => :index %><%= link_to "Sleep Aggregate", :action => :sleep %></div>	
+<table>
+  <tr>
+    <th><%= link_to "User", :params => { :order => "user_id", :asc => params[:order] == "user_id" ? (params[:asc] == 'asc' ? "desc" : "asc") : "asc" } %></th>
+    <th><%= link_to "Start", :params => { :order => "start", :asc => params[:order] == "start" ? params[:asc] == 'asc' ? "desc" : "asc" : "desc" } %></th>
+    <th><%= link_to "Stop", :params => { :order => "stop", :asc => params[:order] == "stop" ? params[:asc] == 'asc' ? "desc" : "asc" : "desc" } %></th>
+    <th><%= link_to "Location", :params => { :order => "zip", :asc => params[:order] == "zip" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
+
+    <th><%= link_to "Quality", :params => { :order => "quality", :asc => params[:order] == "quality" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
+	<th><%= link_to "Note", :params => { :order => "note", :asc => params[:order] == "note" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
+  </tr>
+<% for sleep in @sleeps %>	
+	<% @count+=1 %>
+	<% if @count%2 == 0 %>
+		<tr>
+	<% else %>
+		<tr class="zebra">
+	<% end %>
+	<td><%= sleep.user.username%>
+    <td class="wide"><%=h sleep.start.strftime("%a, %m/%d/%y %I:%M%p") %></td>
+    <td class="wide"><%=h sleep.stop.strftime("%a, %m/%d/%y %I:%M%p") %></td>
+    <td><%=h sleep.zip %></td>
+    <td><%=h Sleep::QUALITY_BACKWARDS[sleep.quality] %></td>
+    <td><%=h sleep.note %>    
+  </tr>
+<% end %>
+</table>
+<div class="will_paginate"><%= will_paginate @sleeps %></div>
+</div>
