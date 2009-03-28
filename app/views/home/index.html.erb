@@ -8,7 +8,7 @@
 	end
 	@sleep_last_night = @avg.value %>
 	<%= "%5.2f" % @sleep_last_night %> hours</span></h2><h2 style="font-size:4em;">average sleep last night</h2>
-
+	<h2>Follow us on twitter <a href="http://www.twitter.com/yawnlog">@yawnlog</a></h2>
 <% unless session[:user_id]%>
 	<h2><%=link_to "Login", :controller => :users, :action => :login %></h2>
 	<h2>Don't have one? Then <%=link_to "Sign up", :controller => :users, :action => :signup%>!</h2>

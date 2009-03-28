@@ -71,7 +71,7 @@ form_for @sleep, :sleep, :url => {:action => :create_sleep_backend} do |f| %>
 
 <h1>Share your <span class="teal">yawnlog</span></h1>
 <div class="blueback">
-It's easy to share your sleep as long as you're profile is set to be public (if not change it here: 	                        	<%= link_to "settings", :controller => "users", :action => "edit"%>).<br /> You can share you sleeps easily with the following link that anyone can visit: <a href="beta.yawnlog.com/<%= @user.username%>">beta.yawnlog.com/<%= @user.username%></a>
+It's easy to share your sleep, so long as your profile is set public (edit <%= link_to "settings", :controller => "users", :action => "edit"%>.) You can link your friends to your profile at <a href="http://beta.yawnlog.com/<%= @user.username%>">beta.yawnlog.com/<%= @user.username%></a>
 </div>
  
 <% @count = 0 %>
@@ -159,6 +159,7 @@ $(document).ready(function() {
     var myDate=new Date(value);
     myDate.setDate(myDate.getDate()-1);
 
+	// these should be <span> not &lt;span&gt; as they're meant to be tags and parsed as such
     $('.date_1').html("<span>" + daynames[value.getDay()] + " " + value.getDate() + " " + monthnames[value.getMonth()] + "</span>");
     $('.date_0').html("<span>" + daynames[myDate.getDay()] + " " + myDate.getDate() + " " + monthnames[myDate.getMonth()] + "</span>");
  
