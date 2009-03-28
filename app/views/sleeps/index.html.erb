@@ -71,7 +71,7 @@ form_for @sleep, :sleep, :url => {:action => :create_sleep_backend} do |f| %>
 
 <h1>Share your <span class="teal">yawnlog</span></h1>
 <div class="blueback">
-<h3>It's easy to share your sleep as long as you're profile is set to be public (if not change it here: 	                        	<%= link_to "settings", :controller => "users", :action => "edit"%>).<br /> You can share you sleeps easily with the following link that anyone can visit: <a href="beta.yawnlog.com/<%= @user.username%>">beta.yawnlog.com/<%= @user.username%></h3></div>
+It's easy to share your sleep as long as you're profile is set to be public (if not change it here: 	                        	<%= link_to "settings", :controller => "users", :action => "edit"%>).<br /> You can share you sleeps easily with the following link that anyone can visit: <a href="beta.yawnlog.com/<%= @user.username%>">beta.yawnlog.com/<%= @user.username%></div>
  
 <% @count = 0 %>
 <h1>Listing sleeps of <span class="teal"><%= @user.realname %></span></h1>
