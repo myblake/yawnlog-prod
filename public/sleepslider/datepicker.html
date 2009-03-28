@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>datepicker</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Mackenzie Cowell">
+	<!-- Date: 2009-02-26 -->
+
+	<link type="text/css" rel="stylesheet" href="http://ui.jquery.com/testing/themes/base/ui.all.css" />
+	<link rel="Stylesheet" href="ui.datepicker.css" type="text/css" />
+	
+	<script type="text/javascript" src="http://ui.jquery.com/testing/jquery-1.3.1.js"></script>
+	<script type="text/javascript" src="http://ui.jquery.com/testing/ui/ui.core.js"></script>
+	<script type="text/javascript" src="http://ui.jquery.com/testing/ui/ui.datepicker.js"></script>
+	<script type="text/javascript" src="http://ui.jquery.com/testing/ui/ui.slider.js"></script>
+
+	<!-- Using jQuery SelectToUISlider by Filament group: http://bit.ly/18SLhE -->
+	<link rel="Stylesheet" href="ui.slider.extras.css" type="text/css" />
+	<script type="text/javascript" src="selectToUISlider.jQuery.js"></script>
+
+	<!-- jQuery injection of the datepicker and the Sleep Slider -->
+	<script type="text/javascript">
+		$(function() {
+			$("#datepicker").datepicker();
+		});
+		
+		$(function(){
+			$('select#valueAA, select#valueBB').selectToUISlider({
+				labels: 12
+			});
+		});
+		
+	</script>
+
+</head>
+<body>
+
+
+	<div class="demo">
+
+	<style type="text/css"> 
+		#sleep-picker {font-size: 62.5%; font-family:"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif; }
+		fieldset#sleep-picker { border:0; margin: 6em; height: 12em;}	
+		#sleep-picker label {font-weight: normal; float: left; margin-right: .5em; font-size: 1.1em;}
+		#sleep-picker select {margin-right: 1em; float: left;}
+		#sleep-picker .ui-slider {clear: both; top: 5em;}
+		
+		#sleep-picker .ui-datepicker { z-index: 2; }  //keeps datepicker on top of slider bar
+	</style>
+
+	<form action="#">
+		<!-- demo 3 -->
+		<fieldset id="sleep-picker">
+			
+			<span style="float:right;">Date: <input id="datepicker" type="text" value="today"></span>
+			
+			<label for="valueAA">From:</label>
+			<select name="valueAA" id="valueAA">
+				<optgroup label="21 feb">
+					<option value="16:00">4:00p</option
+					<option value="17:00">5:00p</option
+					<option value="18:00">6:00p</option>
+					<option value="19:00">7:00p</option>
+					<option value="20:00">8:00p</option>
+					<option value="21:00">9:00p</option>
+					<option value="22:00">10:00p</option>
+					<option value="23:00">11:00p</option>
+				</optgroup>
+				<optgroup label="22 feb">
+					<option value="0:00" selected="selected">12:00 am</option>
+					<option value="1:00">1:00a</option>
+					<option value="2:00">2:00a</option>
+					<option value="3:00">3:00a</option>
+					<option value="4:00">4:00a</option>
+					<option value="5:00">5:00a</option>
+					<option value="6:00">6:00a</option>
+					<option value="7:00">7:00a</option>
+					<option value="8:00">8:00a</option>
+					<option value="9:00">9:00a</option>
+					<option value="10:00">10:00a</option>
+					<option value="11:00">11:00a</option>
+					<option value="12:00">12:00p</option>
+					<option value="13:00">1:00p</option>
+					<option value="14:00">2:00p</option>
+					<option value="15:00">3:00p</option
+					<option value="16:00">4:00p</option
+				</optgroup>
+			</select>
+				<label for="valueBB">To:</label>
+				<select name="valueBB" id="valueBB">
+					<optgroup label="21 feb">
+						<option value="18:00">6:00 pm</option>
+						<option value="19:00">7:00 pm</option>
+						<option value="20:00">8:00 pm</option>
+						<option value="21:00">9:00 pm</option>
+						<option value="22:00">10:00 pm</option>
+						<option value="23:00">11:00 pm</option>
+					</optgroup>
+					<optgroup label="22 feb">
+						<option value="0:00">12:00 am</option>
+						<option value="1:00">1:00a</option>
+						<option value="2:00">2:00a</option>
+						<option value="3:00">3:00a</option>
+						<option value="4:00">4:00a</option>
+						<option value="5:00">5:00a</option>
+						<option value="6:00">6:00a</option>
+						<option value="7:00">7:00a</option>
+						<option value="8:00"selected="selected">8:00a</option>
+						<option value="9:00">9:00a</option>
+						<option value="10:00">10:00a</option>
+						<option value="11:00">11:00a</option>
+						<option value="12:00">12:00p</option>
+						<option value="13:00">1:00p</option>
+						<option value="14:00">2:00p</option>
+					</optgroup>
+				</select>
+		</fieldset>
+	</form>
+
+	</div><!-- End demo -->
+
+	
+
+</body>
+</html>

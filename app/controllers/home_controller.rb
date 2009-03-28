@@ -33,6 +33,10 @@ class HomeController < ApplicationController
       return
     end 
     if params[:feedback]
+      unless params[:feedback][:body] != ""
+        flash[:notice] = "We <3 user feedback, so we don't want your message to be empty!"
+        return
+      end
       @feedback = Feedback.new(:body => params[:feedback][:body], :user_id => session[:user_id])
       if @feedback.save
         flash[:notice] = "Feedback has been sent, thanks!"
