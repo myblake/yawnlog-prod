@@ -5,9 +5,14 @@ class SleepsController < ApplicationController
     #terrible hack here, due to putting business logic in helpers instead of controllers which should only be used for markup
   end
   
+  def iphone_user_agent?
+    request.env["HTTP_USER_AGENT"] && request.env["HTTP_USER_AGENT"][/(Mobile\/.+Safari)/]
+  end
+  
   # GET /sleeps
   # GET /sleeps.xml
-  def index    
+  def index
+    @iphone = iphone_user_agent?
     if params[:start]
       if params[:start] == "today"
         @start = Date.today

@@ -139,7 +139,9 @@ $(document).ready(function() {
   $("a#hide_all").click(function() {
     $("tr.hideme").addClass("hidden")
   });
-  
+
+<% unless @iphone -%>
+
   var daynames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
   var monthnames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   $("#datepicker").datepicker({ dateFormat: 'd M' });
@@ -171,6 +173,8 @@ $(document).ready(function() {
 
     $('.date_1').html("<span>" + daynames[value.getDay()] + " " + value.getDate() + " " + monthnames[value.getMonth()] + "</span>");
     $('.date_0').html("<span>" + daynames[myDate.getDay()] + " " + myDate.getDate() + " " + monthnames[myDate.getMonth()] + "</span>");
+
+<% end -%>
  });
 });
 </script>
