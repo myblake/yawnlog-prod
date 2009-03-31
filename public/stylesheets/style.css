@@ -113,7 +113,7 @@ hr {color:#133960;}
 /* Classes */
 .will_paginate {text-align:center;margin-top:10px;}
 .will_paginate span, .will_paginate a{background:#d1f6fb; border:1px #029cd2 solid; margin:2px; padding:2px 6px 2px 6px;}
-
+.response {height:100px;width:100%;}
 .blueback {background-color:#c1e6f6; padding:10px;}
 .teal {color:#029cd2;}
 .chart{padding:3px;border:3px #133960 solid; background:white;float:left;width:612px;margin-right:8px;}
