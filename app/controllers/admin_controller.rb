@@ -78,7 +78,7 @@ class AdminController < ApplicationController
   def feedback
     @feedbacks = Feedback.find(:all, :order => "created_at DESC")
     if params[:response]
-      @feedbacks[params[:response][:index].to_i].response = params[:response][:response]
+      @feedbacks[params[:response][:index].to_i].response = params[:response][:response] + " " + session[:user_username] + Time.now.strftime(" at %I:%M %p on %a %b %d")
       if @feedbacks[params[:response][:index].to_i].save
       end
     end
