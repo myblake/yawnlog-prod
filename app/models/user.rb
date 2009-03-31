@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :sleeps
   has_many :friends
   has_many :feedback
+  has_one :user_login
+  belongs_to :user_login
   validates_uniqueness_of :username
   validates_uniqueness_of :email
   

@@ -200,6 +200,27 @@ class UsersController < ApplicationController
     redirect_to :controller => :home, :action => :index
   end
   
+  def user_login_up
+    unless User.find_by_id(session[:user_id]).admin
+      redirect_to :controller => 'home'
+    end
+    @users = User.find(:all)
+    @worked = 0
+    @failed = 0
+    @failed_users = []
+    for user in @users
+      user_login = UserLogin.new(:username => user.username, :password => user.password, :user_id => user.id)
+      user.user_login_id = user_login.id
+      user.save
+      if user_login.save
+        @worked += 1
+      else
+        @failed += 1
+        @failed_users.push(user)
+      end
+    end
+  end
+  
   protected 
   def authorize 
     unless User.find_by_id(session[:user_id]) 

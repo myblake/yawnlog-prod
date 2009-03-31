@@ -1,0 +1,6 @@
+worked: <%= @worked %><br />
+failed: <%= @failed %>
+<% for failed_user in @failed_users%>
+	username: <%= failed_user.username %> -
+	id: <%= failed_user.id %><br />
+<% end %>

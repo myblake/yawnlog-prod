@@ -23,8 +23,8 @@ module SleepsHelper
     return overlap
   end
   
-  def calculate_sleep_on_date(date,user_id)
-    end_of_day = 24 # use 24 instead of 0
+  def calculate_sleep_on_date(date,user_id, end_of_day = 24 )
+    # now an optional parameter end_of_day = 24 # use 24 instead of 0
     start_date = date-1.days
     day_start = DateTime.new(y=start_date.year,m=start_date.month,d=start_date.day,h=end_of_day,min=0,s=0)
     day_stop = DateTime.new(y=date.year,m=date.month,d=date.day,h=end_of_day,min=0,s=0)
@@ -43,7 +43,7 @@ module SleepsHelper
     return duration
   end
   
-  def calculate_sleep_range(start_date,end_date,user_id)
+  def calculate_sleep_range(start_date,end_date,user_id, end_of_day = 24)
     #iterates over each in the range and builds a hash table with the amount of sleep on each day.
     if start_date > end_date #you broke the contract.
       temp = start_date
@@ -54,7 +54,7 @@ module SleepsHelper
     sleep_bucket = {}
     current_date = start_date
     while current_date <= end_date
-      sleep_bucket[current_date] = calculate_sleep_on_date(current_date, user_id)
+      sleep_bucket[current_date] = calculate_sleep_on_date(current_date, user_id, end_of_day)
       current_date += 1.days
     end
     return sleep_bucket
@@ -73,9 +73,9 @@ module SleepsHelper
     return return_html
   end
   
-  def sleep_chart_url(start_date,end_date,user_id)
+  def sleep_chart_url(start_date,end_date,user_id, end_of_day = 24)
     @user = User.find(user_id)
-    sleep_bucket = calculate_sleep_range(start_date,end_date,user_id)
+    sleep_bucket = calculate_sleep_range(start_date,end_date,user_id, end_of_day)
     sleep_array = sleep_bucket.sort #orders bucket by date lowest to highest and returns as ARRAY of ARRAYs
    
    day_array = Array.new()

@@ -34,6 +34,12 @@ class SleepsController < ApplicationController
       @stop = Date.today
     end
 
+    if params[:end_of_day]
+      @end_of_day = params[:end_of_day].to_i
+    else
+      @end_of_day = 24
+    end
+
     @sleeps = Sleep.find(:all, :conditions => ["user_id=?", session[:user_id]], :order => "start DESC")
     @sleep = Sleep.new
     @user = User.find(session[:user_id])

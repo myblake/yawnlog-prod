@@ -1,4 +1,4 @@
-<div class="chart"><img  src="<%= sleep_chart_url(@chart["start"],@chart["stop"] , @user.id) %>" alt="Your sleep's graph" /></div>
+<div class="chart"><img  src="<%= sleep_chart_url(@chart["start"],@chart["stop"], @user.id, @chart["end_of_day"]) %>" alt="Your sleep's graph" /></div>
 <div class="profile">
 <% @sleepdebt = sleep_debt_for_date(Date.today, @user.id).to_f %>
 <% if @sleepdebt > 0 %>
@@ -22,7 +22,4 @@
 <% end %>
 <div class="clearer"><br />
 </div>
-
-</div>
-<div class="clearer">
 </div>
