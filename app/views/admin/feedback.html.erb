@@ -1,6 +1,7 @@
 <% @count = 0 %>
 <h1>User Submitted Feedback</h1>
 <div class="blueback">
+<div class="will_paginate"><%= will_paginate @feedbacks %></div>
 <table>
 	<% for feedback in @feedbacks %>
 		<% @count+=1 %>
@@ -19,4 +20,5 @@
 		<% unless feedback == @feedbacks.last %><br /><hr ><br /><% end %></td></tr>
 	<% end %>
 </table>
+<div class="will_paginate"><%= will_paginate @feedbacks %></div>
 </div>

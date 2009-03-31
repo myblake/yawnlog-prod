@@ -7,6 +7,7 @@ class SleepsController < ApplicationController
   
   def iphone_user_agent?
     request.env["HTTP_USER_AGENT"] && request.env["HTTP_USER_AGENT"] =~ /iPhone/
+    puts request.env["HTTP_USER_AGENT"]
   end
   
   # GET /sleeps
