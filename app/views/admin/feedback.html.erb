@@ -2,15 +2,21 @@
 <h1>User Submitted Feedback</h1>
 <div class="blueback">
 <table>
-<% for feedback in @feedbacks %>
-<% @count+=1 %>
-<% if @count%2 == 0 %>
-  <tr>
-<% else %>
-  <tr>
-<% end %>
-		<td><%=link_to feedback.user.username, :controller => :users, :action => :user, :params => {:username => feedback.user.username} %> email: <a href="mailto:<%= feedback.user.email %>"><%= feedback.user.realname %></a> at <%= feedback.created_at.strftime("%I:%M %p on %a %b %d %Y") %> said:<br /><div class="fbtext"><%= feedback.body %></div><% unless feedback == @feedbacks.last %><br /><hr ><br /><% end %></td></tr>
-<% end %>
-
+	<% for feedback in @feedbacks %>
+		<% @count+=1 %>
+		<% if @count%2 == 0 %>
+		<tr>
+		<% else %>
+		<tr>
+		<% end %>
+		<td><%=link_to feedback.user.username, :controller => :users, :action => :user, :params => {:username => feedback.user.username} %> email: <a href="mailto:<%= feedback.user.email %>"><%= feedback.user.realname %></a> at <%= feedback.created_at.strftime("%I:%M %p on %a %b %d %Y") %> said:<br /><div class="fbtext"><%= feedback.body %></div>
+		<% form_for :response, feedback do |f| %>	
+			</td></tr><tr><td>Response (notes, comments, follow action taken via email/twitter, etc. Only visible to Admins)
+			<%= f.submit "Save Response"%><br />
+			<%= f.text_field :index, :style => "display:none;", :value => @count-1%>
+			<%= f.text_area :response, :class => "response" %>
+		<% end %>
+		<% unless feedback == @feedbacks.last %><br /><hr ><br /><% end %></td></tr>
+	<% end %>
 </table>
 </div>

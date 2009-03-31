@@ -77,11 +77,16 @@ class AdminController < ApplicationController
 
   def feedback
     @feedbacks = Feedback.find(:all, :order => "created_at DESC")
+    if params[:response]
+      @feedbacks[params[:response][:index].to_i].response = params[:response][:response]
+      if @feedbacks[params[:response][:index].to_i].save
+      end
+    end
   end
   
   protected
   def authorize 
-    unless User.find_by_id(session[:user_id]).admin
+    unless session[:user_id] and User.find_by_id(session[:user_id]).admin
       redirect_to :controller => 'home'
     end 
   end

@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   has_many :sleeps
   has_many :friends
   has_many :feedback
-  
   validates_uniqueness_of :username
   validates_uniqueness_of :email
   
@@ -13,7 +12,7 @@ class User < ActiveRecord::Base
   
   validate :target_hours_possible?
   validate :safe?
-  
+
 	private
 	def safe?
 	  if twitter=~/.*;.*/

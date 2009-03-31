@@ -3,7 +3,7 @@
 <h1>Users <span class="teal">Profile</span></h1>
 <div class="blueback">
 
-<div class="box"><%= link_to "Sleep", :action => "sleep" %><%= link_to "Read Feedback", :action => :feedback %></div>
+<div class="box"><%= link_to "Sleep", :action => "sleep" %><%= link_to "Read Feedback", :action => :feedback %><%= link_to "User Login Up", :controller => :users, :action => :user_login_up %></div>
 <h3>Number of Users:</h3>
 <%= @size %>
 <h3>Users Active Today</h3>
