@@ -19,16 +19,59 @@
 			<td><h3 style="margin:0;">Chart dates:</h3></td>
 			<td>Start: <input id="datepicker_from" type="text" name="start" value="<%= (Date.today - 7.days).strftime("%m/%d/%Y") %>" />
 			End: <input id="datepicker_to" type="text" name="stop" value="today" />
+			Day ends at <a id="info" href="#bottom" onclick="">(info)</a>
+			</div>
+			:			
+			<select name="end_of_day" id="end_of_day">
+				<option value="24" selected="selected">Midnight</option>
+				<option value="1">01:00AM</option>
+				<option value="2">02:00AM</option>
+				<option value="3">03:00AM</option>
+				<option value="4">04:00AM</option>
+				<option value="5">05:00AM</option>
+				<option value="6">06:00AM</option>
+				<option value="7">07:00AM</option>
+				<option value="8">08:00AM</option>
+				<option value="9">09:00AM</option>
+				<option value="10">10:00AM</option>
+				<option value="11">11:00AM</option>
+				<option value="12">Noon</option>
+				<option value="13">01:00PM</option>
+				<option value="14">02:00PM</option>
+				<option value="15">03:00PM</option>
+				<option value="16">04:00PM</option>
+				<option value="17">05:00PM</option>
+				<option value="18">06:00PM</option>
+				<option value="19">07:00PM</option>
+				<option value="20">08:00PM</option>
+				<option value="21">09:00PM</option>
+				<option value="22">10:00PM</option>
+				<option value="23">11:00PM</option>
+		    </select>
+
 			<%= f.submit "Update" %></td>
+		</tr></table>
+		<div id="infobox" class="hidden"><p>A quick word of caution for our new field "day ends at". Setting this to values of other than midnight can be useful if you go to bed before midnight and want a chart to display sleep you got in a given night. If for instance you never sleep at 4pm you might want to set this to 4 PM, however keep in mind this means days will "end" at 4 pm, thus the dates on the chart will be how much sleep you got the night before that date.</p><center><div class="box"><a id="hideinfo" href="#bottom" onclick="">Hide</a></div></center>
 		</tr></table>
 	<% end %>
 	</div>
 <% end %>
+<a id="bottom"></a>
+<br />
 <script type="text/javascript">
 $(document).ready(function() {
 //initialize date picker
   $("#datepicker_from").datepicker({ dateFormat: 'mm/dd/yy' });
   $("#datepicker_to").datepicker({ dateFormat: 'mm/dd/yy' });
 
+  $("a#info").click(function() {
+    $("#infobox").removeClass("hidden")
+  });
+  $("a#hideinfo").click(function() {
+    $("#infobox").addClass("hidden")
+  });
+
 });
+
+
 </script>
