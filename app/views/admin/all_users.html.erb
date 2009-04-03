@@ -1,0 +1,50 @@
+<% @count = 0 %>
+<h1>User <span class="teal">Profiles</span></h1>
+<div class="blueback">
+
+<div class="box"><%= link_to "Sleep", :action => :sleep %><%= link_to "Users Stats", :action => :all_users %></div>
+
+<div class="will_paginate"><%= will_paginate @users %></div><br />
+<table>
+  <tr>
+    <th><%= link_to "Username", :params => { :order => "username", :asc => params[:order] == "username" ? (params[:asc] == 'asc' ? "desc" : "asc") : "asc" } %></th>
+    <th><%= link_to "Twitter", :params => { :order => "twitter", :asc => params[:order] == "twitter" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
+    <th><%= link_to "Realname", :params => { :order => "realname", :asc => params[:order] == "realname" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
+    <th><%= link_to "Location", :params => { :order => "zip", :asc => params[:order] == "zip" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
+
+    <th><%= link_to "# of sleeps", :params => { :order => "num_of_sleeps", :asc => params[:order] == "num_of_sleeps" ? params[:asc] == 'asc' ? "desc" : "asc" : "desc" } %></th>
+	<th><%= link_to "Last Login", :params => { :order => "last_login_at", :asc => params[:order] == "last_login_at" ? params[:asc] == 'asc' ? "desc" : "asc" : "desc" } %></th>
+	<th><%= link_to "Latest Sleep", :params => { :order => "last_sleep_at", :asc => params[:order] == "last_sleep_at" ? params[:asc] == 'asc' ? "desc" : "asc" : "desc" } %></th>
+  </tr>
+
+<% for user in @users %>
+<% @count+=1 %>
+<% if @count%2 == 0 %>
+  <tr>
+<% else %>
+  <tr class="zebra">
+<% end %>
+    <td><%= link_to h(user.username), :action => "edit", :params => { :id => user.id }   %></td>
+    <td>
+	<% if user.twitter.length > 0 %>
+		<%=link_to "@" + user.twitter.to_s, "http://www.twitter.com/" + user.twitter.to_s %>
+	<% end %>
+	</td>
+    <td><%=h user.realname %></td>
+    <td><%=h user.zip %></td>
+	<td><% if user.num_of_sleeps < 1 
+		  color="red"
+		else
+		  color=""
+		end %>
+		<span class="<%=color%>"> 
+		<%= user.num_of_sleeps %>
+		</span>		
+	</td>
+	<td><%= user.last_login_at ? user.last_login_at.strftime("%a, %m/%d/%y %I:%M%p") : "" %></td>
+	<td><%= user.last_sleep_at ? user.last_sleep_at.strftime("%a, %m/%d/%y %I:%M%p") : "" %></td>
+  </tr>
+<% end %>
+</table>
+<div class="will_paginate"><%= will_paginate @users %></div>
+</div>
