@@ -42,7 +42,7 @@ end %>
 	            	</div>
 					<div id="login_box">
 						<% if session[:user_id] %>
-							Signed in as <%= session[:user_username] %>. <%= link_to "Sign Out", :controller => "users", :action => "logout" %>&nbsp;&nbsp;
+							<span style="background-color:#fff;">Signed in as <%= session[:user_username] %>. <%= link_to "Sign Out", :controller => "users", :action => "logout" %>&nbsp;&nbsp;</span>
 						<% end %><br />
 						<%= if pending 
 							link_to "Pending friend request", :controller => :friends, :action => :index

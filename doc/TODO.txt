@@ -1,15 +1,17 @@
-2) Adjustable dates for user graphs
-6) geo location stuff
-7) Reset Password link 
+6) geo location stuff - Maybe
 10) pull in latest yawnlog tweet
 11) can't friend yourself 
 12) add data export
 14) dream tagging
 15) big numbers showing sleep interval
 
-16) sleep_chart_url() should return an escaped link (for HTML validation)
+16) sleep_chart_url() should return an escaped link (for HTML validation) 
 17) time zone support
 18) user profile fields for gender, city, country and rename zip postal code (on the front end at least)
-19)
+19) iPhone interface
+20) make the time of day swap customizable for the charts.
 
 Bugs:
+sometimes the sleep validation seems to not be correct
+the error messages are not helpful to users
+average sleep last night kills everything really bad. might be better to just query sleep from last night and use users.count

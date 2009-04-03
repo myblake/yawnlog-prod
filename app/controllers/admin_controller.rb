@@ -2,6 +2,20 @@ class AdminController < ApplicationController
   before_filter :authorize
   
   def index
+    @size = User.count
+    #@active_users_today = User.count(:conditions => ["last_login_at > '2009-03-29 00:00:00'"])
+    @last_login = []
+    @last_login[0] = @size
+    (1..7).each do |i|
+      @last_login[i] = User.count(:conditions => ["last_login_at > ?", (Time.now - i.days).strftime("%Y-%m-%d %H:%M:%S")])
+      @last_login[0] -= @last_login[i]
+#      @sleep_quality[i] = Sleep.count(:conditions => ["quality = ?", i])
+#      @sleep_quality[0] -= @sleep_quality[i]
+    end
+    
+  end
+  
+  def all_users
     if params[:order]
       @order = params[:order]
       if params[:asc] == "asc"
@@ -13,8 +27,6 @@ class AdminController < ApplicationController
       @order = "username ASC"
     end
     @users = User.paginate(:page => params[:page], :per_page => 100, :order => @order)
-    @size = User.count
-    @active_users_today = User.count(:conditions => ["(last_login_at != NULL and last_login_at > ?) or (last_sleep_at != null and last_sleep_at > ?)", Time.now - 1.days, Time.now - 1.days])
   end
   
   def edit

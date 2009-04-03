@@ -1,13 +1,27 @@
-<% @count = 0 %>
 <% @title_text="Admin - Users"%>
 <h1>Users <span class="teal">Profile</span></h1>
 <div class="blueback">
 
-<div class="box"><%= link_to "Sleep", :action => "sleep" %><%= link_to "Read Feedback", :action => :feedback %><%= link_to "User Login Up", :controller => :users, :action => :user_login_up %></div>
+<div class="box"><%= link_to "Sleep", :action => :sleep %><%= link_to "All Users", :action => :all_users %><%= link_to "Read Feedback", :action => :feedback %><%= link_to "User Login Up", :controller => :users, :action => :user_login_up %></div>
 <h3>Number of Users:</h3>
 <%= @size %>
 <h3>Users Active Today</h3>
-I broke this last night, I will fix it today.
+<table>
+	<tr>
+		<td style="width:15%"><strong>Total</strong></td>
+		<td style="width:15%" class="zebra">More than a week ago</td>
+	<% (1..7).each do |i|  %>
+		<td style="width:15%" <% if i%2 == 0 %>class="zebra"<% end %>><%= i %> days</td>
+	<% end %>
+	</tr>
+	<tr>
+		<td style="width:15%"><strong><%= @size %></strong></td>
+		<td style="width:15%" class="zebra"><%= @last_login[0].to_s %></td>
+	<% (1..7).each do |i|  %>
+		<td style="width:15%" <% if i%2 == 0 %>class="zebra"<% end %>><%= @last_login[i].to_s %></td>
+	<% end %>
+	</tr>
+</table>
 <%= @active_users_today%>
 <h3>Growth Overall:</h3>	
 <div class="chart"><% url = users_chart_url %><img src="<%= url[0] %>" /><img src="<%= url[1] %>" /></div>
@@ -18,51 +32,4 @@ I broke this last night, I will fix it today.
 
 <div class="clearer"><br /></div>
 </div>
-	<%= render :partial => "partials/aggregate.html.erb" %>
-<h1>User <span class="teal">Profiles</span></h1>
-<div class="blueback">
-
-<div class="will_paginate"><%= will_paginate @users %></div><br />
-<table>
-  <tr>
-    <th><%= link_to "Username", :params => { :order => "username", :asc => params[:order] == "username" ? (params[:asc] == 'asc' ? "desc" : "asc") : "asc" } %></th>
-    <th><%= link_to "Twitter", :params => { :order => "twitter", :asc => params[:order] == "twitter" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
-    <th><%= link_to "Realname", :params => { :order => "realname", :asc => params[:order] == "realname" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
-    <th><%= link_to "Location", :params => { :order => "zip", :asc => params[:order] == "zip" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
-
-    <th><%= link_to "# of sleeps", :params => { :order => "num_of_sleeps", :asc => params[:order] == "num_of_sleeps" ? params[:asc] == 'asc' ? "desc" : "asc" : "desc" } %></th>
-	<th><%= link_to "Last Login", :params => { :order => "last_login_at", :asc => params[:order] == "last_login_at" ? params[:asc] == 'asc' ? "desc" : "asc" : "desc" } %></th>
-	<th><%= link_to "Latest Sleep", :params => { :order => "last_sleep_at", :asc => params[:order] == "last_sleep_at" ? params[:asc] == 'asc' ? "desc" : "asc" : "desc" } %></th>
-  </tr>
-
-<% for user in @users %>
-<% @count+=1 %>
-<% if @count%2 == 0 %>
-  <tr>
-<% else %>
-  <tr class="zebra">
-<% end %>
-    <td><%= link_to h(user.username), :action => "edit", :params => { :id => user.id }   %></td>
-    <td>
-	<% if user.twitter.length > 0 %>
-		<%=link_to "@" + user.twitter.to_s, "http://www.twitter.com/" + user.twitter.to_s %>
-	<% end %>
-	</td>
-    <td><%=h user.realname %></td>
-    <td><%=h user.zip %></td>
-	<td><% if user.num_of_sleeps < 1 
-		  color="red"
-		else
-		  color=""
-		end %>
-		<span class="<%=color%>"> 
-		<%= user.num_of_sleeps %>
-		</span>		
-	</td>
-	<td><%= user.last_login_at ? user.last_login_at.strftime("%a, %m/%d/%y %I:%M%p") : "" %></td>
-	<td><%= user.last_sleep_at ? user.last_sleep_at.strftime("%a, %m/%d/%y %I:%M%p") : "" %></td>
-  </tr>
-<% end %>
-</table>
-<div class="will_paginate"><%= will_paginate @users %></div>
-</div>
+<%= render :partial => "partials/aggregate.html.erb" %>
