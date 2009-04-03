@@ -111,8 +111,8 @@ class SleepsController < ApplicationController
       flash[:error]
       redirect_to :action => :index
     else
-      flash[:notice] = "Something terrible has happened! But now we know why:<br />#{@sleep.errors.on(:stop)} #{@sleep.errors.on(:id)}"
-      flash[:error]
+      flash[:notice] = "#{@sleep.errors.on(:stop)} #{@sleep.errors.on(:id)}"
+      flash[:error] = "#{@sleep.errors.on(:stop)} #{@sleep.errors.on(:id)}"
       redirect_to :action => :index
     end
 
@@ -195,6 +195,11 @@ class SleepsController < ApplicationController
       format.html { redirect_to(:action => :index) }
       format.xml  { head :ok }
     end
+  end
+  
+  def export
+    @user = User.find(session[:user_id])
+    @sleeps = Sleep.find(:all, :conditions => ["user_id=?", session[:user_id]], :order => "start DESC")
   end
   
   protected 

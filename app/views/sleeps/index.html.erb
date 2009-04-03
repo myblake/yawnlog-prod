@@ -113,7 +113,7 @@ It's easy to share your sleep, so long as your profile is set public (edit <%= l
     <%= @user.realname %> is not tracking any sleep :-(<br />
 <% end %>
  
-<div class="box"><a id="show_all" href="#" onclick="">Show All</a><a id="hide_all" href="#">Hide All</a></div>
+<div class="box"><a id="show_all" href="#" onclick="">Show All</a><a id="hide_all" href="#">Hide All</a><%= link_to "Export", :action => :export %></div>
 </div>
  
 <h1>Your Sleep <span class="teal">This Week</span></h1>

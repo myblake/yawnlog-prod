@@ -1,0 +1,43 @@
+<h1>Export your <span class="teal">Sleep</span></h1>
+<div class="blueback">
+<div id="xml_data">
+<div class="box"><a href="export.xml">Save</a><a id="csv" href="javascript:void(0);">CSV</a></div>
+<h3>XML Sleep Data</h3>
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;yawnlog_sleep_data&gt;
+	&lt;owner&gt;<%= @user.realname %>&lt;/owner&gt;
+	&lt;sleeps&gt;
+		<% for sleep in @sleeps %>&lt;sleep&gt;
+			&lt;start&gt;<%= sleep.start %>&lt;/start&gt;
+			&lt;end&gt;<%= sleep.stop%>&lt;/end&gt;
+			&lt;quality&gt;<%= Sleep::QUALITY_BACKWARDS[sleep.quality] %>&lt;/quality&gt;
+			&lt;note&gt;<%= sleep.note %>&lt;/note&gt;
+		&lt;/sleep&gt;<% end %>
+	&lt;/sleeps&gt;
+&lt;/yawnlog_sleep_data&gt;
+</pre>
+</div>
+<div id="csv_data" class="hidden">
+<h3>CSV Sleep Data</h3>
+<div class="box"><a href="export.csv">Save</a><a id="xml" href="javascript:void(0);">XML</a></div>
+<%= @user.realname %><br />	
+<% for sleep in @sleeps %>
+<%= sleep.start %>,<%= sleep.stop%>,<%= Sleep::QUALITY_BACKWARDS[sleep.quality] %>,<%= sleep.note %><br />
+<% end %>
+</div>
+<script>
+$(document).ready(function() {
+	$("#csv").click(function() {
+		$("#csv_data").removeClass("hidden");
+	    $("#xml_data").addClass("hidden");
+	});
+	
+	
+	$("#xml").click(function() {
+		$("#xml_data").removeClass("hidden");
+	    $("#csv_data").addClass("hidden");
+	});
+});	
+</script>
+</div>

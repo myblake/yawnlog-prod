@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<yawnlog_sleep_data>
+	<owner><%= @user.realname %></owner>
+	<sleeps>
+		<% for sleep in @sleeps %><sleep>
+			<start><%= sleep.start %></start>
+			<end><%= sleep.stop%></end>
+			<quality><%= Sleep::QUALITY_BACKWARDS[sleep.quality] %></quality>
+			<note><%= sleep.note %></note>
+		</sleep><% end %>
+	</sleeps>
+</yawnlog_sleep_data>
