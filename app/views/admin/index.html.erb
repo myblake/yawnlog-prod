@@ -18,7 +18,7 @@ Last Logged in:
 	<% (1..7).each do |i|  %>
 		<td style="width:10%" <% if i%2 == 1 %>class="zebra"<% end %>><%= @last_login[i].to_s %> users</td>
 	<% end %>
-		<td style="width:10%"><%= @last_login[0].to_s %></td>
+		<td style="width:10%"><%= @last_login[0].to_s %> users</td>
 	</tr>
 </table>
 <%= @active_users_today%>
