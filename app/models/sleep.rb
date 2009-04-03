@@ -10,13 +10,15 @@ class Sleep < ActiveRecord::Base
 	private
 	def not_a_time_traveller?
 	  if stop < start
+	    errors.add(:start, "Stop time must not be before start time.")
 	    errors.add(:stop, "Stop time must not be before start time.")
     end
   end
 	
 	def sleep_is_reasonable?
 	  if (stop - start) > 86400.to_f
-	    errors.add("Too long:", "One sleep event can't be more than 24 hours past start time. If you really slept that long add more events.")
+	    errors.add(:start, "One sleep event can't be more than 24 hours past start time. If you really slept that long add more events.")
+	    errors.add(:stop, "One sleep event can't be more than 24 hours past start time. If you really slept that long add more events.")
     end
   end
   
@@ -24,7 +26,8 @@ class Sleep < ActiveRecord::Base
     @sleeps = Sleep.find(:all, :conditions => ["user_id=?", user_id])
     for sleep in @sleeps
       unless start > sleep.stop || stop < sleep.start || sleep.id = id
-        errors.add("Overlap error:", "Sleep events cannot overlap, one of your sleeps overlaps with this entry.")
+        errors.add(:id, "Sleep events cannot overlap, one of your sleeps overlaps with this entry.<br />
+        According to your yawnlog you were already sleeping from #{sleep.start.strftime("%a, %m/%d/%y %I:%M%p")} to #{sleep.stop.strftime("%a, %m/%d/%y %I:%M%p")} so you probably weren't also sleeping from #{start.strftime("%a, %m/%d/%y %I:%M%p")} to #{stop.strftime("%a, %m/%d/%y %I:%M%p")}")
       end
     end
   end

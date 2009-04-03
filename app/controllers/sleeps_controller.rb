@@ -111,7 +111,7 @@ class SleepsController < ApplicationController
       flash[:error]
       redirect_to :action => :index
     else
-      flash[:notice] = "Something terrible has happened!" #{start} #{stop} #{test} #{test2} #{params[:start]} #{params[:stop]} #{params[:sleep][:date]}"
+      flash[:notice] = "Something terrible has happened! But now we know why:<br />#{@sleep.errors.on(:stop)} #{@sleep.errors.on(:id)}"
       flash[:error]
       redirect_to :action => :index
     end
