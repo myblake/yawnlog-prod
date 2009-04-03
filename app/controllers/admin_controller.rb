@@ -7,8 +7,8 @@ class AdminController < ApplicationController
     @last_login = []
     @last_login[0] = @size
     (1..7).each do |i|
-      @last_login[i] = User.count(:conditions => ["last_login_at > ?", (Time.now - i.days).strftime("%Y-%m-%d %H:%M:%S")])
-      @last_login[0] -= @last_login[i]
+      @last_login[i] = User.count(:conditions => ["last_login_at > ?", (Time.now - i.days).strftime("%Y-%m-%d %H:%M:%S")]) - (i > 1 ? @last_login[i-1] : 0)
+      @last_login[0] -= @last_login[i] 
 #      @sleep_quality[i] = Sleep.count(:conditions => ["quality = ?", i])
 #      @sleep_quality[0] -= @sleep_quality[i]
     end
