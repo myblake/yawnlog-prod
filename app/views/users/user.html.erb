@@ -12,7 +12,7 @@
 <% if @show %>
 	<h1>Sleep of <span class="teal"><%= @user.realname %></span></h1>
 	<div class="blueback">
- 	<%= render :partial => "partials/chart.html.erb", :locals => @chart = { "start" => @start, "stop" => @stop} %>
+ 	<%= render :partial => "partials/chart.html.erb", :locals => @chart = { "start" => @start, "stop" => @stop, "end_of_day" => @end_of_day} %>
 	<% form_for :chart, :url => {:params => { :username => @user.username}} do |f| %>
 		
 		<table><tr>
