@@ -60,7 +60,7 @@ end %>
 			
 			</div>
 			<div id="main">
-				<% if flash[:notice] %><p class="flash notice"><%= flash[:notice] %></p><br><br><% end %>
+				<% if flash[:notice] %><p class="flash notice"><%= flash[:notice] %></p><% end %>
 				<%= yield %>
 			</div>
 			<% if @foo %>
