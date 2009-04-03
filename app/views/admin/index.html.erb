@@ -3,23 +3,22 @@
 <div class="blueback">
 
 <div class="box"><%= link_to "Sleep", :action => :sleep %><%= link_to "All Users", :action => :all_users %><%= link_to "Read Feedback", :action => :feedback %><%= link_to "User Login Up", :controller => :users, :action => :user_login_up %></div>
-<h3>Number of Users:</h3>
-<%= @size %>
-<h3>Users Active Today</h3>
+<h3>Users Activity</h3>
 <table>
 	<tr>
-		<td style="width:15%"><strong>Total</strong></td>
-		<td style="width:15%" class="zebra">More than a week ago</td>
+		<td style="width:10%"><strong>Total</strong></td>
+
 	<% (1..7).each do |i|  %>
-		<td style="width:15%" <% if i%2 == 0 %>class="zebra"<% end %>><%= i %> days</td>
+		<td style="width:10%" <% if i%2 == 1 %>class="zebra"<% end %>><%= i %> days</td>
 	<% end %>
+		<td style="width:10%">More than a week ago</td>
 	</tr>
 	<tr>
-		<td style="width:15%"><strong><%= @size %></strong></td>
-		<td style="width:15%" class="zebra"><%= @last_login[0].to_s %></td>
+		<td style="width:10%"><strong><%= @size %></strong></td>
 	<% (1..7).each do |i|  %>
-		<td style="width:15%" <% if i%2 == 0 %>class="zebra"<% end %>><%= @last_login[i].to_s %></td>
+		<td style="width:10%" <% if i%2 == 1 %>class="zebra"<% end %>><%= @last_login[i].to_s %></td>
 	<% end %>
+		<td style="width:10%"><%= @last_login[0].to_s %></td>
 	</tr>
 </table>
 <%= @active_users_today%>
