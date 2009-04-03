@@ -2,21 +2,21 @@
 <h1>Users <span class="teal">Profile</span></h1>
 <div class="blueback">
 
-<div class="box"><%= link_to "Sleep", :action => :sleep %><%= link_to "All Users", :action => :all_users %><%= link_to "Read Feedback", :action => :feedback %><%= link_to "User Login Up", :controller => :users, :action => :user_login_up %></div>
+<div class="box"><%= link_to "Sleep", :action => :sleep %><%= link_to "All Users", :action => :all_users %><%= link_to "User Login Up", :controller => :users, :action => :user_login_up %></div>
 <h3>Users Activity</h3>
+Last Logged in:
 <table>
 	<tr>
 		<td style="width:10%"><strong>Total</strong></td>
-
 	<% (1..7).each do |i|  %>
-		<td style="width:10%" <% if i%2 == 1 %>class="zebra"<% end %>><%= i %> days</td>
+		<td style="width:10%" <% if i%2 == 1 %>class="zebra"<% end %>><%= "#{i-1} - #{i}" %> days ago</td>
 	<% end %>
 		<td style="width:10%">More than a week ago</td>
 	</tr>
 	<tr>
 		<td style="width:10%"><strong><%= @size %></strong></td>
 	<% (1..7).each do |i|  %>
-		<td style="width:10%" <% if i%2 == 1 %>class="zebra"<% end %>><%= @last_login[i].to_s %></td>
+		<td style="width:10%" <% if i%2 == 1 %>class="zebra"<% end %>><%= @last_login[i].to_s %> users</td>
 	<% end %>
 		<td style="width:10%"><%= @last_login[0].to_s %></td>
 	</tr>
