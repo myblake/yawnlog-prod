@@ -1,3 +1,2 @@
-<% for sleep in @sleeps %>
-<%= sleep.start %>,<%= sleep.stop%>,<%= Sleep::QUALITY_BACKWARDS[sleep.quality] %>,<%= sleep.note %><br />
+<% for sleep in @sleeps %><%= sleep.start %>,<%= sleep.stop%>,<%= Sleep::QUALITY_BACKWARDS[sleep.quality] %>,<%= sleep.note %>
 <% end %>
