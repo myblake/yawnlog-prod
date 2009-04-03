@@ -27,7 +27,7 @@ class Sleep < ActiveRecord::Base
     for sleep in @sleeps
       unless start > sleep.stop || stop < sleep.start || sleep.id = id
         errors.add(:id, "Sleep events cannot overlap, one of your sleeps overlaps with this entry.<br />
-        According to your yawnlog you were already sleeping from #{sleep.start.strftime("%a, %m/%d/%y %I:%M%p")} to #{sleep.stop.strftime("%a, %m/%d/%y %I:%M%p")} so you probably weren't also sleeping from #{start.strftime("%a, %m/%d/%y %I:%M%p")} to #{stop.strftime("%a, %m/%d/%y %I:%M%p")}")
+        According to your yawnlog you were already sleeping from #{sleep.start.strftime("%I:%M%p %a, %m/%d/%y")} to #{sleep.stop.strftime("%I:%M%p %a, %m/%d/%y")} so you probably weren't also sleeping from #{start.strftime("%I:%M%p %a, %m/%d/%y")} to #{stop.strftime("%I:%M%p %a, %m/%d/%y")}")
       end
     end
   end
