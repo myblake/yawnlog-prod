@@ -4,6 +4,61 @@ class UsersController < ApplicationController
 
   before_filter :authorize, :except => [:login, :signup, :signup_backend, :login_backend, :user, :forgot_password, :create_forgot_password]
   
+  def self.consumer
+    # The readkey and readsecret below are the values you get during registration
+    OAuth::Consumer.new("G4Y4SkHTyGvh0d6RoNLzQ",
+    "yAFMNKvEzCFivRcmm4nxGwZwkyettDw9Mcux1bWZvs",
+    { :site=>"http://twitter.com" })
+  end
+  
+  def t_auth
+    @request_token = UsersController.consumer.get_request_token
+    session[:request_token] = @request_token.token
+    session[:request_token_secret] = @request_token.secret
+    # Send to twitter.com to authorize
+    redirect_to @request_token.authorize_url
+    return
+  end
+  
+  def callback
+    @request_token = OAuth::RequestToken.new(UsersController.consumer,
+    session[:request_token],
+    session[:request_token_secret])
+    
+    # Exchange the request token for an access token.
+    @access_token = @request_token.get_access_token
+    @response = UsersController.consumer.request(:get, '/account/verify_credentials.json',
+    @access_token, { :scheme => :query_string })
+    
+    case @response
+      when Net::HTTPSuccess
+        user_info = JSON.parse(@response.body)
+        unless user_info['screen_name']
+          flash[:notice] = "Authentication failed"
+          redirect_to :controller => :home, :action => :index
+          return
+        end
+        # We have an authorized user, save the information to the database.
+        @user = User.find(session[:user_id])
+    
+        @user.screen_name = user_info['screen_name']
+        @user.token = @access_token.token
+        @user.secret = @access_token.secret
+        @user.save!
+        # Redirect to the show page
+        redirect_to(@user)
+      else
+        RAILS_DEFAULT_LOGGER.error "Failed to get user info via OAuth"
+        # The user might have rejected this application. Or there was some other error during the request.
+        flash[:notice] = "Authentication failed"
+        redirect_to :action => :index
+        return
+      end
+    end
+  end
+  
+  
+  
   def share
   end
   
