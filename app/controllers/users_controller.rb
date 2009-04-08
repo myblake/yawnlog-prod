@@ -32,8 +32,8 @@ class UsersController < ApplicationController
     
     case @response
     when Net::HTTPSuccess
-      user_info = JSON.parse(@response.body)
-      unless user_info['screen_name']
+      @user_info = @response.body
+      unless @user_info
         flash[:notice] = "Authentication failed"
         redirect_to :controller => :home, :action => :index
         return
@@ -41,12 +41,12 @@ class UsersController < ApplicationController
       # We have an authorized user, save the information to the database.
       @user = User.find(session[:user_id])
   
-      @user.screen_name = user_info['screen_name']
+      # @user.screen_name = user_info['screen_name']
       @user.token = @access_token.token
       @user.secret = @access_token.secret
       @user.save!
       # Redirect to the show page
-      redirect_to(@user)
+      #redirect_to(@user)
     else
       RAILS_DEFAULT_LOGGER.error "Failed to get user info via OAuth"
       # The user might have rejected this application. Or there was some other error during the request.
