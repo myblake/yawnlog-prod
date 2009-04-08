@@ -40,7 +40,8 @@ class UsersController < ApplicationController
       end
       # We have an authorized user, save the information to the database.
       @user = User.find(session[:user_id])
-  
+      
+      @screen_name = @user_info.match(/"screen_name":.*?,/).to_s.gsub(/"screen_name":|"|,/,"")
       # @user.screen_name = user_info['screen_name']
       @user.token = @access_token.token
       @user.secret = @access_token.secret
@@ -54,6 +55,7 @@ class UsersController < ApplicationController
       redirect_to :action => :index
       return
     end
+    
   end
   
   
